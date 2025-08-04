@@ -1,0 +1,176 @@
+{
+  "requirements": {
+    "functional": [
+      {
+        "id": "FR-1",
+        "description": "The system must allow authorized users to register basic trainee information (Name, Sex, Designation, Organization, Mobile No, Email, NID, etc.).",
+        "module": "Basic Information Registration System of Trainee",
+        "section": "2.4",
+        "page": 8,
+        "dependencies": null
+      },
+      {
+        "id": "FR-2",
+        "description": "The system must allow Super Admin to create training courses (Course Title, Description, Duration, etc.).",
+        "module": "Training Course Information Registration",
+        "section": "2.4",
+        "page": 8,
+        "dependencies": null
+      },
+      {
+        "id": "FR-3",
+        "description": "The system must allow authorized users to register basic trainer information (Name, Sex, Designation, Organization, Subject Specialization, Mobile No, Email, NID, etc.).",
+        "module": "Basic Information Registration System of Trainer",
+        "section": "2.4",
+        "page": 8,
+        "dependencies": null
+      },
+      {
+        "id": "FR-4",
+        "description": "The system must allow authorized users to enroll trainees in courses.",
+        "module": "Course Enrollment System",
+        "section": "2.4",
+        "page": 8,
+        "dependencies": ["FR-1", "FR-2", "FR-3"]
+      },
+      {
+        "id": "FR-5",
+        "description": "The system must provide a dashboard for authorized users to view summarized information and ongoing status.",
+        "module": "Dashboard Developments",
+        "section": "2.4",
+        "page": 8,
+        "dependencies": null
+      },
+      {
+        "id": "FR-6",
+        "description": "The system must allow Admin users to create and manage users (Head Office, District, Upazilla) with role-based permissions.",
+        "module": "User Management",
+        "section": "2.4",
+        "page": 8,
+        "dependencies": null
+      },
+      {
+        "id": "FR-7",
+        "description": "The system must send email notifications to trainees when nominated for training or when information is updated.",
+        "module": "Email Notification",
+        "section": "2.4",
+        "page": 8,
+        "dependencies": ["FR-1", "FR-4"]
+      },
+      {
+        "id": "FR-8",
+        "description": "The system must allow authorized users to generate reports (Trainee List, Trainer List, Attendance Sheet, Customized Reports).",
+        "module": "Report Generation",
+        "section": "2.4",
+        "page": 8,
+        "dependencies": ["FR-1", "FR-2", "FR-3", "FR-4"]
+      },
+      {
+        "id": "FR-9",
+        "description": "The system must support Bengali Unicode for displaying content in both English and Bengali languages.",
+        "module": "Non-Functional Requirements",
+        "section": "4",
+        "page": 16,
+        "dependencies": null
+      }
+    ],
+    "nonFunctional": [
+      {
+        "id": "NFR-1",
+        "description": "The system must ensure access control and application-level security.",
+        "module": "Non-Functional Requirements",
+        "section": "4",
+        "page": 16,
+        "priority": "High",
+        "validation": "Security audit, penetration testing"
+      },
+      {
+        "id": "NFR-2",
+        "description": "The system must implement role-based credential management.",
+        "module": "Non-Functional Requirements",
+        "section": "4",
+        "page": 16,
+        "priority": "High",
+        "validation": "Role testing, access validation"
+      },
+      {
+        "id": "NFR-3",
+        "description": "The system must encrypt user IDs and passwords, enforce minimum password length, and allow password resets.",
+        "module": "Non-Functional Requirements",
+        "section": "4",
+        "page": 16,
+        "priority": "High",
+        "validation": "Encryption audit, password policy testing"
+      },
+      {
+        "id": "NFR-4",
+        "description": "The system must provide a dynamic dashboard with table and graphic reports.",
+        "module": "Non-Functional Requirements",
+        "section": "4",
+        "page": 16,
+        "priority": "Medium",
+        "validation": "UI/UX testing, performance validation"
+      },
+      {
+        "id": "NFR-5",
+        "description": "The system must support periodic and instant data backup with auto-archiving.",
+        "module": "Non-Functional Requirements",
+        "section": "4",
+        "page": 16,
+        "priority": "High",
+        "validation": "Backup and recovery testing"
+      },
+      {
+        "id": "NFR-6",
+        "description": "The system must be cross-browser compatible, responsive, and visually appealing.",
+        "module": "Non-Functional Requirements",
+        "section": "4",
+        "page": 16,
+        "priority": "Medium",
+        "validation": "Compatibility testing, UI review"
+      },
+      {
+        "id": "NFR-7",
+        "description": "The system must support Bengali Unicode for content display.",
+        "module": "Non-Functional Requirements",
+        "section": "4",
+        "page": 16,
+        "priority": "Medium",
+        "validation": "Language support testing"
+      },
+      {
+        "id": "NFR-8",
+        "description": "The system must undergo module, integration, and load testing with security validation.",
+        "module": "Non-Functional Requirements",
+        "section": "4",
+        "page": 16,
+        "priority": "High",
+        "validation": "Load testing, security scans"
+      },
+      {
+        "id": "NFR-9",
+        "description": "The system must use open-source technologies (PHP, Bootstrap, Laravel/CakePHP, MySQL).",
+        "module": "Technology Specification",
+        "section": "2.4.1",
+        "page": 10,
+        "priority": "High",
+        "validation": "Technology stack validation"
+      },
+      {
+        "id": "NFR-10",
+        "description": "The system must provide 24x7 technical support with incident categorization and escalation.",
+        "module": "Support & Maintenance",
+        "section": "2.4",
+        "page": 9,
+        "priority": "High",
+        "validation": "SLA compliance review"
+      }
+    ]
+  },
+  "metadata": {
+    "system": "Training Database Platform",
+    "version": "1.0",
+    "author": "SoftBD Ltd.",
+    "lastUpdated": "2023-11-20"
+  }
+}

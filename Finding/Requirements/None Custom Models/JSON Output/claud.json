@@ -1,0 +1,286 @@
+{
+  "project": {
+    "name": "Training Database Platform",
+    "document_type": "Requirements Analysis"
+  },
+  "functional_requirements": [
+    {
+      "id": "FR-1",
+      "description": "The system shall facilitate authorized users to register basic information of trainees including Name, Sex, Designation, Organization name, Mobile number, Email address, and NID",
+      "module_reference": "Section 2.4 Scope of Work - Basic Information Registration System of Trainee, Page 8",
+      "dependencies": ["FR-6"]
+    },
+    {
+      "id": "FR-2",
+      "description": "The system shall allow Super admin users to create training courses with course information containing course title, course description, and course duration",
+      "module_reference": "Section 2.4 Scope of Work - Training Course Information Registration, Page 8",
+      "dependencies": ["FR-6"]
+    },
+    {
+      "id": "FR-3",
+      "description": "The system shall facilitate authorized users to register basic information of trainers including Name, Sex, Designation, Organization name, Subject specialization, Mobile number, Email address, and NID",
+      "module_reference": "Section 2.4 Scope of Work - Basic Information Registration System of Trainer, Page 8",
+      "dependencies": ["FR-6"]
+    },
+    {
+      "id": "FR-4",
+      "description": "The system shall facilitate authorized users to enter course enrollment information for trainees",
+      "module_reference": "Section 2.4 Scope of Work - Course Enrollment System, Page 8",
+      "dependencies": ["FR-1", "FR-2", "FR-3"]
+    },
+    {
+      "id": "FR-5",
+      "description": "The system shall provide a dashboard that displays summarized information and ongoing status for authorized users",
+      "module_reference": "Section 2.4 Scope of Work - Dashboard Developments, Page 8",
+      "dependencies": ["FR-1", "FR-2", "FR-3", "FR-4"]
+    },
+    {
+      "id": "FR-6",
+      "description": "The system shall enable admin users to create users for head office, district, and upazilla office of the Department of ICT with assigned user roles",
+      "module_reference": "Section 2.4 Scope of Work - User Management, Page 8",
+      "dependencies": []
+    },
+    {
+      "id": "FR-7",
+      "description": "The system shall send email notifications to trainees when nominated for training and provide updates through email",
+      "module_reference": "Section 2.4 Scope of Work - Email Notification, Page 8",
+      "dependencies": ["FR-1", "FR-4"]
+    },
+    {
+      "id": "FR-8",
+      "description": "The system shall facilitate authorized users to generate trainee lists, trainer lists, attendance sheets, and other necessary customized reports",
+      "module_reference": "Section 2.4 Scope of Work - Report Generation, Page 8",
+      "dependencies": ["FR-1", "FR-2", "FR-3", "FR-4"]
+    },
+    {
+      "id": "FR-9",
+      "description": "The system shall provide 24x7 online technical support as part of support and maintenance services",
+      "module_reference": "Section 2.4 Support & Maintenance, Page 9",
+      "dependencies": []
+    },
+    {
+      "id": "FR-10",
+      "description": "The system shall categorize incidents based on their severity level and provide response, restoration, and remedy procedures",
+      "module_reference": "Section 2.4 Support & Maintenance, Page 9",
+      "dependencies": []
+    },
+    {
+      "id": "FR-11",
+      "description": "The system shall support problem management procedures and escalation matrix",
+      "module_reference": "Section 2.4 Support & Maintenance, Page 9",
+      "dependencies": []
+    },
+    {
+      "id": "FR-12",
+      "description": "The system shall provide timely backup of the entire database to meet system recovery challenges in case of disaster or missing data",
+      "module_reference": "Section 2.4 Support & Maintenance, Page 9",
+      "dependencies": []
+    },
+    {
+      "id": "FR-13",
+      "description": "The system shall provide monthly support and maintenance log reports",
+      "module_reference": "Section 2.4 Support & Maintenance, Page 9",
+      "dependencies": []
+    },
+    {
+      "id": "FR-14",
+      "description": "The system shall display dashboard with dynamic data in reports using table and graphic presentations",
+      "module_reference": "Section 4 Non-Functional Requirements, Page 16",
+      "dependencies": ["FR-5"]
+    },
+    {
+      "id": "FR-15",
+      "description": "The system shall support Bengali UNICODE enabled font so that Bengali content can be viewed properly from any machine supporting Unicode",
+      "module_reference": "Section 4 Non-Functional Requirements, Page 16",
+      "dependencies": []
+    },
+    {
+      "id": "FR-16",
+      "description": "The system shall facilitate content display in both English and Bengali languages",
+      "module_reference": "Section 4 Non-Functional Requirements, Page 16",
+      "dependencies": []
+    }
+  ],
+  "non_functional_requirements": [
+    {
+      "id": "NFR-1",
+      "description": "The system shall use Open Source Development Platform",
+      "module_reference": "Section 2.4.1 Technology Specification, Page 10",
+      "priority": "High",
+      "validation_metrics": "Technology stack verification"
+    },
+    {
+      "id": "NFR-2",
+      "description": "The system shall be developed using PHP-based platform with Bootstrap tool architecture, frameworks like CakePHP/Laravel/CodeIgniter, and MySQL database",
+      "module_reference": "Section 2.4.1 Technology Specification, Page 10",
+      "priority": "High",
+      "validation_metrics": "Code review and architecture analysis"
+    },
+    {
+      "id": "NFR-3",
+      "description": "The system shall support future technology changes, iterative prototyping, and agility in product design",
+      "module_reference": "Section 2.4.1 Technology Specification, Page 10",
+      "priority": "Medium",
+      "validation_metrics": "Architecture flexibility assessment"
+    },
+    {
+      "id": "NFR-4",
+      "description": "The system shall ensure access control and application level security",
+      "module_reference": "Section 4 Non-Functional Requirements, Page 16",
+      "priority": "High",
+      "validation_metrics": "Security audit and penetration testing"
+    },
+    {
+      "id": "NFR-5",
+      "description": "The system shall implement role-wise credential system for better user role management",
+      "module_reference": "Section 4 Non-Functional Requirements, Page 16",
+      "priority": "High",
+      "validation_metrics": "Role-based access control testing"
+    },
+    {
+      "id": "NFR-6",
+      "description": "The system shall encrypt user IDs and passwords and impose minimum password lengths with ability to reset passwords following standard password strategy",
+      "module_reference": "Section 4 Non-Functional Requirements, Page 16",
+      "priority": "High",
+      "validation_metrics": "Password policy compliance testing"
+    },
+    {
+      "id": "NFR-7",
+      "description": "The system shall provide provision for periodical and instant data backup with auto archiving system",
+      "module_reference": "Section 4 Non-Functional Requirements, Page 16",
+      "priority": "High",
+      "validation_metrics": "Backup and recovery testing"
+    },
+    {
+      "id": "NFR-8",
+      "description": "The system shall be cross-browser compatible, responsive, and graphically attractive",
+      "module_reference": "Section 4 Non-Functional Requirements, Page 16",
+      "priority": "Medium",
+      "validation_metrics": "Cross-browser compatibility testing"
+    },
+    {
+      "id": "NFR-9",
+      "description": "The system shall be tested at module integration and load level with all necessary security tests at application level architecture",
+      "module_reference": "Section 4 Non-Functional Requirements, Page 16",
+      "priority": "High",
+      "validation_metrics": "Integration testing, load testing, security testing"
+    },
+    {
+      "id": "NFR-10",
+      "description": "The system shall be compatible with all well-known browsers of Desktop, Laptop, and smart devices",
+      "module_reference": "Section 2.4.2 Hardware Interface, Page 11",
+      "priority": "Medium",
+      "validation_metrics": "Device compatibility testing"
+    },
+    {
+      "id": "NFR-11",
+      "description": "The system shall provide seamless external software communication interface with priority on user experience",
+      "module_reference": "Section 2.4.2 Software Interface, Page 11",
+      "priority": "Medium",
+      "validation_metrics": "API integration testing"
+    },
+    {
+      "id": "NFR-12",
+      "description": "The system shall support microservice architecture for better testability, deployability, and fault isolation",
+      "module_reference": "Section 3 Specific Requirements, Page 12-13",
+      "priority": "High",
+      "validation_metrics": "Architecture review and service independence testing"
+    },
+    {
+      "id": "NFR-13",
+      "description": "The system shall enable continuous delivery and deployment of large, complex applications",
+      "module_reference": "Section 3 Specific Requirements, Page 12-13",
+      "priority": "Medium",
+      "validation_metrics": "CI/CD pipeline validation"
+    },
+    {
+      "id": "NFR-14",
+      "description": "The system shall provide improved fault isolation where memory leaks in one service only affect that service",
+      "module_reference": "Section 3 Specific Requirements, Page 12-13",
+      "priority": "High",
+      "validation_metrics": "Fault tolerance testing"
+    },
+    {
+      "id": "NFR-15",
+      "description": "The system shall eliminate long-term commitment to technology stack by allowing new technology adoption for new services",
+      "module_reference": "Section 3 Specific Requirements, Page 12-13",
+      "priority": "Low",
+      "validation_metrics": "Technology flexibility assessment"
+    },
+    {
+      "id": "NFR-16",
+      "description": "The system shall support Linux server OS, Windows workstation, and specified development tools and frameworks",
+      "module_reference": "Section 3.1 Development Technology, Page 13",
+      "priority": "High",
+      "validation_metrics": "Environment setup validation"
+    }
+  ],
+  "technology_stack": {
+    "server_os": "Linux",
+    "workstation": "Windows",
+    "front_end_tools": ["Android Studio"],
+    "languages": ["PHP", "HTML5", "JavaScript", "CSS3", "JS", "jQuery", "ArgoUML", "JAVA"],
+    "architectural_pattern": "MVC",
+    "frameworks": ["CakePHP 3", "Bootstrap", "AngularJS"],
+    "database_engine": "MySQL",
+    "diagram_application": "MS Visio",
+    "source_code_management": "GitLab"
+  },
+  "core_system_components": [
+    {
+      "id": 1,
+      "name": "Basic Information Registration System of Trainee",
+      "section_reference": "Section 3.2, Page 15"
+    },
+    {
+      "id": 2,
+      "name": "Training Course Information Registration",
+      "section_reference": "Section 3.2, Page 15"
+    },
+    {
+      "id": 3,
+      "name": "Basic Information Registration System of Trainer",
+      "section_reference": "Section 3.2, Page 15"
+    },
+    {
+      "id": 4,
+      "name": "Course Enrollment System",
+      "section_reference": "Section 3.2, Page 15"
+    },
+    {
+      "id": 5,
+      "name": "Dashboard Developments",
+      "section_reference": "Section 3.2, Page 15"
+    },
+    {
+      "id": 6,
+      "name": "User Management",
+      "section_reference": "Section 3.2, Page 15"
+    },
+    {
+      "id": 7,
+      "name": "Email Notification",
+      "section_reference": "Section 3.2, Page 15"
+    },
+    {
+      "id": 8,
+      "name": "Report Generation",
+      "section_reference": "Section 3.2, Page 15"
+    }
+  ],
+  "support_maintenance": {
+    "services": [
+      "Bug fixing and system error resolution",
+      "Priority operations for critical errors",
+      "Permanent support engineer assignment",
+      "Regular employee requirement for support staff",
+      "Programmer continuity assurance",
+      "Monthly reporting requirements"
+    ],
+    "support_level": "24x7 online technical support",
+    "incident_management": "Categorized by severity level with response, restoration, and remedy procedures",
+    "problem_management": "Procedures and escalation matrix",
+    "backup_requirements": "Timely backup of entire database for disaster recovery",
+    "reporting": "Monthly support and maintenance log reports"
+  }
+}

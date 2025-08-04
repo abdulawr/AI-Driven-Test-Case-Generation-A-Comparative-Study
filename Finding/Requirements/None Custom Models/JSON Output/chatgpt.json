@@ -1,0 +1,103 @@
+{
+  "functional_requirements": [
+    {
+      "id": "FR-1",
+      "description": "The system must allow users to register basic information of a trainee including Name, Sex, Designation, Organization Name, Mobile No, Email, NID, etc.",
+      "module_section_page": "Module 2.4, Section 2, Page 8",
+      "dependencies": "N/A"
+    },
+    {
+      "id": "FR-2",
+      "description": "The system should allow the super admin user to create and manage training course details like course title, description, and duration.",
+      "module_section_page": "Module 2.4, Section 2, Page 8",
+      "dependencies": "N/A"
+    },
+    {
+      "id": "FR-3",
+      "description": "The system must allow users to register basic information of a trainer including Name, Sex, Designation, Organization Name, Subject Specialization, Mobile No, Email, NID, etc.",
+      "module_section_page": "Module 2.4, Section 2, Page 8",
+      "dependencies": "N/A"
+    },
+    {
+      "id": "FR-4",
+      "description": "The system should allow users to enroll trainees in courses and manage their enrollment data.",
+      "module_section_page": "Module 2.4, Section 2, Page 8",
+      "dependencies": "FR-2, FR-3"
+    },
+    {
+      "id": "FR-5",
+      "description": "The system must provide a dashboard with summarized and ongoing status of courses and trainees.",
+      "module_section_page": "Module 2.4, Section 2, Page 8",
+      "dependencies": "N/A"
+    },
+    {
+      "id": "FR-6",
+      "description": "Admin users should be able to create users for different offices (head office, district, upazilla) with assigned roles.",
+      "module_section_page": "Module 2.4, Section 2, Page 8",
+      "dependencies": "N/A"
+    },
+    {
+      "id": "FR-7",
+      "description": "The system should send email notifications to trainees when nominated for training or when information is updated.",
+      "module_section_page": "Module 2.4, Section 2, Page 8",
+      "dependencies": "FR-4"
+    },
+    {
+      "id": "FR-8",
+      "description": "The system should allow authorized users to generate reports for trainees, trainers, attendance sheets, and other customized reports.",
+      "module_section_page": "Module 2.4, Section 2, Page 8",
+      "dependencies": "FR-6"
+    }
+  ],
+  "non_functional_requirements": [
+    {
+      "id": "NFR-1",
+      "description": "The system must ensure access control and application-level security, including role-wise credential management.",
+      "module_section_page": "Module 3.1, Section 4, Page 16",
+      "priority": "High",
+      "metrics_for_validation": "Security testing"
+    },
+    {
+      "id": "NFR-2",
+      "description": "The system must provide encryption for user IDs and passwords, with features like minimum password length and reset functionality.",
+      "module_section_page": "Module 3.1, Section 4, Page 16",
+      "priority": "High",
+      "metrics_for_validation": "Security audit"
+    },
+    {
+      "id": "NFR-3",
+      "description": "The system should support periodic and instant data backups, and automatic archiving of critical data.",
+      "module_section_page": "Module 3.1, Section 4, Page 16",
+      "priority": "High",
+      "metrics_for_validation": "Backup logs"
+    },
+    {
+      "id": "NFR-4",
+      "description": "The platform must be responsive, cross-browser compatible, and graphically attractive.",
+      "module_section_page": "Module 3.1, Section 4, Page 16",
+      "priority": "Medium",
+      "metrics_for_validation": "User testing"
+    },
+    {
+      "id": "NFR-5",
+      "description": "The system must support Bengali Unicode for proper display of content in both English and Bengali languages.",
+      "module_section_page": "Module 3.1, Section 4, Page 16",
+      "priority": "Medium",
+      "metrics_for_validation": "Localization testing"
+    },
+    {
+      "id": "NFR-6",
+      "description": "The system should be tested at module integration and load levels to ensure its scalability and performance.",
+      "module_section_page": "Module 3.2, Section 4, Page 16",
+      "priority": "High",
+      "metrics_for_validation": "Load testing"
+    },
+    {
+      "id": "NFR-7",
+      "description": "The system should be scalable to handle increasing user loads and data volumes.",
+      "module_section_page": "Module 3.2, Section 4, Page 16",
+      "priority": "High",
+      "metrics_for_validation": "Scalability testing"
+    }
+  ]
+}

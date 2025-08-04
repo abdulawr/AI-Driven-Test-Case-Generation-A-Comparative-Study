@@ -1,0 +1,164 @@
+{
+    "Functional Requirements": [
+        {
+            "Requirement ID": "FR-1",
+            "Requirement Description": "Basic Information Registration System of Trainee",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-2",
+            "Requirement Description": "Training Course Information Registration",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-3",
+            "Requirement Description": "Basic Information Registration System of Trainer",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-4",
+            "Requirement Description": "Course Enrollment System",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-5",
+            "Requirement Description": "Dashboard Developments",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-6",
+            "Requirement Description": "User Management",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-7",
+            "Requirement Description": "Email Notification",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-8",
+            "Requirement Description": "email notification",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-9",
+            "Requirement Description": "Report Generation",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-10",
+            "Requirement Description": "Basic Information Registration System of Trainee",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-11",
+            "Requirement Description": "Training Course Information Registration",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-12",
+            "Requirement Description": "Basic Information Registration System of Trainer",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-13",
+            "Requirement Description": "Course Enrollment System",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-14",
+            "Requirement Description": "Dashboard Developments",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-15",
+            "Requirement Description": "User Management",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-16",
+            "Requirement Description": "Email Notification",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        },
+        {
+            "Requirement ID": "FR-17",
+            "Requirement Description": "Report Generation",
+            "Module/Section/Page Reference": "Section 2.4 / Page 8",
+            "Dependencies": "N/A"
+        }
+    ],
+    "Non-Functional Requirements": [
+        {
+            "Requirement ID": "NFR-1",
+            "Requirement Description": "Ensure access control, application level security.",
+            "Module/Section/Page Reference": "Section 4 / Page 16",
+            "Priority": "High",
+            "Metrics for Validation": "Security audit"
+        },
+        {
+            "Requirement ID": "NFR-2",
+            "Requirement Description": "Design and develop Role-wise credential system incorporation for better user role management.",
+            "Module/Section/Page Reference": "Section 4 / Page 16",
+            "Priority": "Medium",
+            "Metrics for Validation": "Validation required"
+        },
+        {
+            "Requirement ID": "NFR-3",
+            "Requirement Description": "System shall provide the ability to encrypt user IDs and passwords and impose minimum",
+            "Module/Section/Page Reference": "Section 4 / Page 16",
+            "Priority": "Medium",
+            "Metrics for Validation": "Validation required"
+        },
+        {
+            "Requirement ID": "NFR-4",
+            "Requirement Description": "There will be a Dashboard presenting dynamic data in reports in table and graphic",
+            "Module/Section/Page Reference": "Section 4 / Page 16",
+            "Priority": "Medium",
+            "Metrics for Validation": "Validation required"
+        },
+        {
+            "Requirement ID": "NFR-5",
+            "Requirement Description": "The system should have provision for periodical & instant Data Backup & Auto Archiving System.",
+            "Module/Section/Page Reference": "Section 4 / Page 16",
+            "Priority": "Medium",
+            "Metrics for Validation": "Validation required"
+        },
+        {
+            "Requirement ID": "NFR-6",
+            "Requirement Description": "The platform should be cross browser compatible, responsive and graphically attractive.",
+            "Module/Section/Page Reference": "Section 4 / Page 16",
+            "Priority": "Medium",
+            "Metrics for Validation": "Validation required"
+        },
+        {
+            "Requirement ID": "NFR-7",
+            "Requirement Description": "The developed system must support Bengali UNICODE enable font so that Bengali content can",
+            "Module/Section/Page Reference": "Section 4 / Page 16",
+            "Priority": "Medium",
+            "Metrics for Validation": "Validation required"
+        },
+        {
+            "Requirement ID": "NFR-8",
+            "Requirement Description": "Ensure system to be tested at module integration and load level. All necessary security test at",
+            "Module/Section/Page Reference": "Section 4 / Page 16",
+            "Priority": "High",
+            "Metrics for Validation": "Security audit"
+        }
+    ]
+}

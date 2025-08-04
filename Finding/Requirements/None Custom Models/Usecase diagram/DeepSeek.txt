@@ -1,0 +1,24 @@
++---------------------+       +---------------------------+
+|     Super Admin     |       |     Authorized User       |
++---------------------+       +---------------------------+
+| - Manage Courses (FR-2)     | - Register Trainee (FR-1) |
+| - Manage Users (FR-6)       | - Register Trainer (FR-3) |
+| - Generate Reports (FR-8)   | - Enroll in Course (FR-4) |
++---------------------+       +---------------------------+
+            ^                           ^
+            |                           |
+            v                           v
++---------------------+       +---------------------------+
+|      Trainee        |       |         Trainer           |
++---------------------+       +---------------------------+
+| - Receive Notifications (FR-7)       | - Linked to Courses (FR-2) |
++---------------------+       +---------------------------+
+            ^
+            |
+            v
++---------------------+
+|    Support Team     |
++---------------------+
+| - Backup & Recovery (NFR-5) |
+| - Handle Security (NFR-1-3) |
++---------------------+

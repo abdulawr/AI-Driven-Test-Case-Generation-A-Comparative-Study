@@ -1,0 +1,201 @@
+{
+  "functional_requirements": [
+    {
+      "requirement_id": "FR-1",
+      "description": "The system must allow authorized users to register basic information of trainees, including Name, Sex, Designation, Organization name, Mobile_no, E-mail address, NID, etc.",
+      "module_section_page": "Basic Information Registration System of Trainee, Section 2.4, Page 8",
+      "dependencies": []
+    },
+    {
+      "requirement_id": "FR-2",
+      "description": "The system must allow super admin users to create training courses, including course title, course description, course duration, etc.",
+      "module_section_page": "Training Course Information Registration, Section 2.4, Page 8",
+      "dependencies": []
+    },
+    {
+      "requirement_id": "FR-3",
+      "description": "The system must allow authorized users to register basic information of trainers, including Name, Sex, Designation, Organization name, Subject specialization, Mobile_no, E-mail address, NID, etc.",
+      "module_section_page": "Basic Information Registration System of Trainer, Section 2.4, Page 8",
+      "dependencies": []
+    },
+    {
+      "requirement_id": "FR-4",
+      "description": "The system must allow authorized users to enter course enrollment information.",
+      "module_section_page": "Course Enrollment System, Section 2.4, Page 8",
+      "dependencies": ["FR-2"]
+    },
+    {
+      "requirement_id": "FR-5",
+      "description": "The system must provide a dashboard for authorized users to view summarized information and ongoing status.",
+      "module_section_page": "Dashboard Developments, Section 2.4, Page 8",
+      "dependencies": []
+    },
+    {
+      "requirement_id": "FR-6",
+      "description": "The system must allow admin users to create users for head office, district, and upazilla offices of the Department of ICT, with roles assigned to users to perform tasks according to their permissions.",
+      "module_section_page": "User Management, Section 2.4, Page 8",
+      "dependencies": []
+    },
+    {
+      "requirement_id": "FR-7",
+      "description": "The system must send email notifications to trainees when they are nominated for training and provide updates via email.",
+      "module_section_page": "Email Notification, Section 2.4, Page 8",
+      "dependencies": ["FR-1", "FR-4"]
+    },
+    {
+      "requirement_id": "FR-8",
+      "description": "The system must allow authorized users to generate reports, including trainee lists, trainer lists, attendance sheets, and other customized reports.",
+      "module_section_page": "Report Generation, Section 2.4, Page 8",
+      "dependencies": ["FR-1", "FR-3", "FR-4"]
+    }
+  ],
+  "non_functional_requirements": [
+    {
+      "requirement_id": "NFR-1",
+      "description": "The system must ensure access control and application-level security.",
+      "module_section_page": "Non-Functional Requirements, Section 4, Page 16",
+      "priority": "High",
+      "metrics_for_validation": "Security audits, penetration testing"
+    },
+    {
+      "requirement_id": "NFR-2",
+      "description": "The system must incorporate a role-wise credential system for better user role management.",
+      "module_section_page": "Non-Functional Requirements, Section 4, Page 16",
+      "priority": "High",
+      "metrics_for_validation": "Role-based access control testing"
+    },
+    {
+      "requirement_id": "NFR-3",
+      "description": "The system must encrypt user IDs and passwords, enforce minimum password lengths, and provide the ability to reset passwords following a standard password strategy.",
+      "module_section_page": "Non-Functional Requirements, Section 4, Page 16",
+      "priority": "High",
+      "metrics_for_validation": "Encryption audit, password policy compliance testing"
+    },
+    {
+      "requirement_id": "NFR-4",
+      "description": "The system must provide a dashboard presenting dynamic data in reports with table and graphic presentations.",
+      "module_section_page": "Non-Functional Requirements, Section 4, Page 16",
+      "priority": "Medium",
+      "metrics_for_validation": "User acceptance testing for dashboard usability"
+    },
+    {
+      "requirement_id": "NFR-5",
+      "description": "The system must support periodical and instant data backup and auto-archiving.",
+      "module_section_page": "Non-Functional Requirements, Section 4, Page 16",
+      "priority": "High",
+      "metrics_for_validation": "Backup and recovery testing"
+    },
+    {
+      "requirement_id": "NFR-6",
+      "description": "The system must be cross-browser compatible, responsive, and graphically attractive.",
+      "module_section_page": "Non-Functional Requirements, Section 4, Page 16",
+      "priority": "Medium",
+      "metrics_for_validation": "Cross-browser testing, responsiveness testing"
+    },
+    {
+      "requirement_id": "NFR-7",
+      "description": "The system must support Bengali UNICODE-enabled fonts to properly display Bengali content on any machine that supports Unicode, and facilitate content display in both English and Bengali.",
+      "module_section_page": "Non-Functional Requirements, Section 4, Page 16",
+      "priority": "High",
+      "metrics_for_validation": "Unicode compliance testing, language rendering tests"
+    },
+    {
+      "requirement_id": "NFR-8",
+      "description": "The system must be tested at module integration and load levels, with all necessary security tests at the application level architecture.",
+      "module_section_page": "Non-Functional Requirements, Section 4, Page 16",
+      "priority": "High",
+      "metrics_for_validation": "Integration testing, load testing, security testing"
+    },
+    {
+      "requirement_id": "NFR-9",
+      "description": "The system must provide 24x7 online technical support as part of the SLA, including response, restoration, and remedy at the time of an incident, with incidents categorized based on severity level.",
+      "module_section_page": "Support & Maintenance, Section 2.4, Page 9",
+      "priority": "High",
+      "metrics_for_validation": "SLA compliance testing, incident response time tracking"
+    },
+    {
+      "requirement_id": "NFR-10",
+      "description": "The system must support fixing all bugs and system errors identified by users during the support and maintenance phase.",
+      "module_section_page": "Support & Maintenance, Section 2.4, Page 9",
+      "priority": "High",
+      "metrics_for_validation": "Bug tracking and resolution time metrics"
+    },
+    {
+      "requirement_id": "NFR-11",
+      "description": "The system must prioritize operations to fix errors that result in the application not operating or performing as expected.",
+      "module_section_page": "Support & Maintenance, Section 2.4, Page 9",
+      "priority": "High",
+      "metrics_for_validation": "Error resolution time metrics"
+    },
+    {
+      "requirement_id": "NFR-12",
+      "description": "The system must support timely backup of the entire database to meet challenges of system recovery in case of disasters or missing data.",
+      "module_section_page": "Support & Maintenance, Section 2.4, Page 9",
+      "priority": "High",
+      "metrics_for_validation": "Disaster recovery testing"
+    },
+    {
+      "requirement_id": "NFR-13",
+      "description": "The system must be supported by permanent support engineers assigned by the vendor, who work closely with clients/designated officials to ensure proper service delivery during the support and maintenance phase.",
+      "module_section_page": "Support & Maintenance, Section 2.4, Page 9",
+      "priority": "Medium",
+      "metrics_for_validation": "Support team assignment and performance reviews"
+    },
+    {
+      "requirement_id": "NFR-14",
+      "description": "The vendor must ensure that programmers assigned to the project are not reassigned to other projects until completion, and continuity of work is maintained by other programmers in case of absence.",
+      "module_section_page": "Support & Maintenance, Section 2.4, Page 9",
+      "priority": "Medium",
+      "metrics_for_validation": "Resource allocation tracking"
+    },
+    {
+      "requirement_id": "NFR-15",
+      "description": "The hired IT personnel for support and maintenance must be regular employees of the vendor company.",
+      "module_section_page": "Support & Maintenance, Section 2.4, Page 9",
+      "priority": "Medium",
+      "metrics_for_validation": "Employment verification"
+    },
+    {
+      "requirement_id": "NFR-16",
+      "description": "The vendor must provide a monthly support and maintenance log report.",
+      "module_section_page": "Support & Maintenance, Section 2.4, Page 9",
+      "priority": "Medium",
+      "metrics_for_validation": "Log report submission and review"
+    },
+    {
+      "requirement_id": "NFR-17",
+      "description": "The system must adopt a microservice architecture to enable continuous delivery, better testability, deployability, and fault isolation, allowing independent development and scaling of services.",
+      "module_section_page": "Architecture Overview, Section 3, Page 12",
+      "priority": "High",
+      "metrics_for_validation": "Architecture compliance testing, deployment testing"
+    },
+    {
+      "requirement_id": "NFR-18",
+      "description": "The system must be developed using an open-source development platform, with PHP-based tools like Bootstrap, frameworks like CakePHP/Laravel/CodeIgniter, and MySQL database.",
+      "module_section_page": "Technology Specification, Section 2.4.1, Page 10",
+      "priority": "High",
+      "metrics_for_validation": "Technology stack compliance audit"
+    },
+    {
+      "requirement_id": "NFR-19",
+      "description": "The system must support future technology changes, iterative prototyping, and agility in product design.",
+      "module_section_page": "Technology Specification, Section 2.4.1, Page 10",
+      "priority": "Medium",
+      "metrics_for_validation": "Prototyping and adaptability testing"
+    },
+    {
+      "requirement_id": "NFR-20",
+      "description": "The system must ensure compatibility with all well-known browsers on desktop, laptop, and smart devices.",
+      "module_section_page": "Hardware Interface, Section 2.4, Page 11",
+      "priority": "High",
+      "metrics_for_validation": "Browser compatibility testing"
+    },
+    {
+      "requirement_id": "NFR-21",
+      "description": "The system must provide seamless communication with external software, including third-party services, payment gateways, database management systems, server OS, and web services.",
+      "module_section_page": "Software Interface, Section 2.4, Page 11",
+      "priority": "High",
+      "metrics_for_validation": "Integration testing with external systems"
+    }
+  ]
+}
