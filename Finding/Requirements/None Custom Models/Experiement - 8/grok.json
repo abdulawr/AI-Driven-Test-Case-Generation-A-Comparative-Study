@@ -1,0 +1,1166 @@
+{
+  "metadata": {
+    "total_functional_requirements": 112,
+    "total_non_functional_requirements": 53,
+    "source_documents_processed": ["SRS.docx"]
+  },
+  "functional_requirements": [
+    {
+      "requirement_id": "FR-001",
+      "category": "Advertiser Registration and Authentication",
+      "priority": "High",
+      "source_reference": "3.1.1",
+      "description": "Advertisers shall be able to register with the application."
+    },
+    {
+      "requirement_id": "FR-002",
+      "category": "Advertiser Registration and Authentication",
+      "priority": "High",
+      "source_reference": "3.1.1",
+      "description": "Registration shall require verification through OTP (One-Time Password)."
+    },
+    {
+      "requirement_id": "FR-003",
+      "category": "Advertiser Registration and Authentication",
+      "priority": "High",
+      "source_reference": "3.1.1",
+      "description": "Advertisers shall be able to log in to the application using their credentials."
+    },
+    {
+      "requirement_id": "FR-004",
+      "category": "Advertiser Registration and Authentication",
+      "priority": "High",
+      "source_reference": "3.1.1",
+      "description": "Advertisers shall be able to reset their password through a forgotten password feature."
+    },
+    {
+      "requirement_id": "FR-005",
+      "category": "Advertiser Profile Management",
+      "priority": "High",
+      "source_reference": "3.1.2",
+      "description": "Advertisers shall be able to view their profile information."
+    },
+    {
+      "requirement_id": "FR-006",
+      "category": "Advertiser Profile Management",
+      "priority": "High",
+      "source_reference": "3.1.2",
+      "description": "Advertisers shall be able to update their profile information."
+    },
+    {
+      "requirement_id": "FR-007",
+      "category": "Advertiser Wallet Management",
+      "priority": "High",
+      "source_reference": "3.1.3",
+      "description": "Advertisers shall be able to view their wallet balance."
+    },
+    {
+      "requirement_id": "FR-008",
+      "category": "Advertiser Wallet Management",
+      "priority": "High",
+      "source_reference": "3.1.3",
+      "description": "Advertisers shall be able to view their transaction history."
+    },
+    {
+      "requirement_id": "FR-009",
+      "category": "Advertiser Wallet Management",
+      "priority": "High",
+      "source_reference": "3.1.3",
+      "description": "Advertisers shall be able to recharge their wallet using JAZZ CASH."
+    },
+    {
+      "requirement_id": "FR-010",
+      "category": "Advertiser Wallet Management",
+      "priority": "High",
+      "source_reference": "3.1.3",
+      "description": "Advertisers shall be able to recharge their wallet using vouchers."
+    },
+    {
+      "requirement_id": "FR-011",
+      "category": "Advertiser Campaign Management",
+      "priority": "High",
+      "source_reference": "3.1.4",
+      "description": "Advertisers shall be able to create advertising campaigns."
+    },
+    {
+      "requirement_id": "FR-012",
+      "category": "Advertiser Campaign Management",
+      "priority": "High",
+      "source_reference": "3.1.4",
+      "description": "Advertisers shall be able to specify campaign parameters including: Target location, Campaign duration, Number of cars, Advertisement content (images)."
+    },
+    {
+      "requirement_id": "FR-013",
+      "category": "Advertiser Campaign Management",
+      "priority": "High",
+      "source_reference": "3.1.4",
+      "description": "Advertisers shall be able to view active campaigns."
+    },
+    {
+      "requirement_id": "FR-014",
+      "category": "Advertiser Campaign Management",
+      "priority": "High",
+      "source_reference": "3.1.4",
+      "description": "Advertisers shall be able to view pending campaigns."
+    },
+    {
+      "requirement_id": "FR-015",
+      "category": "Advertiser Campaign Management",
+      "priority": "High",
+      "source_reference": "3.1.4",
+      "description": "Advertisers shall be able to view completed campaigns."
+    },
+    {
+      "requirement_id": "FR-016",
+      "category": "Advertiser Campaign Management",
+      "priority": "High",
+      "source_reference": "3.1.4",
+      "description": "Advertisers shall be able to track the current location of drivers displaying their advertisements."
+    },
+    {
+      "requirement_id": "FR-017",
+      "category": "Advertiser Support and Communication",
+      "priority": "High",
+      "source_reference": "3.1.5",
+      "description": "Advertisers shall be able to contact customer support."
+    },
+    {
+      "requirement_id": "FR-018",
+      "category": "Advertiser Support and Communication",
+      "priority": "High",
+      "source_reference": "3.1.5",
+      "description": "Advertisers shall be able to inquire about driver status."
+    },
+    {
+      "requirement_id": "FR-019",
+      "category": "Driver Registration and Authentication",
+      "priority": "High",
+      "source_reference": "3.2.1",
+      "description": "Drivers shall be able to register with the application."
+    },
+    {
+      "requirement_id": "FR-020",
+      "category": "Driver Registration and Authentication",
+      "priority": "High",
+      "source_reference": "3.2.1",
+      "description": "Drivers shall be able to log in to the application using their credentials."
+    },
+    {
+      "requirement_id": "FR-021",
+      "category": "Driver Registration and Authentication",
+      "priority": "High",
+      "source_reference": "3.2.1",
+      "description": "Drivers shall be able to sign out from the application."
+    },
+    {
+      "requirement_id": "FR-022",
+      "category": "Driver Profile Management",
+      "priority": "High",
+      "source_reference": "3.2.2",
+      "description": "Drivers shall be able to view their profile information."
+    },
+    {
+      "requirement_id": "FR-023",
+      "category": "Driver Profile Management",
+      "priority": "High",
+      "source_reference": "3.2.2",
+      "description": "Drivers shall be able to update their profile information."
+    },
+    {
+      "requirement_id": "FR-024",
+      "category": "Driver Profile Management",
+      "priority": "High",
+      "source_reference": "3.2.2",
+      "description": "Drivers shall be able to upload images of their vehicles."
+    },
+    {
+      "requirement_id": "FR-025",
+      "category": "Driver Campaign Interaction",
+      "priority": "High",
+      "source_reference": "3.2.3",
+      "description": "Drivers shall be able to receive campaign requests."
+    },
+    {
+      "requirement_id": "FR-026",
+      "category": "Driver Campaign Interaction",
+      "priority": "High",
+      "source_reference": "3.2.3",
+      "description": "Drivers shall be able to accept or reject campaign requests."
+    },
+    {
+      "requirement_id": "FR-027",
+      "category": "Driver Campaign Interaction",
+      "priority": "High",
+      "source_reference": "3.2.3",
+      "description": "Drivers shall be able to view navigation to installation centers."
+    },
+    {
+      "requirement_id": "FR-028",
+      "category": "Driver Campaign Interaction",
+      "priority": "High",
+      "source_reference": "3.2.3",
+      "description": "Drivers shall be able to start campaigns after installation."
+    },
+    {
+      "requirement_id": "FR-029",
+      "category": "Driver Campaign Interaction",
+      "priority": "High",
+      "source_reference": "3.2.3",
+      "description": "Drivers shall be able to record their campaign activities."
+    },
+    {
+      "requirement_id": "FR-030",
+      "category": "Driver Campaign Interaction",
+      "priority": "High",
+      "source_reference": "3.2.3",
+      "description": "Drivers shall be able to upload verification images with location data."
+    },
+    {
+      "requirement_id": "FR-031",
+      "category": "Driver Wallet Management",
+      "priority": "High",
+      "source_reference": "3.2.4",
+      "description": "Drivers shall be able to view their wallet balance."
+    },
+    {
+      "requirement_id": "FR-032",
+      "category": "Driver Wallet Management",
+      "priority": "High",
+      "source_reference": "3.2.4",
+      "description": "Drivers shall be able to view their earnings history."
+    },
+    {
+      "requirement_id": "FR-033",
+      "category": "Driver Support and Communication",
+      "priority": "High",
+      "source_reference": "3.2.5",
+      "description": "Drivers shall be able to access help center resources."
+    },
+    {
+      "requirement_id": "FR-034",
+      "category": "Driver Support and Communication",
+      "priority": "High",
+      "source_reference": "3.2.5",
+      "description": "Drivers shall be able to contact customer support."
+    },
+    {
+      "requirement_id": "FR-035",
+      "category": "Admin Authentication and Access Control",
+      "priority": "High",
+      "source_reference": "3.3.1",
+      "description": "Administrators shall be able to log in to the admin portal."
+    },
+    {
+      "requirement_id": "FR-036",
+      "category": "Admin Authentication and Access Control",
+      "priority": "High",
+      "source_reference": "3.3.1",
+      "description": "Administrators shall be able to reset their password."
+    },
+    {
+      "requirement_id": "FR-037",
+      "category": "Admin Authentication and Access Control",
+      "priority": "High",
+      "source_reference": "3.3.1",
+      "description": "The system shall support different admin roles with varying access levels."
+    },
+    {
+      "requirement_id": "FR-038",
+      "category": "Admin User Management",
+      "priority": "High",
+      "source_reference": "3.3.2",
+      "description": "Administrators shall be able to add, delete, and update admin accounts."
+    },
+    {
+      "requirement_id": "FR-039",
+      "category": "Admin User Management",
+      "priority": "High",
+      "source_reference": "3.3.2",
+      "description": "Administrators shall be able to add drivers to the system."
+    },
+    {
+      "requirement_id": "FR-040",
+      "category": "Admin User Management",
+      "priority": "High",
+      "source_reference": "3.3.2",
+      "description": "Administrators shall be able to create driver profiles."
+    },
+    {
+      "requirement_id": "FR-041",
+      "category": "Admin User Management",
+      "priority": "High",
+      "source_reference": "3.3.2",
+      "description": "Administrators shall be able to update user information."
+    },
+    {
+      "requirement_id": "FR-042",
+      "category": "Admin User Management",
+      "priority": "High",
+      "source_reference": "3.3.2",
+      "description": "Administrators shall be able to block and unblock driver accounts."
+    },
+    {
+      "requirement_id": "FR-043",
+      "category": "Admin User Management",
+      "priority": "High",
+      "source_reference": "3.3.2",
+      "description": "Administrators shall be able to send notifications to drivers and advertisers."
+    },
+    {
+      "requirement_id": "FR-044",
+      "category": "Admin User Management",
+      "priority": "High",
+      "source_reference": "3.3.2",
+      "description": "Administrators shall be able to send emails to drivers and advertisers."
+    },
+    {
+      "requirement_id": "FR-045",
+      "category": "Admin Campaign Management",
+      "priority": "High",
+      "source_reference": "3.3.3",
+      "description": "Administrators shall be able to search for campaigns and users."
+    },
+    {
+      "requirement_id": "FR-046",
+      "category": "Admin Campaign Management",
+      "priority": "High",
+      "source_reference": "3.3.3",
+      "description": "Administrators shall be able to activate campaigns."
+    },
+    {
+      "requirement_id": "FR-047",
+      "category": "Admin Campaign Management",
+      "priority": "High",
+      "source_reference": "3.3.3",
+      "description": "Administrators shall be able to start driver campaigns from installation centers."
+    },
+    {
+      "requirement_id": "FR-048",
+      "category": "Admin Campaign Management",
+      "priority": "High",
+      "source_reference": "3.3.3",
+      "description": "Administrators shall be able to complete driver trials."
+    },
+    {
+      "requirement_id": "FR-049",
+      "category": "Admin System Configuration",
+      "priority": "High",
+      "source_reference": "3.3.4",
+      "description": "Administrators shall be able to add, delete, and update coupons."
+    },
+    {
+      "requirement_id": "FR-050",
+      "category": "Admin System Configuration",
+      "priority": "High",
+      "source_reference": "3.3.4",
+      "description": "Administrators shall be able to add, delete, and update vouchers."
+    },
+    {
+      "requirement_id": "FR-051",
+      "category": "Admin System Configuration",
+      "priority": "High",
+      "source_reference": "3.3.4",
+      "description": "Administrators shall be able to add, delete, and update car types."
+    },
+    {
+      "requirement_id": "FR-052",
+      "category": "Admin System Configuration",
+      "priority": "High",
+      "source_reference": "3.3.4",
+      "description": "Administrators shall be able to manage installation centers."
+    },
+    {
+      "requirement_id": "FR-053",
+      "category": "Campaign Creation",
+      "priority": "High",
+      "source_reference": "3.4.1",
+      "description": "The system shall allow the creation of advertising campaigns with specified parameters."
+    },
+    {
+      "requirement_id": "FR-054",
+      "category": "Campaign Creation",
+      "priority": "High",
+      "source_reference": "3.4.1",
+      "description": "The system shall support multiple images in campaign creation."
+    },
+    {
+      "requirement_id": "FR-055",
+      "category": "Campaign Creation",
+      "priority": "High",
+      "source_reference": "3.4.1",
+      "description": "The system shall validate campaign parameters before creation."
+    },
+    {
+      "requirement_id": "FR-056",
+      "category": "Campaign Assignment",
+      "priority": "High",
+      "source_reference": "3.4.2",
+      "description": "The system shall match campaigns to appropriate drivers based on location and availability."
+    },
+    {
+      "requirement_id": "FR-057",
+      "category": "Campaign Assignment",
+      "priority": "High",
+      "source_reference": "3.4.2",
+      "description": "The system shall send campaign requests to selected drivers."
+    },
+    {
+      "requirement_id": "FR-058",
+      "category": "Campaign Assignment",
+      "priority": "High",
+      "source_reference": "3.4.2",
+      "description": "The system shall track driver responses to campaign requests."
+    },
+    {
+      "requirement_id": "FR-059",
+      "category": "Campaign Execution",
+      "priority": "High",
+      "source_reference": "3.4.3",
+      "description": "The system shall guide drivers to installation centers."
+    },
+    {
+      "requirement_id": "FR-060",
+      "category": "Campaign Execution",
+      "priority": "High",
+      "source_reference": "3.4.3",
+      "description": "The system shall track the installation process."
+    },
+    {
+      "requirement_id": "FR-061",
+      "category": "Campaign Execution",
+      "priority": "High",
+      "source_reference": "3.4.3",
+      "description": "The system shall monitor campaign progress in real-time."
+    },
+    {
+      "requirement_id": "FR-062",
+      "category": "Campaign Execution",
+      "priority": "High",
+      "source_reference": "3.4.3",
+      "description": "The system shall enforce campaign time and distance constraints."
+    },
+    {
+      "requirement_id": "FR-063",
+      "category": "Campaign Reporting",
+      "priority": "High",
+      "source_reference": "3.4.4",
+      "description": "The system shall generate campaign performance reports."
+    },
+    {
+      "requirement_id": "FR-064",
+      "category": "Campaign Reporting",
+      "priority": "High",
+      "source_reference": "3.4.4",
+      "description": "The system shall provide heat maps showing advertisement display concentration."
+    },
+    {
+      "requirement_id": "FR-065",
+      "category": "Campaign Reporting",
+      "priority": "High",
+      "source_reference": "3.4.4",
+      "description": "The system shall track the duration and location of advertisement displays."
+    },
+    {
+      "requirement_id": "FR-066",
+      "category": "Payment Processing",
+      "priority": "High",
+      "source_reference": "3.5.1",
+      "description": "The system shall integrate with JAZZ CASH payment gateway."
+    },
+    {
+      "requirement_id": "FR-067",
+      "category": "Payment Processing",
+      "priority": "High",
+      "source_reference": "3.5.1",
+      "description": "The system shall process wallet recharge transactions."
+    },
+    {
+      "requirement_id": "FR-068",
+      "category": "Payment Processing",
+      "priority": "High",
+      "source_reference": "3.5.1",
+      "description": "The system shall calculate driver earnings based on campaign participation."
+    },
+    {
+      "requirement_id": "FR-069",
+      "category": "Payment Processing",
+      "priority": "High",
+      "source_reference": "3.5.1",
+      "description": "The system shall maintain transaction records."
+    },
+    {
+      "requirement_id": "FR-070",
+      "category": "Discount Management",
+      "priority": "High",
+      "source_reference": "3.5.2",
+      "description": "The system shall support discount coupons for advertisers."
+    },
+    {
+      "requirement_id": "FR-071",
+      "category": "Discount Management",
+      "priority": "High",
+      "source_reference": "3.5.2",
+      "description": "The system shall support voucher-based wallet recharges."
+    },
+    {
+      "requirement_id": "FR-072",
+      "category": "Discount Management",
+      "priority": "High",
+      "source_reference": "3.5.2",
+      "description": "The system shall validate coupons and vouchers before application."
+    },
+    {
+      "requirement_id": "FR-073",
+      "category": "Real-time Tracking",
+      "priority": "High",
+      "source_reference": "3.6.1",
+      "description": "The system shall track the real-time location of drivers."
+    },
+    {
+      "requirement_id": "FR-074",
+      "category": "Real-time Tracking",
+      "priority": "High",
+      "source_reference": "3.6.1",
+      "description": "The system shall display active campaigns on a map."
+    },
+    {
+      "requirement_id": "FR-075",
+      "category": "Real-time Tracking",
+      "priority": "High",
+      "source_reference": "3.6.1",
+      "description": "The system shall allow advertisers to track specific drivers."
+    },
+    {
+      "requirement_id": "FR-076",
+      "category": "Route Monitoring",
+      "priority": "High",
+      "source_reference": "3.6.2",
+      "description": "The system shall record driver routes during campaigns."
+    },
+    {
+      "requirement_id": "FR-077",
+      "category": "Route Monitoring",
+      "priority": "High",
+      "source_reference": "3.6.2",
+      "description": "The system shall analyze driver movement patterns."
+    },
+    {
+      "requirement_id": "FR-078",
+      "category": "Route Monitoring",
+      "priority": "High",
+      "source_reference": "3.6.2",
+      "description": "The system shall detect deviations from expected routes."
+    },
+    {
+      "requirement_id": "FR-079",
+      "category": "Verification System",
+      "priority": "High",
+      "source_reference": "3.6.3",
+      "description": "The system shall request verification images from drivers."
+    },
+    {
+      "requirement_id": "FR-080",
+      "category": "Verification System",
+      "priority": "High",
+      "source_reference": "3.6.3",
+      "description": "The system shall verify image location data."
+    },
+    {
+      "requirement_id": "FR-081",
+      "category": "Verification System",
+      "priority": "High",
+      "source_reference": "3.6.3",
+      "description": "The system shall maintain a record of verification activities."
+    },
+    {
+      "requirement_id": "FR-082",
+      "category": "Customer Support",
+      "priority": "High",
+      "source_reference": "3.7.1",
+      "description": "The system shall provide support channels for advertisers and drivers."
+    },
+    {
+      "requirement_id": "FR-083",
+      "category": "Customer Support",
+      "priority": "High",
+      "source_reference": "3.7.1",
+      "description": "The system shall allow users to submit support tickets."
+    },
+    {
+      "requirement_id": "FR-084",
+      "category": "Customer Support",
+      "priority": "High",
+      "source_reference": "3.7.1",
+      "description": "The system shall track support request status."
+    },
+    {
+      "requirement_id": "FR-085",
+      "category": "Communication",
+      "priority": "High",
+      "source_reference": "3.7.2",
+      "description": "The system shall support FCM notifications."
+    },
+    {
+      "requirement_id": "FR-086",
+      "category": "Communication",
+      "priority": "High",
+      "source_reference": "3.7.2",
+      "description": "The system shall support email communications."
+    },
+    {
+      "requirement_id": "FR-087",
+      "category": "Communication",
+      "priority": "High",
+      "source_reference": "3.7.2",
+      "description": "The system shall maintain communication logs."
+    },
+    {
+      "requirement_id": "UI-001",
+      "category": "User Interfaces - Advertiser Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.1",
+      "description": "The advertiser mobile application shall include a login screen with username and password fields."
+    },
+    {
+      "requirement_id": "UI-002",
+      "category": "User Interfaces - Advertiser Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.1",
+      "description": "The advertiser mobile application shall include a registration screen with required advertiser information."
+    },
+    {
+      "requirement_id": "UI-003",
+      "category": "User Interfaces - Advertiser Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.1",
+      "description": "The advertiser mobile application shall include a dashboard displaying active campaigns and wallet balance."
+    },
+    {
+      "requirement_id": "UI-004",
+      "category": "User Interfaces - Advertiser Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.1",
+      "description": "The advertiser mobile application shall include a campaign creation form with fields for campaign parameters."
+    },
+    {
+      "requirement_id": "UI-005",
+      "category": "User Interfaces - Advertiser Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.1",
+      "description": "The advertiser mobile application shall include campaign list screens (active, pending, completed)."
+    },
+    {
+      "requirement_id": "UI-006",
+      "category": "User Interfaces - Advertiser Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.1",
+      "description": "The advertiser mobile application shall include a wallet screen showing balance and transaction history."
+    },
+    {
+      "requirement_id": "UI-007",
+      "category": "User Interfaces - Advertiser Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.1",
+      "description": "The advertiser mobile application shall include a map interface showing campaign drivers."
+    },
+    {
+      "requirement_id": "UI-008",
+      "category": "User Interfaces - Advertiser Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.1",
+      "description": "The advertiser mobile application shall include a profile management screen."
+    },
+    {
+      "requirement_id": "UI-009",
+      "category": "User Interfaces - Advertiser Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.1",
+      "description": "The advertiser mobile application shall include a support contact screen."
+    },
+    {
+      "requirement_id": "UI-010",
+      "category": "User Interfaces - Driver Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.2",
+      "description": "The driver mobile application shall include a login screen with username and password fields."
+    },
+    {
+      "requirement_id": "UI-011",
+      "category": "User Interfaces - Driver Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.2",
+      "description": "The driver mobile application shall include a dashboard displaying active campaigns and earnings."
+    },
+    {
+      "requirement_id": "UI-012",
+      "category": "User Interfaces - Driver Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.2",
+      "description": "The driver mobile application shall include a campaign request notification and response interface."
+    },
+    {
+      "requirement_id": "UI-013",
+      "category": "User Interfaces - Driver Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.2",
+      "description": "The driver mobile application shall include a navigation map to installation centers."
+    },
+    {
+      "requirement_id": "UI-014",
+      "category": "User Interfaces - Driver Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.2",
+      "description": "The driver mobile application shall include a camera interface for verification photos."
+    },
+    {
+      "requirement_id": "UI-015",
+      "category": "User Interfaces - Driver Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.2",
+      "description": "The driver mobile application shall include a wallet screen showing earnings and history."
+    },
+    {
+      "requirement_id": "UI-016",
+      "category": "User Interfaces - Driver Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.2",
+      "description": "The driver mobile application shall include a profile management screen."
+    },
+    {
+      "requirement_id": "UI-017",
+      "category": "User Interfaces - Driver Mobile Application",
+      "priority": "High",
+      "source_reference": "4.1.2",
+      "description": "The driver mobile application shall include a support contact screen."
+    },
+    {
+      "requirement_id": "UI-018",
+      "category": "User Interfaces - Admin Web Portal",
+      "priority": "High",
+      "source_reference": "4.1.3",
+      "description": "The admin web portal shall include a login screen with username and password fields."
+    },
+    {
+      "requirement_id": "UI-019",
+      "category": "User Interfaces - Admin Web Portal",
+      "priority": "High",
+      "source_reference": "4.1.3",
+      "description": "The admin web portal shall include a dashboard displaying system statistics."
+    },
+    {
+      "requirement_id": "UI-020",
+      "category": "User Interfaces - Admin Web Portal",
+      "priority": "High",
+      "source_reference": "4.1.3",
+      "description": "The admin web portal shall include a user management interface."
+    },
+    {
+      "requirement_id": "UI-021",
+      "category": "User Interfaces - Admin Web Portal",
+      "priority": "High",
+      "source_reference": "4.1.3",
+      "description": "The admin web portal shall include a campaign management interface."
+    },
+    {
+      "requirement_id": "UI-022",
+      "category": "User Interfaces - Admin Web Portal",
+      "priority": "High",
+      "source_reference": "4.1.3",
+      "description": "The admin web portal shall include configuration screens (coupons, vouchers, car types)."
+    },
+    {
+      "requirement_id": "UI-023",
+      "category": "User Interfaces - Admin Web Portal",
+      "priority": "High",
+      "source_reference": "4.1.3",
+      "description": "The admin web portal shall include an installation center management screen."
+    },
+    {
+      "requirement_id": "UI-024",
+      "category": "User Interfaces - Admin Web Portal",
+      "priority": "High",
+      "source_reference": "4.1.3",
+      "description": "The admin web portal shall include a support ticket management interface."
+    },
+    {
+      "requirement_id": "UI-025",
+      "category": "User Interfaces - Admin Web Portal",
+      "priority": "High",
+      "source_reference": "4.1.3",
+      "description": "The admin web portal shall include a reporting and analytics interface."
+    }
+  ],
+  "non_functional_requirements": [
+    {
+      "requirement_id": "NFR-001",
+      "category": "Performance",
+      "priority": "High",
+      "source_reference": "5.1",
+      "description": "The mobile applications shall load within 3 seconds on devices meeting the minimum specifications."
+    },
+    {
+      "requirement_id": "NFR-002",
+      "category": "Performance",
+      "priority": "High",
+      "source_reference": "5.1",
+      "description": "The system shall support a minimum of 1000 concurrent users."
+    },
+    {
+      "requirement_id": "NFR-003",
+      "category": "Performance",
+      "priority": "High",
+      "source_reference": "5.1",
+      "description": "Location tracking updates shall occur at least every 30 seconds."
+    },
+    {
+      "requirement_id": "NFR-004",
+      "category": "Performance",
+      "priority": "High",
+      "source_reference": "5.1",
+      "description": "API responses shall be delivered within 2 seconds under normal load."
+    },
+    {
+      "requirement_id": "NFR-005",
+      "category": "Performance",
+      "priority": "High",
+      "source_reference": "5.1",
+      "description": "The system shall handle up to 100 campaign creations per minute."
+    },
+    {
+      "requirement_id": "NFR-006",
+      "category": "Performance",
+      "priority": "High",
+      "source_reference": "5.1",
+      "description": "Push notifications shall be delivered within 5 seconds of triggering events."
+    },
+    {
+      "requirement_id": "NFR-007",
+      "category": "Safety",
+      "priority": "High",
+      "source_reference": "5.2",
+      "description": "The driver application shall not require interaction while the vehicle is in motion."
+    },
+    {
+      "requirement_id": "NFR-008",
+      "category": "Safety",
+      "priority": "High",
+      "source_reference": "5.2",
+      "description": "The system shall comply with local road safety regulations regarding vehicle modifications."
+    },
+    {
+      "requirement_id": "NFR-009",
+      "category": "Safety",
+      "priority": "High",
+      "source_reference": "5.2",
+      "description": "The system shall verify that advertisements do not obstruct driver visibility."
+    },
+    {
+      "requirement_id": "NFR-010",
+      "category": "Safety",
+      "priority": "High",
+      "source_reference": "5.2",
+      "description": "The system shall monitor and flag potentially unsafe driving behaviors."
+    },
+    {
+      "requirement_id": "NFR-011",
+      "category": "Security",
+      "priority": "High",
+      "source_reference": "5.3",
+      "description": "User authentication shall employ secure password hashing."
+    },
+    {
+      "requirement_id": "NFR-012",
+      "category": "Security",
+      "priority": "High",
+      "source_reference": "5.3",
+      "description": "All API communications shall be encrypted using TLS."
+    },
+    {
+      "requirement_id": "NFR-013",
+      "category": "Security",
+      "priority": "High",
+      "source_reference": "5.3",
+      "description": "Payment information shall be handled in compliance with PCI DSS standards."
+    },
+    {
+      "requirement_id": "NFR-014",
+      "category": "Security",
+      "priority": "High",
+      "source_reference": "5.3",
+      "description": "User sessions shall timeout after 30 minutes of inactivity."
+    },
+    {
+      "requirement_id": "NFR-015",
+      "category": "Security",
+      "priority": "High",
+      "source_reference": "5.3",
+      "description": "The system shall implement rate limiting to prevent brute force attacks."
+    },
+    {
+      "requirement_id": "NFR-016",
+      "category": "Security",
+      "priority": "High",
+      "source_reference": "5.3",
+      "description": "The system shall maintain audit logs of all administrative actions."
+    },
+    {
+      "requirement_id": "NFR-017",
+      "category": "Software Quality Attributes",
+      "priority": "High",
+      "source_reference": "5.4",
+      "description": "Usability: The interface shall be intuitive enough that a new user can complete basic tasks without assistance."
+    },
+    {
+      "requirement_id": "NFR-018",
+      "category": "Software Quality Attributes",
+      "priority": "High",
+      "source_reference": "5.4",
+      "description": "Reliability: The system shall maintain 99.5% uptime during operating hours."
+    },
+    {
+      "requirement_id": "NFR-019",
+      "category": "Software Quality Attributes",
+      "priority": "High",
+      "source_reference": "5.4",
+      "description": "Availability: The system shall be available 24/7 with scheduled maintenance windows."
+    },
+    {
+      "requirement_id": "NFR-020",
+      "category": "Software Quality Attributes",
+      "priority": "High",
+      "source_reference": "5.4",
+      "description": "Maintainability: The codebase shall follow consistent coding standards and include documentation."
+    },
+    {
+      "requirement_id": "NFR-021",
+      "category": "Software Quality Attributes",
+      "priority": "High",
+      "source_reference": "5.4",
+      "description": "Portability: The mobile applications shall function on all Android devices meeting the minimum requirements."
+    },
+    {
+      "requirement_id": "NFR-022",
+      "category": "Software Quality Attributes",
+      "priority": "High",
+      "source_reference": "5.4",
+      "description": "Scalability: The system shall be designed to scale horizontally to accommodate growth."
+    },
+    {
+      "requirement_id": "BR-001",
+      "category": "Business Rules",
+      "priority": "High",
+      "source_reference": "5.5",
+      "description": "Drivers must complete a verification process before accepting campaigns."
+    },
+    {
+      "requirement_id": "BR-002",
+      "category": "Business Rules",
+      "priority": "High",
+      "source_reference": "5.5",
+      "description": "Advertisers must maintain a minimum wallet balance to create campaigns."
+    },
+    {
+      "requirement_id": "BR-003",
+      "category": "Business Rules",
+      "priority": "High",
+      "source_reference": "5.5",
+      "description": "Campaign pricing shall be based on duration, number of cars, and location."
+    },
+    {
+      "requirement_id": "BR-004",
+      "category": "Business Rules",
+      "priority": "High",
+      "source_reference": "5.5",
+      "description": "Drivers shall receive payment only for verified campaign participation."
+    },
+    {
+      "requirement_id": "BR-005",
+      "category": "Business Rules",
+      "priority": "High",
+      "source_reference": "5.5",
+      "description": "Advertisements must comply with local advertising regulations."
+    },
+    {
+      "requirement_id": "BR-006",
+      "category": "Business Rules",
+      "priority": "High",
+      "source_reference": "5.5",
+      "description": "System shall retain campaign data for a minimum of 1 year."
+    },
+    {
+      "requirement_id": "DR-001",
+      "category": "Database Requirements",
+      "priority": "High",
+      "source_reference": "6.1",
+      "description": "The system shall use a relational database for structured data storage."
+    },
+    {
+      "requirement_id": "DR-002",
+      "category": "Database Requirements",
+      "priority": "High",
+      "source_reference": "6.1",
+      "description": "The database shall maintain referential integrity between related entities."
+    },
+    {
+      "requirement_id": "DR-003",
+      "category": "Database Requirements",
+      "priority": "High",
+      "source_reference": "6.1",
+      "description": "The database shall be backed up daily with a retention period of 30 days."
+    },
+    {
+      "requirement_id": "DR-004",
+      "category": "Database Requirements",
+      "priority": "High",
+      "source_reference": "6.1",
+      "description": "Database performance shall be monitored, with query optimization applied as needed."
+    },
+    {
+      "requirement_id": "LR-001",
+      "category": "Legal Requirements",
+      "priority": "High",
+      "source_reference": "6.2",
+      "description": "The system shall comply with local data protection regulations."
+    },
+    {
+      "requirement_id": "LR-002",
+      "category": "Legal Requirements",
+      "priority": "High",
+      "source_reference": "6.2",
+      "description": "User terms and conditions shall be clearly presented during registration."
+    },
+    {
+      "requirement_id": "LR-003",
+      "category": "Legal Requirements",
+      "priority": "High",
+      "source_reference": "6.2",
+      "description": "The system shall implement appropriate data retention and deletion policies."
+    },
+    {
+      "requirement_id": "LR-004",
+      "category": "Legal Requirements",
+      "priority": "High",
+      "source_reference": "6.2",
+      "description": "The system shall maintain records of user consent for data processing."
+    },
+    {
+      "requirement_id": "HW-001",
+      "category": "Hardware Interfaces - Mobile Devices",
+      "priority": "High",
+      "source_reference": "4.2.1",
+      "description": "The system shall support Android smartphones with minimum API level 23 (Android 6.0)."
+    },
+    {
+      "requirement_id": "HW-002",
+      "category": "Hardware Interfaces - Mobile Devices",
+      "priority": "High",
+      "source_reference": "4.2.1",
+      "description": "The system shall utilize device GPS for location tracking."
+    },
+    {
+      "requirement_id": "HW-003",
+      "category": "Hardware Interfaces - Mobile Devices",
+      "priority": "High",
+      "source_reference": "4.2.1",
+      "description": "The system shall utilize device camera for verification photos."
+    },
+    {
+      "requirement_id": "HW-004",
+      "category": "Hardware Interfaces - Mobile Devices",
+      "priority": "High",
+      "source_reference": "4.2.1",
+      "description": "The system shall utilize device storage for application data."
+    },
+    {
+      "requirement_id": "HW-005",
+      "category": "Hardware Interfaces - Car Displays",
+      "priority": "High",
+      "source_reference": "4.2.2",
+      "description": "The system shall interface with advertisement displays mounted on vehicles."
+    },
+    {
+      "requirement_id": "HW-006",
+      "category": "Hardware Interfaces - Car Displays",
+      "priority": "High",
+      "source_reference": "4.2.2",
+      "description": "The system shall interface with installation equipment at installation centers."
+    },
+    {
+      "requirement_id": "SW-001",
+      "category": "Software Interfaces - External Services",
+      "priority": "High",
+      "source_reference": "4.3.1",
+      "description": "The system shall interface with AWS cloud services for hosting using HTTPS protocol, JSON data format, and API Keys/AWS IAM authentication."
+    },
+    {
+      "requirement_id": "SW-002",
+      "category": "Software Interfaces - External Services",
+      "priority": "High",
+      "source_reference": "4.3.1",
+      "description": "The system shall interface with Firebase for real-time communication using WebSocket/HTTPS protocol, JSON data format, and Firebase Auth authentication."
+    },
+    {
+      "requirement_id": "SW-003",
+      "category": "Software Interfaces - External Services",
+      "priority": "High",
+      "source_reference": "4.3.1",
+      "description": "The system shall interface with Google Maps API for location services using HTTPS protocol, JSON data format, and API Keys authentication."
+    },
+    {
+      "requirement_id": "SW-004",
+      "category": "Software Interfaces - External Services",
+      "priority": "High",
+      "source_reference": "4.3.1",
+      "description": "The system shall interface with JAZZ CASH payment gateway using HTTPS protocol, JSON data format, and Merchant ID and Key authentication."
+    },
+    {
+      "requirement_id": "SW-005",
+      "category": "Software Interfaces - Internal Components",
+      "priority": "High",
+      "source_reference": "4.3.2",
+      "description": "The system shall support Android Application to Backend API using HTTPS protocol, JSON data format, and JWT authentication."
+    },
+    {
+      "requirement_id": "SW-006",
+      "category": "Software Interfaces - Internal Components",
+      "priority": "High",
+      "source_reference": "4.3.2",
+      "description": "The system shall support Admin Portal to Backend API using HTTPS protocol, JSON data format, and JWT authentication."
+    },
+    {
+      "requirement_id": "SW-007",
+      "category": "Software Interfaces - Internal Components",
+      "priority": "High",
+      "source_reference": "4.3.2",
+      "description": "The system shall support Database Interface using SQL protocol and database credentials authentication."
+    },
+    {
+      "requirement_id": "COM-001",
+      "category": "Communications Interfaces",
+      "priority": "High",
+      "source_reference": "4.4",
+      "description": "The system shall utilize HTTPS for secure API communications."
+    },
+    {
+      "requirement_id": "COM-002",
+      "category": "Communications Interfaces",
+      "priority": "High",
+      "source_reference": "4.4",
+      "description": "The system shall utilize WebSockets for real-time updates."
+    },
+    {
+      "requirement_id": "COM-003",
+      "category": "Communications Interfaces",
+      "priority": "High",
+      "source_reference": "4.4",
+      "description": "The system shall utilize Firebase Cloud Messaging for push notifications."
+    },
+    {
+      "requirement_id": "COM-004",
+      "category": "Communications Interfaces",
+      "priority": "High",
+      "source_reference": "4.4",
+      "description": "The system shall utilize SMTP for email communications."
+    }
+  ]
+}

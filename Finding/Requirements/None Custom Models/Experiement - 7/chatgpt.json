@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "total_functional_requirements": 6,
+    "total_non_functional_requirements": 3,
+    "source_documents_processed": ["Use Case Diagram of an Online Shopping System"]
+  },
+  "functional_requirements": [
+    {
+      "requirement_id": "FR-001",
+      "category": "User Interaction",
+      "priority": "High",
+      "source_reference": "Use Case Diagram",
+      "description": "System shall allow Web Customers to view items in the catalog."
+    },
+    {
+      "requirement_id": "FR-002",
+      "category": "User Interaction",
+      "priority": "High",
+      "source_reference": "Use Case Diagram",
+      "description": "System shall allow Registered Customers to make a purchase."
+    },
+    {
+      "requirement_id": "FR-003",
+      "category": "User Interaction",
+      "priority": "High",
+      "source_reference": "Use Case Diagram",
+      "description": "System shall allow New Customers to register and create an account."
+    },
+    {
+      "requirement_id": "FR-004",
+      "category": "System Operation",
+      "priority": "High",
+      "source_reference": "Use Case Diagram",
+      "description": "System shall provide a checkout process for purchasing items."
+    },
+    {
+      "requirement_id": "FR-005",
+      "category": "System Operation",
+      "priority": "Medium",
+      "source_reference": "Use Case Diagram",
+      "description": "System shall integrate with Payment Services such as PayPal and Credit Payment Service."
+    },
+    {
+      "requirement_id": "FR-006",
+      "category": "System Operation",
+      "priority": "Medium",
+      "source_reference": "Use Case Diagram",
+      "description": "System shall authenticate users via an Identity Provider for secure login."
+    }
+  ],
+  "non_functional_requirements": [
+    {
+      "requirement_id": "NFR-001",
+      "category": "Security",
+      "priority": "High",
+      "source_reference": "Use Case Diagram",
+      "description": "System must ensure secure authentication for all users using Identity Provider."
+    },
+    {
+      "requirement_id": "NFR-002",
+      "category": "Performance",
+      "priority": "High",
+      "source_reference": "Use Case Diagram",
+      "description": "System shall process payments within 2 seconds for a seamless checkout experience."
+    },
+    {
+      "requirement_id": "NFR-003",
+      "category": "Usability",
+      "priority": "Medium",
+      "source_reference": "Use Case Diagram",
+      "description": "System interface shall be user-friendly for both Registered and New Customers."
+    }
+  ]
+}

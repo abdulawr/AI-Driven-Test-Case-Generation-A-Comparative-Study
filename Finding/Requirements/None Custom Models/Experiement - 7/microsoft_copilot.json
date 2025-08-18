@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "total_functional_requirements": 5,
+    "total_non_functional_requirements": 0,
+    "source_documents_processed": [
+      "Online Shopping System Use Case Diagram"
+    ]
+  },
+  "functional_requirements": [
+    {
+      "requirement_id": "FR-001",
+      "category": "User Interface",
+      "priority": "High",
+      "source_reference": "Online Shopping System Use Case Diagram",
+      "description": "The system shall allow web, new, and registered customers to browse and view available items."
+    },
+    {
+      "requirement_id": "FR-002",
+      "category": "User Management",
+      "priority": "High",
+      "source_reference": "Online Shopping System Use Case Diagram",
+      "description": "The system shall provide new customers with a registration interface to create an account by submitting required personal information."
+    },
+    {
+      "requirement_id": "FR-003",
+      "category": "Order Processing",
+      "priority": "High",
+      "source_reference": "Online Shopping System Use Case Diagram",
+      "description": "The system shall allow registered customers to initiate the checkout process for the items in their shopping cart."
+    },
+    {
+      "requirement_id": "FR-004",
+      "category": "Payment Processing",
+      "priority": "High",
+      "source_reference": "Online Shopping System Use Case Diagram",
+      "description": "The system shall enable registered customers to complete a purchase by selecting a payment method (credit card or PayPal) and processing the transaction via the corresponding external service."
+    },
+    {
+      "requirement_id": "FR-005",
+      "category": "Security",
+      "priority": "High",
+      "source_reference": "Online Shopping System Use Case Diagram",
+      "description": "The system shall authenticate customers through an external identity provider before granting access to protected functions."
+    }
+  ],
+  "non_functional_requirements": []
+}

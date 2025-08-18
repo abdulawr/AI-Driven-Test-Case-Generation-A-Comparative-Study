@@ -1,0 +1,41 @@
+{
+"metadata": {
+"total_functional_requirements": 4,
+"total_non_functional_requirements": 0,
+"source_documents_processed": ["Use Case Diagram of an Online Shopping System"]
+},
+"functional_requirements": [
+{
+"requirement_id": "FR-001",
+"category": "User Registration",
+"priority": "High",
+"source_reference": "Use Case: Client Register",
+"description": "The system shall allow new customers to register as clients.",
+"dependencies": []
+},
+{
+"requirement_id": "FR-002",
+"category": "Product Browsing",
+"priority": "High",
+"source_reference": "Use Case: View Items",
+"description": "The system shall allow registered customers to view items, involving integration with an authentication service."
+},
+{
+"requirement_id": "FR-003",
+"category": "Purchase Management",
+"priority": "High",
+"source_reference": "Use Case: Make Purchase",
+"description": "The system shall allow registered customers to make purchases, including viewing items and performing checkout, involving integration with an identity provider.",
+"dependencies": ["FR-002", "FR-004"]
+},
+{
+"requirement_id": "FR-004",
+"category": "Payment Processing",
+"priority": "High",
+"source_reference": "Use Case: Checkout",
+"description": "The system shall provide checkout functionality, involving integrations with credit payment service and PayPal.",
+"dependencies": []
+}
+],
+"non_functional_requirements": []
+}

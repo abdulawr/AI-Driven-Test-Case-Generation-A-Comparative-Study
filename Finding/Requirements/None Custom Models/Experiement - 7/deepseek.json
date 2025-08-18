@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "total_functional_requirements": 7,
+    "total_non_functional_requirements": 2,
+    "source_documents_processed": [
+      "Expirement Use Case Diagram.png"
+    ]
+  },
+  "functional_requirements": [
+    {
+      "requirement_id": "FR-001",
+      "category": "Product Browsing",
+      "priority": "High",
+      "source_reference": "View items use case",
+      "description": "System shall enable customers to view available items",
+      "dependencies": [],
+      "acceptance_criteria": "Customer can see item catalog without authentication"
+    },
+    {
+      "requirement_id": "FR-002",
+      "category": "Order Processing",
+      "priority": "High",
+      "source_reference": "Make Purchase use case",
+      "description": "System shall process purchase requests",
+      "dependencies": ["FR-001", "FR-003"],
+      "acceptance_criteria": "Registered customers can initiate purchases for selected items"
+    },
+    {
+      "requirement_id": "FR-003",
+      "category": "Checkout",
+      "priority": "High",
+      "source_reference": "Checkout use case",
+      "description": "System shall provide checkout functionality",
+      "dependencies": ["FR-005"],
+      "acceptance_criteria": "Customers can finalize purchases after payment selection"
+    },
+    {
+      "requirement_id": "FR-004",
+      "category": "User Management",
+      "priority": "Medium",
+      "source_reference": "Register use case",
+      "description": "System shall allow new customers to register accounts",
+      "dependencies": ["FR-006"],
+      "acceptance_criteria": "Registration option available for unauthenticated users"
+    },
+    {
+      "requirement_id": "FR-005",
+      "category": "Payment Processing",
+      "priority": "High",
+      "source_reference": "Credit Payment Service/PayPal",
+      "description": "System shall integrate with credit card and PayPal payment gateways",
+      "dependencies": [],
+      "acceptance_criteria": "Payment options visible during checkout"
+    },
+    {
+      "requirement_id": "FR-006",
+      "category": "Security",
+      "priority": "High",
+      "source_reference": "Authentication Service",
+      "description": "System shall authenticate registered customers",
+      "dependencies": [],
+      "acceptance_criteria": "Login mechanism available for registered users"
+    },
+    {
+      "requirement_id": "FR-007",
+      "category": "Integration",
+      "priority": "Medium",
+      "source_reference": "Identity Provider",
+      "description": "System shall integrate with external identity providers",
+      "dependencies": ["FR-006"],
+      "acceptance_criteria": "Authentication service can delegate to external identity providers"
+    }
+  ],
+  "non_functional_requirements": [
+    {
+      "requirement_id": "NFR-001",
+      "category": "Security",
+      "priority": "High",
+      "source_reference": "Authentication Service",
+      "description": "System shall implement secure authentication mechanisms",
+      "metrics": "Compliance with OAuth 2.0/OpenID Connect standards"
+    },
+    {
+      "requirement_id": "NFR-002",
+      "category": "Reliability",
+      "priority": "High",
+      "source_reference": "Credit Payment Service/PayPal",
+      "description": "Payment gateways shall maintain transaction integrity",
+      "metrics": "99.9% successful transaction processing rate"
+    }
+  ]
+}

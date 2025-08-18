@@ -1,0 +1,1109 @@
+{
+  "metadata": {
+    "total_functional_requirements": 87,
+    "total_non_functional_requirements": 22,
+    "source_documents_processed": ["SRS.docx - Software Requirements Specification for Car On Roads Advertisement System (CORADS) Version 1.0"]
+  },
+  "functional_requirements": [
+    {
+      "requirement_id": "FR-001",
+      "category": "Authentication",
+      "priority": "High",
+      "source_reference": "Section 3.1.1",
+      "description": "Advertisers shall be able to register with the application",
+      "acceptance_criteria": "Registration form accepts valid advertiser information and creates new account",
+      "dependencies": [],
+      "tags": ["advertiser", "registration", "user_management"]
+    },
+    {
+      "requirement_id": "FR-002",
+      "category": "Authentication",
+      "priority": "High",
+      "source_reference": "Section 3.1.1",
+      "description": "Registration shall require verification through OTP (One-Time Password)",
+      "acceptance_criteria": "System sends OTP to registered phone/email and validates before account activation",
+      "dependencies": ["FR-001"],
+      "tags": ["otp", "verification", "security"]
+    },
+    {
+      "requirement_id": "FR-003",
+      "category": "Authentication",
+      "priority": "High",
+      "source_reference": "Section 3.1.1",
+      "description": "Advertisers shall be able to log in to the application using their credentials",
+      "acceptance_criteria": "Login form accepts username/password and authenticates against stored credentials",
+      "dependencies": ["FR-001", "FR-002"],
+      "tags": ["login", "authentication", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-004",
+      "category": "Authentication",
+      "priority": "Medium",
+      "source_reference": "Section 3.1.1",
+      "description": "Advertisers shall be able to reset their password through a forgotten password feature",
+      "acceptance_criteria": "Password reset link sent to registered email, allows secure password update",
+      "dependencies": ["FR-001"],
+      "tags": ["password_reset", "security", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-005",
+      "category": "Profile Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.1.2",
+      "description": "Advertisers shall be able to view their profile information",
+      "acceptance_criteria": "Profile screen displays current advertiser information including name, email, phone",
+      "dependencies": ["FR-003"],
+      "tags": ["profile", "view", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-006",
+      "category": "Profile Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.1.2",
+      "description": "Advertisers shall be able to update their profile information",
+      "acceptance_criteria": "Profile edit form allows modification and saves changes to advertiser data",
+      "dependencies": ["FR-005"],
+      "tags": ["profile", "edit", "update", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-007",
+      "category": "Wallet Management",
+      "priority": "High",
+      "source_reference": "Section 3.1.3",
+      "description": "Advertisers shall be able to view their wallet balance",
+      "acceptance_criteria": "Wallet screen displays current balance amount with currency formatting",
+      "dependencies": ["FR-003"],
+      "tags": ["wallet", "balance", "payment", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-008",
+      "category": "Wallet Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.1.3",
+      "description": "Advertisers shall be able to view their transaction history",
+      "acceptance_criteria": "Transaction history shows chronological list of all wallet transactions with details",
+      "dependencies": ["FR-007"],
+      "tags": ["wallet", "transactions", "history", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-009",
+      "category": "Payment",
+      "priority": "High",
+      "source_reference": "Section 3.1.3",
+      "description": "Advertisers shall be able to recharge their wallet using JAZZ CASH",
+      "acceptance_criteria": "Integration with JAZZ CASH payment gateway allows secure wallet recharge",
+      "dependencies": ["FR-007"],
+      "tags": ["payment", "jazz_cash", "wallet_recharge", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-010",
+      "category": "Payment",
+      "priority": "Medium",
+      "source_reference": "Section 3.1.3",
+      "description": "Advertisers shall be able to recharge their wallet using vouchers",
+      "acceptance_criteria": "Voucher redemption interface validates and applies voucher value to wallet",
+      "dependencies": ["FR-007"],
+      "tags": ["voucher", "wallet_recharge", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-011",
+      "category": "Campaign Management",
+      "priority": "High",
+      "source_reference": "Section 3.1.4",
+      "description": "Advertisers shall be able to create advertising campaigns",
+      "acceptance_criteria": "Campaign creation form allows input of all required campaign parameters",
+      "dependencies": ["FR-003", "FR-007"],
+      "tags": ["campaign", "create", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-012",
+      "category": "Campaign Management",
+      "priority": "High",
+      "source_reference": "Section 3.1.4",
+      "description": "Advertisers shall be able to specify campaign parameters including target location, campaign duration, number of cars, and advertisement content (images)",
+      "acceptance_criteria": "Campaign form includes fields for location, duration, car count, and image upload",
+      "dependencies": ["FR-011"],
+      "tags": ["campaign", "parameters", "location", "duration", "images"]
+    },
+    {
+      "requirement_id": "FR-013",
+      "category": "Campaign Management",
+      "priority": "High",
+      "source_reference": "Section 3.1.4",
+      "description": "Advertisers shall be able to view active campaigns",
+      "acceptance_criteria": "Active campaigns list shows all currently running campaigns with status",
+      "dependencies": ["FR-011"],
+      "tags": ["campaign", "view", "active", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-014",
+      "category": "Campaign Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.1.4",
+      "description": "Advertisers shall be able to view pending campaigns",
+      "acceptance_criteria": "Pending campaigns list shows campaigns awaiting approval or driver assignment",
+      "dependencies": ["FR-011"],
+      "tags": ["campaign", "view", "pending", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-015",
+      "category": "Campaign Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.1.4",
+      "description": "Advertisers shall be able to view completed campaigns",
+      "acceptance_criteria": "Completed campaigns list shows finished campaigns with performance summary",
+      "dependencies": ["FR-011"],
+      "tags": ["campaign", "view", "completed", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-016",
+      "category": "Tracking",
+      "priority": "High",
+      "source_reference": "Section 3.1.4",
+      "description": "Advertisers shall be able to track the current location of drivers displaying their advertisements",
+      "acceptance_criteria": "Map interface shows real-time location of all drivers assigned to advertiser's campaigns",
+      "dependencies": ["FR-013"],
+      "tags": ["tracking", "location", "drivers", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-017",
+      "category": "Support",
+      "priority": "Medium",
+      "source_reference": "Section 3.1.5",
+      "description": "Advertisers shall be able to contact customer support",
+      "acceptance_criteria": "Support contact form or chat interface available for advertiser inquiries",
+      "dependencies": ["FR-003"],
+      "tags": ["support", "contact", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-018",
+      "category": "Support",
+      "priority": "Medium",
+      "source_reference": "Section 3.1.5",
+      "description": "Advertisers shall be able to inquire about driver status",
+      "acceptance_criteria": "Interface allows advertisers to check and inquire about specific driver statuses",
+      "dependencies": ["FR-016"],
+      "tags": ["support", "driver_status", "inquiry", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-019",
+      "category": "Authentication",
+      "priority": "High",
+      "source_reference": "Section 3.2.1",
+      "description": "Drivers shall be able to register with the application",
+      "acceptance_criteria": "Registration form accepts driver information and creates new driver account",
+      "dependencies": [],
+      "tags": ["driver", "registration", "user_management"]
+    },
+    {
+      "requirement_id": "FR-020",
+      "category": "Authentication",
+      "priority": "High",
+      "source_reference": "Section 3.2.1",
+      "description": "Drivers shall be able to log in to the application using their credentials",
+      "acceptance_criteria": "Login form authenticates driver credentials and provides access to driver features",
+      "dependencies": ["FR-019"],
+      "tags": ["login", "authentication", "driver"]
+    },
+    {
+      "requirement_id": "FR-021",
+      "category": "Authentication",
+      "priority": "Medium",
+      "source_reference": "Section 3.2.1",
+      "description": "Drivers shall be able to sign out from the application",
+      "acceptance_criteria": "Logout function terminates driver session and returns to login screen",
+      "dependencies": ["FR-020"],
+      "tags": ["logout", "session", "driver"]
+    },
+    {
+      "requirement_id": "FR-022",
+      "category": "Profile Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.2.2",
+      "description": "Drivers shall be able to view their profile information",
+      "acceptance_criteria": "Profile screen displays driver information including personal and vehicle details",
+      "dependencies": ["FR-020"],
+      "tags": ["profile", "view", "driver"]
+    },
+    {
+      "requirement_id": "FR-023",
+      "category": "Profile Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.2.2",
+      "description": "Drivers shall be able to update their profile information",
+      "acceptance_criteria": "Profile edit form allows modification of driver and vehicle information",
+      "dependencies": ["FR-022"],
+      "tags": ["profile", "edit", "update", "driver"]
+    },
+    {
+      "requirement_id": "FR-024",
+      "category": "Profile Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.2.2",
+      "description": "Drivers shall be able to upload images of their vehicles",
+      "acceptance_criteria": "Vehicle image upload interface accepts and stores multiple vehicle photos",
+      "dependencies": ["FR-023"],
+      "tags": ["vehicle", "images", "upload", "driver"]
+    },
+    {
+      "requirement_id": "FR-025",
+      "category": "Campaign Interaction",
+      "priority": "High",
+      "source_reference": "Section 3.2.3",
+      "description": "Drivers shall be able to receive campaign requests",
+      "acceptance_criteria": "Push notifications and in-app alerts notify drivers of new campaign opportunities",
+      "dependencies": ["FR-020"],
+      "tags": ["campaign", "requests", "notifications", "driver"]
+    },
+    {
+      "requirement_id": "FR-026",
+      "category": "Campaign Interaction",
+      "priority": "High",
+      "source_reference": "Section 3.2.3",
+      "description": "Drivers shall be able to accept or reject campaign requests",
+      "acceptance_criteria": "Campaign request interface provides accept/reject buttons with confirmation",
+      "dependencies": ["FR-025"],
+      "tags": ["campaign", "accept", "reject", "driver"]
+    },
+    {
+      "requirement_id": "FR-027",
+      "category": "Navigation",
+      "priority": "High",
+      "source_reference": "Section 3.2.3",
+      "description": "Drivers shall be able to view navigation to installation centers",
+      "acceptance_criteria": "Map interface provides turn-by-turn navigation to assigned installation center",
+      "dependencies": ["FR-026"],
+      "tags": ["navigation", "installation_center", "maps", "driver"]
+    },
+    {
+      "requirement_id": "FR-028",
+      "category": "Campaign Interaction",
+      "priority": "High",
+      "source_reference": "Section 3.2.3",
+      "description": "Drivers shall be able to start campaigns after installation",
+      "acceptance_criteria": "Campaign start button becomes available after installation verification",
+      "dependencies": ["FR-027"],
+      "tags": ["campaign", "start", "installation", "driver"]
+    },
+    {
+      "requirement_id": "FR-029",
+      "category": "Campaign Interaction",
+      "priority": "High",
+      "source_reference": "Section 3.2.3",
+      "description": "Drivers shall be able to record their campaign activities",
+      "acceptance_criteria": "Activity logging interface captures driver actions during campaign execution",
+      "dependencies": ["FR-028"],
+      "tags": ["campaign", "activities", "recording", "driver"]
+    },
+    {
+      "requirement_id": "FR-030",
+      "category": "Verification",
+      "priority": "High",
+      "source_reference": "Section 3.2.3",
+      "description": "Drivers shall be able to upload verification images with location data",
+      "acceptance_criteria": "Camera interface captures photos with GPS coordinates for campaign verification",
+      "dependencies": ["FR-029"],
+      "tags": ["verification", "images", "location", "gps", "driver"]
+    },
+    {
+      "requirement_id": "FR-031",
+      "category": "Wallet Management",
+      "priority": "High",
+      "source_reference": "Section 3.2.4",
+      "description": "Drivers shall be able to view their wallet balance",
+      "acceptance_criteria": "Wallet screen displays current earnings balance with currency formatting",
+      "dependencies": ["FR-020"],
+      "tags": ["wallet", "balance", "earnings", "driver"]
+    },
+    {
+      "requirement_id": "FR-032",
+      "category": "Wallet Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.2.4",
+      "description": "Drivers shall be able to view their earnings history",
+      "acceptance_criteria": "Earnings history shows chronological list of payments from completed campaigns",
+      "dependencies": ["FR-031"],
+      "tags": ["earnings", "history", "payments", "driver"]
+    },
+    {
+      "requirement_id": "FR-033",
+      "category": "Support",
+      "priority": "Medium",
+      "source_reference": "Section 3.2.5",
+      "description": "Drivers shall be able to access help center resources",
+      "acceptance_criteria": "Help center provides FAQs, guides, and troubleshooting information for drivers",
+      "dependencies": ["FR-020"],
+      "tags": ["help", "support", "resources", "driver"]
+    },
+    {
+      "requirement_id": "FR-034",
+      "category": "Support",
+      "priority": "Medium",
+      "source_reference": "Section 3.2.5",
+      "description": "Drivers shall be able to contact customer support",
+      "acceptance_criteria": "Support contact form or chat interface available for driver inquiries",
+      "dependencies": ["FR-020"],
+      "tags": ["support", "contact", "driver"]
+    },
+    {
+      "requirement_id": "FR-035",
+      "category": "Authentication",
+      "priority": "High",
+      "source_reference": "Section 3.3.1",
+      "description": "Administrators shall be able to log in to the admin portal",
+      "acceptance_criteria": "Admin login form authenticates credentials and provides access to admin features",
+      "dependencies": [],
+      "tags": ["admin", "login", "portal", "authentication"]
+    },
+    {
+      "requirement_id": "FR-036",
+      "category": "Authentication",
+      "priority": "Medium",
+      "source_reference": "Section 3.3.1",
+      "description": "Administrators shall be able to reset their password",
+      "acceptance_criteria": "Password reset functionality available for admin accounts with secure verification",
+      "dependencies": ["FR-035"],
+      "tags": ["admin", "password_reset", "security"]
+    },
+    {
+      "requirement_id": "FR-037",
+      "category": "Access Control",
+      "priority": "High",
+      "source_reference": "Section 3.3.1",
+      "description": "The system shall support different admin roles with varying access levels",
+      "acceptance_criteria": "Role-based access control restricts admin functions based on assigned permissions",
+      "dependencies": ["FR-035"],
+      "tags": ["admin", "roles", "access_control", "permissions"]
+    },
+    {
+      "requirement_id": "FR-038",
+      "category": "User Management",
+      "priority": "High",
+      "source_reference": "Section 3.3.2",
+      "description": "Administrators shall be able to add, delete, and update admin accounts",
+      "acceptance_criteria": "Admin management interface allows CRUD operations on admin accounts",
+      "dependencies": ["FR-037"],
+      "tags": ["admin", "user_management", "crud"]
+    },
+    {
+      "requirement_id": "FR-039",
+      "category": "User Management",
+      "priority": "High",
+      "source_reference": "Section 3.3.2",
+      "description": "Administrators shall be able to add drivers to the system",
+      "acceptance_criteria": "Driver registration interface allows admins to create new driver accounts",
+      "dependencies": ["FR-035"],
+      "tags": ["admin", "driver_management", "registration"]
+    },
+    {
+      "requirement_id": "FR-040",
+      "category": "User Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.3.2",
+      "description": "Administrators shall be able to create driver profiles",
+      "acceptance_criteria": "Driver profile creation form captures all required driver and vehicle information",
+      "dependencies": ["FR-039"],
+      "tags": ["admin", "driver_profile", "creation"]
+    },
+    {
+      "requirement_id": "FR-041",
+      "category": "User Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.3.2",
+      "description": "Administrators shall be able to update user information",
+      "acceptance_criteria": "User management interface allows modification of advertiser and driver data",
+      "dependencies": ["FR-035"],
+      "tags": ["admin", "user_update", "modification"]
+    },
+    {
+      "requirement_id": "FR-042",
+      "category": "User Management",
+      "priority": "High",
+      "source_reference": "Section 3.3.2",
+      "description": "Administrators shall be able to block and unblock driver accounts",
+      "acceptance_criteria": "Driver account status can be toggled between active and blocked states",
+      "dependencies": ["FR-041"],
+      "tags": ["admin", "driver_blocking", "account_status"]
+    },
+    {
+      "requirement_id": "FR-043",
+      "category": "Communication",
+      "priority": "Medium",
+      "source_reference": "Section 3.3.2",
+      "description": "Administrators shall be able to send notifications to drivers and advertisers",
+      "acceptance_criteria": "Notification system allows admins to send push notifications to user groups",
+      "dependencies": ["FR-035"],
+      "tags": ["admin", "notifications", "communication"]
+    },
+    {
+      "requirement_id": "FR-044",
+      "category": "Communication",
+      "priority": "Medium",
+      "source_reference": "Section 3.3.2",
+      "description": "Administrators shall be able to send emails to drivers and advertisers",
+      "acceptance_criteria": "Email system allows admins to send emails to individual users or groups",
+      "dependencies": ["FR-035"],
+      "tags": ["admin", "email", "communication"]
+    },
+    {
+      "requirement_id": "FR-045",
+      "category": "Campaign Management",
+      "priority": "High",
+      "source_reference": "Section 3.3.3",
+      "description": "Administrators shall be able to search for campaigns and users",
+      "acceptance_criteria": "Search functionality allows filtering campaigns and users by various criteria",
+      "dependencies": ["FR-035"],
+      "tags": ["admin", "search", "campaigns", "users"]
+    },
+    {
+      "requirement_id": "FR-046",
+      "category": "Campaign Management",
+      "priority": "High",
+      "source_reference": "Section 3.3.3",
+      "description": "Administrators shall be able to activate campaigns",
+      "acceptance_criteria": "Campaign activation controls allow admins to approve and start campaigns",
+      "dependencies": ["FR-045"],
+      "tags": ["admin", "campaign_activation", "approval"]
+    },
+    {
+      "requirement_id": "FR-047",
+      "category": "Campaign Management",
+      "priority": "High",
+      "source_reference": "Section 3.3.3",
+      "description": "Administrators shall be able to start driver campaigns from installation centers",
+      "acceptance_criteria": "Installation center interface allows admins to initiate driver campaigns",
+      "dependencies": ["FR-046"],
+      "tags": ["admin", "campaign_start", "installation_center"]
+    },
+    {
+      "requirement_id": "FR-048",
+      "category": "Campaign Management",
+      "priority": "High",
+      "source_reference": "Section 3.3.3",
+      "description": "Administrators shall be able to complete driver trials",
+      "acceptance_criteria": "Trial completion interface allows admins to mark driver campaigns as completed",
+      "dependencies": ["FR-047"],
+      "tags": ["admin", "trial_completion", "campaigns"]
+    },
+    {
+      "requirement_id": "FR-049",
+      "category": "System Configuration",
+      "priority": "Medium",
+      "source_reference": "Section 3.3.4",
+      "description": "Administrators shall be able to add, delete, and update coupons",
+      "acceptance_criteria": "Coupon management interface allows CRUD operations on discount coupons",
+      "dependencies": ["FR-035"],
+      "tags": ["admin", "coupons", "configuration"]
+    },
+    {
+      "requirement_id": "FR-050",
+      "category": "System Configuration",
+      "priority": "Medium",
+      "source_reference": "Section 3.3.4",
+      "description": "Administrators shall be able to add, delete, and update vouchers",
+      "acceptance_criteria": "Voucher management interface allows CRUD operations on payment vouchers",
+      "dependencies": ["FR-035"],
+      "tags": ["admin", "vouchers", "configuration"]
+    },
+    {
+      "requirement_id": "FR-051",
+      "category": "System Configuration",
+      "priority": "Medium",
+      "source_reference": "Section 3.3.4",
+      "description": "Administrators shall be able to add, delete, and update car types",
+      "acceptance_criteria": "Car type management interface allows configuration of vehicle categories",
+      "dependencies": ["FR-035"],
+      "tags": ["admin", "car_types", "configuration"]
+    },
+    {
+      "requirement_id": "FR-052",
+      "category": "System Configuration",
+      "priority": "High",
+      "source_reference": "Section 3.3.4",
+      "description": "Administrators shall be able to manage installation centers",
+      "acceptance_criteria": "Installation center management allows adding, updating, and removing center locations",
+      "dependencies": ["FR-035"],
+      "tags": ["admin", "installation_centers", "location_management"]
+    },
+    {
+      "requirement_id": "FR-053",
+      "category": "Campaign Management",
+      "priority": "High",
+      "source_reference": "Section 3.4.1",
+      "description": "The system shall allow the creation of advertising campaigns with specified parameters",
+      "acceptance_criteria": "Campaign creation validates all required parameters before storing campaign data",
+      "dependencies": ["FR-011"],
+      "tags": ["system", "campaign_creation", "validation"]
+    },
+    {
+      "requirement_id": "FR-054",
+      "category": "Campaign Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.4.1",
+      "description": "The system shall support multiple images in campaign creation",
+      "acceptance_criteria": "Campaign form allows upload and storage of multiple advertisement images",
+      "dependencies": ["FR-053"],
+      "tags": ["system", "images", "multiple_upload"]
+    },
+    {
+      "requirement_id": "FR-055",
+      "category": "Campaign Management",
+      "priority": "High",
+      "source_reference": "Section 3.4.1",
+      "description": "The system shall validate campaign parameters before creation",
+      "acceptance_criteria": "Parameter validation ensures all required fields are completed with valid data",
+      "dependencies": ["FR-053"],
+      "tags": ["system", "validation", "parameters"]
+    },
+    {
+      "requirement_id": "FR-056",
+      "category": "Campaign Assignment",
+      "priority": "High",
+      "source_reference": "Section 3.4.2",
+      "description": "The system shall match campaigns to appropriate drivers based on location and availability",
+      "acceptance_criteria": "Matching algorithm considers driver location, availability, and campaign requirements",
+      "dependencies": ["FR-055"],
+      "tags": ["system", "matching", "algorithms", "location"]
+    },
+    {
+      "requirement_id": "FR-057",
+      "category": "Campaign Assignment",
+      "priority": "High",
+      "source_reference": "Section 3.4.2",
+      "description": "The system shall send campaign requests to selected drivers",
+      "acceptance_criteria": "Notification system sends campaign invitations to matched drivers",
+      "dependencies": ["FR-056"],
+      "tags": ["system", "notifications", "campaign_requests"]
+    },
+    {
+      "requirement_id": "FR-058",
+      "category": "Campaign Assignment",
+      "priority": "Medium",
+      "source_reference": "Section 3.4.2",
+      "description": "The system shall track driver responses to campaign requests",
+      "acceptance_criteria": "Response tracking logs driver accept/reject decisions with timestamps",
+      "dependencies": ["FR-057"],
+      "tags": ["system", "tracking", "responses"]
+    },
+    {
+      "requirement_id": "FR-059",
+      "category": "Campaign Execution",
+      "priority": "High",
+      "source_reference": "Section 3.4.3",
+      "description": "The system shall guide drivers to installation centers",
+      "acceptance_criteria": "Navigation system provides directions to assigned installation center",
+      "dependencies": ["FR-058"],
+      "tags": ["system", "navigation", "installation"]
+    },
+    {
+      "requirement_id": "FR-060",
+      "category": "Campaign Execution",
+      "priority": "High",
+      "source_reference": "Section 3.4.3",
+      "description": "The system shall track the installation process",
+      "acceptance_criteria": "Installation tracking monitors progress from arrival to completion verification",
+      "dependencies": ["FR-059"],
+      "tags": ["system", "installation", "tracking"]
+    },
+    {
+      "requirement_id": "FR-061",
+      "category": "Campaign Execution",
+      "priority": "High",
+      "source_reference": "Section 3.4.3",
+      "description": "The system shall monitor campaign progress in real-time",
+      "acceptance_criteria": "Real-time monitoring displays current campaign status and driver locations",
+      "dependencies": ["FR-060"],
+      "tags": ["system", "monitoring", "real_time"]
+    },
+    {
+      "requirement_id": "FR-062",
+      "category": "Campaign Execution",
+      "priority": "High",
+      "source_reference": "Section 3.4.3",
+      "description": "The system shall enforce campaign time and distance constraints",
+      "acceptance_criteria": "Constraint enforcement prevents campaign completion until requirements are met",
+      "dependencies": ["FR-061"],
+      "tags": ["system", "constraints", "enforcement"]
+    },
+    {
+      "requirement_id": "FR-063",
+      "category": "Reporting",
+      "priority": "High",
+      "source_reference": "Section 3.4.4",
+      "description": "The system shall generate campaign performance reports",
+      "acceptance_criteria": "Report generation creates comprehensive performance analytics for campaigns",
+      "dependencies": ["FR-062"],
+      "tags": ["system", "reports", "performance", "analytics"]
+    },
+    {
+      "requirement_id": "FR-064",
+      "category": "Reporting",
+      "priority": "Medium",
+      "source_reference": "Section 3.4.4",
+      "description": "The system shall provide heat maps showing advertisement display concentration",
+      "acceptance_criteria": "Heat map visualization shows geographic distribution of advertisement displays",
+      "dependencies": ["FR-063"],
+      "tags": ["system", "heat_maps", "visualization", "geographic"]
+    },
+    {
+      "requirement_id": "FR-065",
+      "category": "Reporting",
+      "priority": "High",
+      "source_reference": "Section 3.4.4",
+      "description": "The system shall track the duration and location of advertisement displays",
+      "acceptance_criteria": "Display tracking records time spent and locations visited during campaigns",
+      "dependencies": ["FR-063"],
+      "tags": ["system", "tracking", "duration", "location"]
+    },
+    {
+      "requirement_id": "FR-066",
+      "category": "Payment Processing",
+      "priority": "High",
+      "source_reference": "Section 3.5.1",
+      "description": "The system shall integrate with JAZZ CASH payment gateway",
+      "acceptance_criteria": "Payment integration processes transactions securely through JAZZ CASH API",
+      "dependencies": [],
+      "tags": ["system", "payment", "jazz_cash", "integration"]
+    },
+    {
+      "requirement_id": "FR-067",
+      "category": "Payment Processing",
+      "priority": "High",
+      "source_reference": "Section 3.5.1",
+      "description": "The system shall process wallet recharge transactions",
+      "acceptance_criteria": "Wallet recharge processes payments and updates user account balances",
+      "dependencies": ["FR-066"],
+      "tags": ["system", "wallet", "recharge", "transactions"]
+    },
+    {
+      "requirement_id": "FR-068",
+      "category": "Payment Processing",
+      "priority": "High",
+      "source_reference": "Section 3.5.1",
+      "description": "The system shall calculate driver earnings based on campaign participation",
+      "acceptance_criteria": "Earnings calculation considers campaign duration, distance, and completion status",
+      "dependencies": ["FR-062"],
+      "tags": ["system", "earnings", "calculation", "campaigns"]
+    },
+    {
+      "requirement_id": "FR-069",
+      "category": "Payment Processing",
+      "priority": "High",
+      "source_reference": "Section 3.5.1",
+      "description": "The system shall maintain transaction records",
+      "acceptance_criteria": "Transaction logging stores all payment and earnings transactions with audit trail",
+      "dependencies": ["FR-067", "FR-068"],
+      "tags": ["system", "transactions", "records", "audit"]
+    },
+    {
+      "requirement_id": "FR-070",
+      "category": "Discount Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.5.2",
+      "description": "The system shall support discount coupons for advertisers",
+      "acceptance_criteria": "Coupon system applies valid discounts to advertiser campaign costs",
+      "dependencies": ["FR-049"],
+      "tags": ["system", "coupons", "discounts", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-071",
+      "category": "Discount Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.5.2",
+      "description": "The system shall support voucher-based wallet recharges",
+      "acceptance_criteria": "Voucher system validates and processes voucher codes for wallet credits",
+      "dependencies": ["FR-050"],
+      "tags": ["system", "vouchers", "wallet", "recharge"]
+    },
+    {
+      "requirement_id": "FR-072",
+      "category": "Discount Management",
+      "priority": "Medium",
+      "source_reference": "Section 3.5.2",
+      "description": "The system shall validate coupons and vouchers before application",
+      "acceptance_criteria": "Validation checks coupon/voucher status, expiry, and usage limits before applying",
+      "dependencies": ["FR-070", "FR-071"],
+      "tags": ["system", "validation", "coupons", "vouchers"]
+    },
+    {
+      "requirement_id": "FR-073",
+      "category": "Real-time Tracking",
+      "priority": "High",
+      "source_reference": "Section 3.6.1",
+      "description": "The system shall track the real-time location of drivers",
+      "acceptance_criteria": "GPS tracking continuously monitors and updates driver locations during campaigns",
+      "dependencies": ["FR-061"],
+      "tags": ["system", "tracking", "real_time", "gps", "location"]
+    },
+    {
+      "requirement_id": "FR-074",
+      "category": "Real-time Tracking",
+      "priority": "High",
+      "source_reference": "Section 3.6.1",
+      "description": "The system shall display active campaigns on a map",
+      "acceptance_criteria": "Map interface shows all active campaigns with driver locations and campaign details",
+      "dependencies": ["FR-073"],
+      "tags": ["system", "map", "display", "campaigns"]
+    },
+    {
+      "requirement_id": "FR-075",
+      "category": "Real-time Tracking",
+      "priority": "High",
+      "source_reference": "Section 3.6.1",
+      "description": "The system shall allow advertisers to track specific drivers",
+      "acceptance_criteria": "Driver tracking interface allows advertisers to monitor specific drivers assigned to their campaigns",
+      "dependencies": ["FR-074"],
+      "tags": ["system", "tracking", "specific_drivers", "advertiser"]
+    },
+    {
+      "requirement_id": "FR-076",
+      "category": "Route Monitoring",
+      "priority": "Medium",
+      "source_reference": "Section 3.6.2",
+      "description": "The system shall record driver routes during campaigns",
+      "acceptance_criteria": "Route recording captures GPS coordinates and timestamps throughout campaign duration",
+      "dependencies": ["FR-073"],
+      "tags": ["system", "route", "recording", "gps"]
+    },
+    {
+      "requirement_id": "FR-077",
+      "category": "Route Monitoring",
+      "priority": "Medium",
+      "source_reference": "Section 3.6.2",
+      "description": "The system shall analyze driver movement patterns",
+      "acceptance_criteria": "Pattern analysis identifies regular routes and movement behaviors for optimization",
+      "dependencies": ["FR-076"],
+      "tags": ["system", "analysis", "patterns", "movement"]
+    },
+    {
+      "requirement_id": "FR-078",
+      "category": "Route Monitoring",
+      "priority": "Medium",
+      "source_reference": "Section 3.6.2",
+      "description": "The system shall detect deviations from expected routes",
+      "acceptance_criteria": "Deviation detection alerts administrators when drivers stray from designated areas",
+      "dependencies": ["FR-077"],
+      "tags": ["system", "deviation", "detection", "alerts"]
+    },
+    {
+      "requirement_id": "FR-079",
+      "category": "Verification System",
+      "priority": "High",
+      "source_reference": "Section 3.6.3",
+      "description": "The system shall request verification images from drivers",
+      "acceptance_criteria": "Verification requests prompt drivers to capture photos at specified intervals or locations",
+      "dependencies": ["FR-030"],
+      "tags": ["system", "verification", "images", "requests"]
+    },
+    {
+      "requirement_id": "FR-080",
+      "category": "Verification System",
+      "priority": "High",
+      "source_reference": "Section 3.6.3",
+      "description": "The system shall verify image location data",
+      "acceptance_criteria": "Location verification confirms GPS coordinates embedded in uploaded images",
+      "dependencies": ["FR-079"],
+      "tags": ["system", "verification", "location", "gps"]
+    },
+    {
+      "requirement_id": "FR-081",
+      "category": "Verification System",
+      "priority": "Medium",
+      "source_reference": "Section 3.6.3",
+      "description": "The system shall maintain a record of verification activities",
+      "acceptance_criteria": "Verification logging stores all verification attempts, results, and timestamps",
+      "dependencies": ["FR-080"],
+      "tags": ["system", "verification", "records", "logging"]
+    },
+    {
+      "requirement_id": "FR-082",
+      "category": "Customer Support",
+      "priority": "Medium",
+      "source_reference": "Section 3.7.1",
+      "description": "The system shall provide support channels for advertisers and drivers",
+      "acceptance_criteria": "Multiple support channels including chat, email, and phone are available to users",
+      "dependencies": ["FR-017", "FR-034"],
+      "tags": ["system", "support", "channels", "communication"]
+    },
+    {
+      "requirement_id": "FR-083",
+      "category": "Customer Support",
+      "priority": "Medium",
+      "source_reference": "Section 3.7.1",
+      "description": "The system shall allow users to submit support tickets",
+      "acceptance_criteria": "Ticket system captures user issues with categorization and priority assignment",
+      "dependencies": ["FR-082"],
+      "tags": ["system", "tickets", "support", "submission"]
+    },
+    {
+      "requirement_id": "FR-084",
+      "category": "Customer Support",
+      "priority": "Medium",
+      "source_reference": "Section 3.7.1",
+      "description": "The system shall track support request status",
+      "acceptance_criteria": "Status tracking shows ticket progress from submission to resolution",
+      "dependencies": ["FR-083"],
+      "tags": ["system", "support", "tracking", "status"]
+    },
+    {
+      "requirement_id": "FR-085",
+      "category": "Communication",
+      "priority": "High",
+      "source_reference": "Section 3.7.2",
+      "description": "The system shall support FCM notifications",
+      "acceptance_criteria": "Firebase Cloud Messaging integration sends push notifications to mobile devices",
+      "dependencies": [],
+      "tags": ["system", "fcm", "notifications", "firebase"]
+    },
+    {
+      "requirement_id": "FR-086",
+      "category": "Communication",
+      "priority": "Medium",
+      "source_reference": "Section 3.7.2",
+      "description": "The system shall support email communications",
+      "acceptance_criteria": "Email system sends automated and manual communications to users",
+      "dependencies": [],
+      "tags": ["system", "email", "communications", "smtp"]
+    },
+    {
+      "requirement_id": "FR-087",
+      "category": "Communication",
+      "priority": "Low",
+      "source_reference": "Section 3.7.2",
+      "description": "The system shall maintain communication logs",
+      "acceptance_criteria": "Communication logging records all notifications, emails, and messages sent",
+      "dependencies": ["FR-085", "FR-086"],
+      "tags": ["system", "communication", "logs", "audit"]
+    }
+  ],
+  "non_functional_requirements": [
+    {
+      "requirement_id": "NFR-001",
+      "category": "Performance",
+      "priority": "High",
+      "source_reference": "Section 5.1",
+      "description": "The mobile applications shall load within 3 seconds on devices meeting the minimum specifications",
+      "acceptance_criteria": "Application startup time measured from launch to usable interface is under 3 seconds",
+      "metrics": "Load time ≤ 3 seconds",
+      "dependencies": [],
+      "tags": ["performance", "mobile", "load_time"]
+    },
+    {
+      "requirement_id": "NFR-002",
+      "category": "Performance",
+      "priority": "High",
+      "source_reference": "Section 5.1",
+      "description": "The system shall support a minimum of 1000 concurrent users",
+      "acceptance_criteria": "System maintains functionality and performance with 1000 simultaneous active users",
+      "metrics": "Concurrent users ≥ 1000",
+      "dependencies": [],
+      "tags": ["performance", "concurrency", "scalability"]
+    },
+    {
+      "requirement_id": "NFR-003",
+      "category": "Performance",
+      "priority": "High",
+      "source_reference": "Section 5.1",
+      "description": "Location tracking updates shall occur at least every 30 seconds",
+      "acceptance_criteria": "GPS location data is refreshed and transmitted at maximum 30-second intervals",
+      "metrics": "Update frequency ≤ 30 seconds",
+      "dependencies": ["FR-073"],
+      "tags": ["performance", "tracking", "location", "frequency"]
+    },
+    {
+      "requirement_id": "NFR-004",
+      "category": "Performance",
+      "priority": "High",
+      "source_reference": "Section 5.1",
+      "description": "API responses shall be delivered within 2 seconds under normal load",
+      "acceptance_criteria": "All API endpoints respond within 2 seconds during normal operating conditions",
+      "metrics": "Response time ≤ 2 seconds",
+      "dependencies": [],
+      "tags": ["performance", "api", "response_time"]
+    },
+    {
+      "requirement_id": "NFR-005",
+      "category": "Performance",
+      "priority": "Medium",
+      "source_reference": "Section 5.1",
+      "description": "The system shall handle up to 100 campaign creations per minute",
+      "acceptance_criteria": "Campaign creation processing maintains performance with up to 100 submissions per minute",
+      "metrics": "Campaign creation rate ≤ 100/minute",
+      "dependencies": ["FR-053"],
+      "tags": ["performance", "campaigns", "creation", "throughput"]
+    },
+    {
+      "requirement_id": "NFR-006",
+      "category": "Performance",
+      "priority": "Medium",
+      "source_reference": "Section 5.1",
+      "description": "Push notifications shall be delivered within 5 seconds of triggering events",
+      "acceptance_criteria": "Notification delivery time from trigger to device receipt is under 5 seconds",
+      "metrics": "Notification delivery time ≤ 5 seconds",
+      "dependencies": ["FR-085"],
+      "tags": ["performance", "notifications", "delivery", "real_time"]
+    },
+    {
+      "requirement_id": "NFR-007",
+      "category": "Safety",
+      "priority": "High",
+      "source_reference": "Section 5.2",
+      "description": "The driver application shall not require interaction while the vehicle is in motion",
+      "acceptance_criteria": "App functions that require driver input are disabled or blocked when vehicle is moving",
+      "dependencies": ["FR-020"],
+      "tags": ["safety", "driver", "interaction", "motion"]
+    },
+    {
+      "requirement_id": "NFR-008",
+      "category": "Safety",
+      "priority": "High",
+      "source_reference": "Section 5.2",
+      "description": "The system shall comply with local road safety regulations regarding vehicle modifications",
+      "acceptance_criteria": "Advertisement installations meet all applicable vehicle modification safety standards",
+      "dependencies": ["FR-060"],
+      "tags": ["safety", "regulations", "compliance", "modifications"]
+    },
+    {
+      "requirement_id": "NFR-009",
+      "category": "Safety",
+      "priority": "High",
+      "source_reference": "Section 5.2",
+      "description": "The system shall verify that advertisements do not obstruct driver visibility",
+      "acceptance_criteria": "Installation verification process ensures ads do not block windows or mirrors",
+      "dependencies": ["FR-079"],
+      "tags": ["safety", "visibility", "verification", "obstruction"]
+    },
+    {
+      "requirement_id": "NFR-010",
+      "category": "Safety",
+      "priority": "Medium",
+      "source_reference": "Section 5.2",
+      "description": "The system shall monitor and flag potentially unsafe driving behaviors",
+      "acceptance_criteria": "Behavioral monitoring detects and reports dangerous driving patterns",
+      "dependencies": ["FR-077"],
+      "tags": ["safety", "monitoring", "driving", "behavior"]
+    },
+    {
+      "requirement_id": "NFR-011",
+      "category": "Security",
+      "priority": "High",
+      "source_reference": "Section 5.3",
+      "description": "User authentication shall employ secure password hashing",
+      "acceptance_criteria": "Passwords are hashed using industry-standard algorithms before storage",
+      "dependencies": ["FR-003", "FR-020", "FR-035"],
+      "tags": ["security", "authentication", "password", "hashing"]
+    },
+    {
+      "requirement_id": "NFR-012",
+      "category": "Security",
+      "priority": "High",
+      "source_reference": "Section 5.3",
+      "description": "All API communications shall be encrypted using TLS",
+      "acceptance_criteria": "All client-server communications use TLS encryption with valid certificates",
+      "dependencies": [],
+      "tags": ["security", "encryption", "tls", "communications"]
+    },
+    {
+      "requirement_id": "NFR-013",
+      "category": "Security",
+      "priority": "High",
+      "source_reference": "Section 5.3",
+      "description": "Payment information shall be handled in compliance with PCI DSS standards",
+      "acceptance_criteria": "Payment processing meets Payment Card Industry Data Security Standards",
+      "dependencies": ["FR-066"],
+      "tags": ["security", "payment", "pci_dss", "compliance"]
+    },
+    {
+      "requirement_id": "NFR-014",
+      "category": "Security",
+      "priority": "Medium",
+      "source_reference": "Section 5.3",
+      "description": "User sessions shall timeout after 30 minutes of inactivity",
+      "acceptance_criteria": "Inactive user sessions are automatically terminated after 30 minutes",
+      "metrics": "Session timeout = 30 minutes",
+      "dependencies": ["FR-003", "FR-020", "FR-035"],
+      "tags": ["security", "session", "timeout", "inactivity"]
+    },
+    {
+      "requirement_id": "NFR-015",
+      "category": "Security",
+      "priority": "Medium",
+      "source_reference": "Section 5.3",
+      "description": "The system shall implement rate limiting to prevent brute force attacks",
+      "acceptance_criteria": "Rate limiting blocks excessive login attempts and API calls from single sources",
+      "dependencies": [],
+      "tags": ["security", "rate_limiting", "brute_force", "protection"]
+    },
+    {
+      "requirement_id": "NFR-016",
+      "category": "Security",
+      "priority": "Medium",
+      "source_reference": "Section 5.3",
+      "description": "The system shall maintain audit logs of all administrative actions",
+      "acceptance_criteria": "Comprehensive logging records all admin activities with timestamps and user identification",
+      "dependencies": ["FR-035"],
+      "tags": ["security", "audit", "logging", "admin"]
+    },
+    {
+      "requirement_id": "NFR-017",
+      "category": "Usability",
+      "priority": "High",
+      "source_reference": "Section 5.4",
+      "description": "The interface shall be intuitive enough that a new user can complete basic tasks without assistance",
+      "acceptance_criteria": "New users can register, create campaigns, and accept assignments without training",
+      "dependencies": [],
+      "tags": ["usability", "intuitive", "user_experience", "basic_tasks"]
+    },
+    {
+      "requirement_id": "NFR-018",
+      "category": "Reliability",
+      "priority": "High",
+      "source_reference": "Section 5.4",
+      "description": "The system shall maintain 99.5% uptime during operating hours",
+      "acceptance_criteria": "System availability measured over operating hours meets 99.5% threshold",
+      "metrics": "Uptime ≥ 99.5%",
+      "dependencies": [],
+      "tags": ["reliability", "uptime", "availability", "sla"]
+    },
+    {
+      "requirement_id": "NFR-019",
+      "category": "Availability",
+      "priority": "High",
+      "source_reference": "Section 5.4",
+      "description": "The system shall be available 24/7 with scheduled maintenance windows",
+      "acceptance_criteria": "System operates continuously except during pre-announced maintenance periods",
+      "dependencies": [],
+      "tags": ["availability", "24x7", "maintenance", "windows"]
+    },
+    {
+      "requirement_id": "NFR-020",
+      "category": "Maintainability",
+      "priority": "Medium",
+      "source_reference": "Section 5.4",
+      "description": "The codebase shall follow consistent coding standards and include documentation",
+      "acceptance_criteria": "Code adheres to established standards with comprehensive inline and technical documentation",
+      "dependencies": [],
+      "tags": ["maintainability", "coding_standards", "documentation"]
+    },
+    {
+      "requirement_id": "NFR-021",
+      "category": "Portability",
+      "priority": "Medium",
+      "source_reference": "Section 5.4",
+      "description": "The mobile applications shall function on all Android devices meeting the minimum requirements",
+      "acceptance_criteria": "Apps work correctly on all Android devices running version 6.0 or higher",
+      "dependencies": [],
+      "tags": ["portability", "android", "compatibility", "minimum_requirements"]
+    },
+    {
+      "requirement_id": "NFR-022",
+      "category": "Scalability",
+      "priority": "High",
+      "source_reference": "Section 5.4",
+      "description": "The system shall be designed to scale horizontally to accommodate growth",
+      "acceptance_criteria": "Architecture supports adding server instances to handle increased load",
+      "dependencies": [],
+      "tags": ["scalability", "horizontal", "growth", "architecture"]
+    }
+  ]
+}

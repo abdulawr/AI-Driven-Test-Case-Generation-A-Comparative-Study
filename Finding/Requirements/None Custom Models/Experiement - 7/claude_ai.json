@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "total_functional_requirements": 4,
+    "total_non_functional_requirements": 4,
+    "source_documents_processed": ["Use Case Diagram - Online Shopping System"]
+  },
+  "functional_requirements": [
+    {
+      "requirement_id": "FR-001",
+      "category": "User Management",
+      "priority": "High",
+      "source_reference": "Use Case Diagram - Client Register",
+      "description": "The system shall allow new customers to register as clients in the online shopping system",
+      "acceptance_criteria": [
+        "New customer can access client registration functionality",
+        "Registration process creates a user account in the system"
+      ],
+      "dependencies": [],
+      "tags": ["registration", "user_management"]
+    },
+    {
+      "requirement_id": "FR-002",
+      "category": "Product Management",
+      "priority": "High",
+      "source_reference": "Use Case Diagram - View Items",
+      "description": "The system shall allow both registered customers and new customers to view items available for purchase",
+      "acceptance_criteria": [
+        "Web customers can browse available items",
+        "Registered customers can view product catalog",
+        "New customers can access item viewing functionality"
+      ],
+      "dependencies": [],
+      "tags": ["product_catalog", "viewing"]
+    },
+    {
+      "requirement_id": "FR-003",
+      "category": "Purchase Management",
+      "priority": "High",
+      "source_reference": "Use Case Diagram - Make Purchase",
+      "description": "The system shall allow registered customers to make purchases of items",
+      "acceptance_criteria": [
+        "Registered customers can initiate purchase process",
+        "Purchase functionality is available within the online shopping subsystem"
+      ],
+      "dependencies": ["FR-002"],
+      "tags": ["purchase", "transaction"]
+    },
+    {
+      "requirement_id": "FR-004",
+      "category": "Payment Processing",
+      "priority": "High",
+      "source_reference": "Use Case Diagram - Checkout",
+      "description": "The system shall provide checkout functionality that includes the make purchase process",
+      "acceptance_criteria": [
+        "Checkout process encompasses purchase completion",
+        "Customers can complete transaction through checkout"
+      ],
+      "dependencies": ["FR-003"],
+      "tags": ["checkout", "payment"]
+    }
+  ],
+  "non_functional_requirements": [
+    {
+      "requirement_id": "NFR-001",
+      "category": "Security",
+      "priority": "High",
+      "source_reference": "Use Case Diagram - Authentication Service",
+      "description": "The system shall integrate with an external authentication service to verify user credentials",
+      "acceptance_criteria": [
+        "System connects to external authentication service",
+        "User authentication is handled by dedicated service"
+      ],
+      "metrics": "Authentication service availability > 99.5%",
+      "dependencies": [],
+      "tags": ["security", "authentication", "integration"]
+    },
+    {
+      "requirement_id": "NFR-002",
+      "category": "Integration",
+      "priority": "High",
+      "source_reference": "Use Case Diagram - Identity Provider",
+      "description": "The system shall integrate with an external identity provider for user identity management",
+      "acceptance_criteria": [
+        "System connects to identity provider service",
+        "User identities are managed through external provider"
+      ],
+      "metrics": "Identity provider response time < 3 seconds",
+      "dependencies": [],
+      "tags": ["integration", "identity_management"]
+    },
+    {
+      "requirement_id": "NFR-003",
+      "category": "Integration",
+      "priority": "High",
+      "source_reference": "Use Case Diagram - Credit Payment Service",
+      "description": "The system shall integrate with an external credit payment service to process credit card transactions",
+      "acceptance_criteria": [
+        "System connects to credit payment service",
+        "Credit card payments are processed through external service"
+      ],
+      "metrics": "Payment processing success rate > 98%",
+      "dependencies": ["FR-004"],
+      "tags": ["integration", "payment_processing", "credit_cards"]
+    },
+    {
+      "requirement_id": "NFR-004",
+      "category": "Integration",
+      "priority": "Medium",
+      "source_reference": "Use Case Diagram - PayPal",
+      "description": "The system shall integrate with PayPal service to provide alternative payment processing capabilities",
+      "acceptance_criteria": [
+        "System connects to PayPal service",
+        "PayPal payments are supported as payment option"
+      ],
+      "metrics": "PayPal integration uptime > 99%",
+      "dependencies": ["FR-004"],
+      "tags": ["integration", "payment_processing", "paypal"]
+    }
+  ]
+}

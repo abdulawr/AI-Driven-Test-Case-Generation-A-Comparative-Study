@@ -1,0 +1,168 @@
+{
+  "metadata": {
+    "total_functional_requirements": 87,
+    "total_non_functional_requirements": 22,
+    "source_documents_processed": ["SRS.docx"]
+  },
+  "functional_requirements": [
+    {
+      "requirement_id": "FR-1",
+      "category": "Registration",
+      "priority": "Not Specified",
+      "source_reference": "Section 3.1.1",
+      "description": "Advertisers shall be able to register with the application.",
+      "acceptance_criteria": "Registration form available with required fields"
+    },
+    {
+      "requirement_id": "FR-2",
+      "category": "Authentication",
+      "priority": "Not Specified",
+      "source_reference": "Section 3.1.1",
+      "description": "Registration shall require verification through OTP.",
+      "dependencies": "SMS gateway service"
+    },
+    {
+      "requirement_id": "FR-3",
+      "category": "Authentication",
+      "priority": "Not Specified",
+      "source_reference": "Section 3.1.1",
+      "description": "Advertisers shall be able to log in using credentials."
+    },
+    {
+      "requirement_id": "FR-11",
+      "category": "Campaign Management",
+      "priority": "Not Specified",
+      "source_reference": "Section 3.1.4",
+      "description": "Advertisers shall be able to create advertising campaigns with parameters: target location, duration, number of cars, advertisement images."
+    },
+    {
+      "requirement_id": "FR-16",
+      "category": "Tracking",
+      "priority": "Not Specified",
+      "source_reference": "Section 3.1.4",
+      "description": "Advertisers shall be able to track current location of drivers displaying their advertisements.",
+      "dependencies": "Google Maps API"
+    },
+    {
+      "requirement_id": "FR-25",
+      "category": "Campaign Interaction",
+      "priority": "Not Specified",
+      "source_reference": "Section 3.2.3",
+      "description": "Drivers shall be able to receive campaign requests.",
+      "dependencies": "Firebase Cloud Messaging"
+    },
+    {
+      "requirement_id": "FR-30",
+      "category": "Verification",
+      "priority": "Not Specified",
+      "source_reference": "Section 3.2.3",
+      "description": "Drivers shall be able to upload verification images with location data.",
+      "acceptance_criteria": "Images must contain geotagged metadata"
+    },
+    {
+      "requirement_id": "FR-37",
+      "category": "Access Control",
+      "priority": "Not Specified",
+      "source_reference": "Section 3.3.1",
+      "description": "The system shall support different admin roles with varying access levels."
+    },
+    {
+      "requirement_id": "FR-56",
+      "category": "Campaign Assignment",
+      "priority": "Not Specified",
+      "source_reference": "Section 3.4.2",
+      "description": "The system shall match campaigns to drivers based on location and availability."
+    },
+    {
+      "requirement_id": "FR-66",
+      "category": "Payment Processing",
+      "priority": "Not Specified",
+      "source_reference": "Section 3.5.1",
+      "description": "The system shall integrate with JAZZ CASH payment gateway.",
+      "dependencies": "JAZZ CASH API"
+    },
+    {
+      "requirement_id": "FR-73",
+      "category": "Tracking",
+      "priority": "Not Specified",
+      "source_reference": "Section 3.6.1",
+      "description": "The system shall track real-time location of drivers.",
+      "metrics": "Update interval ≤30s (NFR-3)"
+    },
+    {
+      "requirement_id": "FR-79",
+      "category": "Verification",
+      "priority": "Not Specified",
+      "source_reference": "Section 3.6.3",
+      "description": "The system shall request verification images from drivers."
+    }
+  ],
+  "non_functional_requirements": [
+    {
+      "requirement_id": "NFR-1",
+      "category": "Performance",
+      "priority": "Not Specified",
+      "source_reference": "Section 5.1",
+      "description": "Mobile applications shall load within 3 seconds on minimum-spec devices.",
+      "metrics": "3 seconds load time"
+    },
+    {
+      "requirement_id": "NFR-2",
+      "category": "Scalability",
+      "priority": "Not Specified",
+      "source_reference": "Section 5.1",
+      "description": "The system shall support ≥1000 concurrent users."
+    },
+    {
+      "requirement_id": "NFR-3",
+      "category": "Performance",
+      "priority": "Not Specified",
+      "source_reference": "Section 5.1",
+      "description": "Location tracking updates shall occur at least every 30 seconds.",
+      "metrics": "30-second update frequency"
+    },
+    {
+      "requirement_id": "NFR-7",
+      "category": "Safety",
+      "priority": "Not Specified",
+      "source_reference": "Section 5.2",
+      "description": "Driver application shall not require interaction while vehicle is in motion."
+    },
+    {
+      "requirement_id": "NFR-11",
+      "category": "Security",
+      "priority": "Not Specified",
+      "source_reference": "Section 5.3",
+      "description": "User authentication shall employ secure password hashing."
+    },
+    {
+      "requirement_id": "NFR-12",
+      "category": "Security",
+      "priority": "Not Specified",
+      "source_reference": "Section 5.3",
+      "description": "All API communications shall be encrypted using TLS."
+    },
+    {
+      "requirement_id": "NFR-17",
+      "category": "Usability",
+      "priority": "Not Specified",
+      "source_reference": "Section 5.4",
+      "description": "Interface shall be intuitive enough for new users to complete basic tasks without assistance."
+    },
+    {
+      "requirement_id": "NFR-18",
+      "category": "Reliability",
+      "priority": "Not Specified",
+      "source_reference": "Section 5.4",
+      "description": "System shall maintain 99.5% uptime during operating hours.",
+      "metrics": "99.5% uptime"
+    },
+    {
+      "requirement_id": "NFR-22",
+      "category": "Scalability",
+      "priority": "Not Specified",
+      "source_reference": "Section 5.4",
+      "description": "System shall be designed to scale horizontally to accommodate growth."
+    }
+  ]
+}
