@@ -1,0 +1,1545 @@
+{
+ "modules": [
+   {
+     "module_id": "MOD-ADV-AUTH",
+     "module_name": "Advertiser Authentication",
+     "test_cases": [
+       {
+         "test_case_id": "TC-ADV-AUTH-001",
+         "test_case_description": "Verify advertiser registration with valid details",
+         "requirement_ids": ["FR-1"],
+         "preconditions": ["Mobile application installed", "Internet connectivity available"],
+         "test_steps": [
+           {"n": 1, "action": "Open advertiser mobile application"},
+           {"n": 2, "action": "Navigate to registration screen"},
+           {"n": 3, "action": "Enter valid business name, email, phone number"},
+           {"n": 4, "action": "Submit registration form"}
+         ],
+         "expected_results": "Registration successful, OTP verification screen displayed",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"business_name": "Test Business", "email": "test@business.com", "phone": "+923001234567"}],
+           "invalid": [{"business_name": "", "email": "invalid-email", "phone": "123"}],
+           "boundary": [{"business_name": "A", "email": "a@b.co", "phone": "+923000000000"}]
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Smoke", "Registration"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "Clean",
+           "config": "Default"
+         },
+         "techniques": ["UseCase", "BVA", "EP"],
+         "comments": "Core registration functionality"
+       },
+       {
+         "test_case_id": "TC-ADV-AUTH-002",
+         "test_case_description": "Verify OTP verification for advertiser registration",
+         "requirement_ids": ["FR-2"],
+         "preconditions": ["Advertiser registration completed", "OTP sent to registered phone"],
+         "test_steps": [
+           {"n": 1, "action": "Enter received OTP in verification screen"},
+           {"n": 2, "action": "Click verify button"}
+         ],
+         "expected_results": "OTP verified successfully, account activated",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"otp": "123456"}],
+           "invalid": [{"otp": "000000"}, {"otp": "12345"}, {"otp": "abcdef"}],
+           "boundary": [{"otp": "999999"}]
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Registration", "Security"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "Registration pending",
+           "config": "Default"
+         },
+         "techniques": ["UseCase", "EP"],
+         "comments": "OTP verification critical for security"
+       },
+       {
+         "test_case_id": "TC-ADV-AUTH-003",
+         "test_case_description": "Verify advertiser login with valid credentials",
+         "requirement_ids": ["FR-3"],
+         "preconditions": ["Advertiser account exists and is verified"],
+         "test_steps": [
+           {"n": 1, "action": "Open advertiser mobile application"},
+           {"n": 2, "action": "Enter valid email and password"},
+           {"n": 3, "action": "Click login button"}
+         ],
+         "expected_results": "Login successful, redirected to dashboard",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"email": "test@business.com", "password": "ValidPass123!"}],
+           "invalid": [{"email": "invalid@email", "password": "wrong"}, {"email": "", "password": ""}],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Smoke", "Login"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "User exists",
+           "config": "Default"
+         },
+         "techniques": ["UseCase", "EP"],
+         "comments": "Core login functionality"
+       },
+       {
+         "test_case_id": "TC-ADV-AUTH-004",
+         "test_case_description": "Verify password reset functionality",
+         "requirement_ids": ["FR-4"],
+         "preconditions": ["Advertiser account exists"],
+         "test_steps": [
+           {"n": 1, "action": "Click 'Forgot Password' link"},
+           {"n": 2, "action": "Enter registered email address"},
+           {"n": 3, "action": "Click 'Reset Password' button"},
+           {"n": 4, "action": "Check email for reset link"},
+           {"n": 5, "action": "Follow reset link and enter new password"}
+         ],
+         "expected_results": "Password reset successful, can login with new password",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"email": "test@business.com", "new_password": "NewPass123!"}],
+           "invalid": [{"email": "nonexistent@email.com"}],
+           "boundary": []
+         },
+         "priority": "Medium",
+         "type": "Functional",
+         "tags": ["Security", "Password"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "User exists",
+           "config": "Default"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Password recovery mechanism"
+       }
+     ]
+   },
+   {
+     "module_id": "MOD-ADV-PROFILE",
+     "module_name": "Advertiser Profile Management",
+     "test_cases": [
+       {
+         "test_case_id": "TC-ADV-PROF-001",
+         "test_case_description": "Verify advertiser can view profile information",
+         "requirement_ids": ["FR-5"],
+         "preconditions": ["Advertiser logged in"],
+         "test_steps": [
+           {"n": 1, "action": "Navigate to profile section"},
+           {"n": 2, "action": "View profile details"}
+         ],
+         "expected_results": "Profile information displayed correctly",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "Medium",
+         "type": "Functional",
+         "tags": ["Profile"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "User logged in",
+           "config": "Default"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Basic profile viewing"
+       },
+       {
+         "test_case_id": "TC-ADV-PROF-002",
+         "test_case_description": "Verify advertiser can update profile information",
+         "requirement_ids": ["FR-6"],
+         "preconditions": ["Advertiser logged in"],
+         "test_steps": [
+           {"n": 1, "action": "Navigate to profile section"},
+           {"n": 2, "action": "Click edit profile"},
+           {"n": 3, "action": "Update business name and contact details"},
+           {"n": 4, "action": "Save changes"}
+         ],
+         "expected_results": "Profile updated successfully, changes reflected",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"business_name": "Updated Business Name", "phone": "+923009876543"}],
+           "invalid": [{"business_name": "", "phone": "invalid"}],
+           "boundary": []
+         },
+         "priority": "Medium",
+         "type": "Functional",
+         "tags": ["Profile", "Update"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "User logged in",
+           "config": "Default"
+         },
+         "techniques": ["UseCase", "EP"],
+         "comments": "Profile modification functionality"
+       }
+     ]
+   },
+   {
+     "module_id": "MOD-ADV-WALLET",
+     "module_name": "Advertiser Wallet Management",
+     "test_cases": [
+       {
+         "test_case_id": "TC-ADV-WAL-001",
+         "test_case_description": "Verify advertiser can view wallet balance",
+         "requirement_ids": ["FR-7"],
+         "preconditions": ["Advertiser logged in"],
+         "test_steps": [
+           {"n": 1, "action": "Navigate to wallet section"},
+           {"n": 2, "action": "View current balance"}
+         ],
+         "expected_results": "Current wallet balance displayed accurately",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Wallet", "Balance"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "User logged in",
+           "config": "Default"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Critical for payment functionality"
+       },
+       {
+         "test_case_id": "TC-ADV-WAL-002",
+         "test_case_description": "Verify advertiser can view transaction history",
+         "requirement_ids": ["FR-8"],
+         "preconditions": ["Advertiser logged in", "Transactions exist"],
+         "test_steps": [
+           {"n": 1, "action": "Navigate to wallet section"},
+           {"n": 2, "action": "Click transaction history"},
+           {"n": 3, "action": "View transaction list"}
+         ],
+         "expected_results": "Transaction history displayed with dates, amounts, and descriptions",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "Medium",
+         "type": "Functional",
+         "tags": ["Wallet", "History"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "User with transactions",
+           "config": "Default"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Transaction transparency"
+       },
+       {
+         "test_case_id": "TC-ADV-WAL-003",
+         "test_case_description": "Verify wallet recharge using JAZZ CASH",
+         "requirement_ids": ["FR-9"],
+         "preconditions": ["Advertiser logged in", "JAZZ CASH account available"],
+         "test_steps": [
+           {"n": 1, "action": "Navigate to wallet section"},
+           {"n": 2, "action": "Click recharge wallet"},
+           {"n": 3, "action": "Select JAZZ CASH payment method"},
+           {"n": 4, "action": "Enter recharge amount"},
+           {"n": 5, "action": "Complete payment process"}
+         ],
+         "expected_results": "Wallet recharged successfully, balance updated",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"amount": "1000", "payment_method": "JAZZ_CASH"}],
+           "invalid": [{"amount": "0"}, {"amount": "-100"}],
+           "boundary": [{"amount": "1"}, {"amount": "999999"}]
+         },
+         "priority": "Critical",
+         "type": "Functional",
+         "tags": ["Payment", "JAZZ_CASH", "Critical"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "User logged in",
+           "config": "JAZZ CASH integrated"
+         },
+         "techniques": ["UseCase", "BVA", "EP"],
+         "comments": "Critical payment integration"
+       },
+       {
+         "test_case_id": "TC-ADV-WAL-004",
+         "test_case_description": "Verify wallet recharge using vouchers",
+         "requirement_ids": ["FR-10"],
+         "preconditions": ["Advertiser logged in", "Valid voucher available"],
+         "test_steps": [
+           {"n": 1, "action": "Navigate to wallet section"},
+           {"n": 2, "action": "Click recharge wallet"},
+           {"n": 3, "action": "Select voucher option"},
+           {"n": 4, "action": "Enter voucher code"},
+           {"n": 5, "action": "Apply voucher"}
+         ],
+         "expected_results": "Voucher applied successfully, wallet balance updated",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"voucher_code": "VALID123"}],
+           "invalid": [{"voucher_code": "INVALID"}, {"voucher_code": "EXPIRED"}],
+           "boundary": []
+         },
+         "priority": "Medium",
+         "type": "Functional",
+         "tags": ["Voucher", "Payment"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "User logged in",
+           "config": "Default"
+         },
+         "techniques": ["UseCase", "EP"],
+         "comments": "Alternative payment method"
+       }
+     ]
+   },
+   {
+     "module_id": "MOD-ADV-CAMPAIGN",
+     "module_name": "Advertiser Campaign Management",
+     "test_cases": [
+       {
+         "test_case_id": "TC-ADV-CAM-001",
+         "test_case_description": "Verify advertiser can create advertising campaign",
+         "requirement_ids": ["FR-11"],
+         "preconditions": ["Advertiser logged in", "Sufficient wallet balance"],
+         "test_steps": [
+           {"n": 1, "action": "Navigate to campaign section"},
+           {"n": 2, "action": "Click create new campaign"},
+           {"n": 3, "action": "Enter campaign details"},
+           {"n": 4, "action": "Upload advertisement images"},
+           {"n": 5, "action": "Submit campaign"}
+         ],
+         "expected_results": "Campaign created successfully, status shows as pending",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"title": "Summer Sale", "duration": "7", "cars": "5", "location": "Karachi"}],
+           "invalid": [{"title": "", "duration": "0", "cars": "0"}],
+           "boundary": [{"duration": "1", "cars": "1"}]
+         },
+         "priority": "Critical",
+         "type": "Functional",
+         "tags": ["Campaign", "Creation", "Critical"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "User with balance",
+           "config": "Default"
+         },
+         "techniques": ["UseCase", "BVA", "EP"],
+         "comments": "Core business functionality"
+       },
+       {
+         "test_case_id": "TC-ADV-CAM-002",
+         "test_case_description": "Verify campaign parameter specification",
+         "requirement_ids": ["FR-12"],
+         "preconditions": ["Creating new campaign"],
+         "test_steps": [
+           {"n": 1, "action": "In campaign creation form, specify target location"},
+           {"n": 2, "action": "Set campaign duration"},
+           {"n": 3, "action": "Define number of cars required"},
+           {"n": 4, "action": "Upload advertisement images"}
+         ],
+         "expected_results": "All campaign parameters accepted and validated",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"target_location": "Lahore", "duration_days": "14", "num_cars": "10", "images": "2"}],
+           "invalid": [{"target_location": "", "duration_days": "-1", "num_cars": "0"}],
+           "boundary": [{"duration_days": "1", "num_cars": "1", "images": "1"}]
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Campaign", "Parameters"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "Campaign creation",
+           "config": "Default"
+         },
+         "techniques": ["BVA", "EP"],
+         "comments": "Parameter validation critical"
+       },
+       {
+         "test_case_id": "TC-ADV-CAM-003",
+         "test_case_description": "Verify advertiser can view active campaigns",
+         "requirement_ids": ["FR-13"],
+         "preconditions": ["Advertiser logged in", "Active campaigns exist"],
+         "test_steps": [
+           {"n": 1, "action": "Navigate to campaigns section"},
+           {"n": 2, "action": "Select active campaigns tab"},
+           {"n": 3, "action": "View campaign list"}
+         ],
+         "expected_results": "Active campaigns displayed with current status and details",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Campaign", "View"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "User with active campaigns",
+           "config": "Default"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Campaign monitoring"
+       },
+       {
+         "test_case_id": "TC-ADV-CAM-004",
+         "test_case_description": "Verify advertiser can track driver locations",
+         "requirement_ids": ["FR-16"],
+         "preconditions": ["Active campaign with assigned drivers"],
+         "test_steps": [
+           {"n": 1, "action": "Open active campaign details"},
+           {"n": 2, "action": "Click track drivers button"},
+           {"n": 3, "action": "View map with driver locations"}
+         ],
+         "expected_results": "Map displays real-time locations of drivers displaying advertisement",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Tracking", "GPS", "Real-time"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "Campaign with drivers",
+           "config": "GPS enabled"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Real-time tracking feature"
+       }
+     ]
+   },
+   {
+     "module_id": "MOD-DRV-AUTH",
+     "module_name": "Driver Authentication",
+     "test_cases": [
+       {
+         "test_case_id": "TC-DRV-AUTH-001",
+         "test_case_description": "Verify driver registration",
+         "requirement_ids": ["FR-19"],
+         "preconditions": ["Driver mobile app installed"],
+         "test_steps": [
+           {"n": 1, "action": "Open driver mobile application"},
+           {"n": 2, "action": "Navigate to registration"},
+           {"n": 3, "action": "Enter driver details and vehicle information"},
+           {"n": 4, "action": "Submit registration"}
+         ],
+         "expected_results": "Driver registered successfully",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"name": "John Driver", "email": "driver@email.com", "license": "LIC123456"}],
+           "invalid": [{"name": "", "email": "invalid", "license": ""}],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Driver", "Registration"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Driver App",
+           "version": "v1.0",
+           "data_state": "Clean",
+           "config": "Default"
+         },
+         "techniques": ["UseCase", "EP"],
+         "comments": "Driver onboarding"
+       },
+       {
+         "test_case_id": "TC-DRV-AUTH-002",
+         "test_case_description": "Verify driver login",
+         "requirement_ids": ["FR-20"],
+         "preconditions": ["Driver account exists"],
+         "test_steps": [
+           {"n": 1, "action": "Open driver mobile application"},
+           {"n": 2, "action": "Enter valid credentials"},
+           {"n": 3, "action": "Click login"}
+         ],
+         "expected_results": "Driver logged in successfully",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"email": "driver@email.com", "password": "ValidPass123"}],
+           "invalid": [{"email": "wrong@email.com", "password": "wrong"}],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Driver", "Login"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Driver App",
+           "version": "v1.0",
+           "data_state": "Driver exists",
+           "config": "Default"
+         },
+         "techniques": ["UseCase", "EP"],
+         "comments": "Driver authentication"
+       }
+     ]
+   },
+   {
+     "module_id": "MOD-DRV-CAMPAIGN",
+     "module_name": "Driver Campaign Interaction",
+     "test_cases": [
+       {
+         "test_case_id": "TC-DRV-CAM-001",
+         "test_case_description": "Verify driver receives campaign requests",
+         "requirement_ids": ["FR-25"],
+         "preconditions": ["Driver logged in", "Campaign created and driver matched"],
+         "test_steps": [
+           {"n": 1, "action": "Wait for campaign notification"},
+           {"n": 2, "action": "View campaign request details"}
+         ],
+         "expected_results": "Campaign request notification received with campaign details",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "Critical",
+         "type": "Functional",
+         "tags": ["Driver", "Campaign", "Notification"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Driver App",
+           "version": "v1.0",
+           "data_state": "Driver available",
+           "config": "FCM enabled"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Core driver interaction"
+       },
+       {
+         "test_case_id": "TC-DRV-CAM-002",
+         "test_case_description": "Verify driver can accept campaign requests",
+         "requirement_ids": ["FR-26"],
+         "preconditions": ["Campaign request received"],
+         "test_steps": [
+           {"n": 1, "action": "View campaign request"},
+           {"n": 2, "action": "Review campaign details"},
+           {"n": 3, "action": "Click accept button"}
+         ],
+         "expected_results": "Campaign accepted, driver assigned to campaign",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "Critical",
+         "type": "Functional",
+         "tags": ["Driver", "Campaign", "Accept"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Driver App",
+           "version": "v1.0",
+           "data_state": "Campaign request pending",
+           "config": "Default"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Campaign assignment process"
+       },
+       {
+         "test_case_id": "TC-DRV-CAM-003",
+         "test_case_description": "Verify driver can navigate to installation center",
+         "requirement_ids": ["FR-27"],
+         "preconditions": ["Campaign accepted by driver"],
+         "test_steps": [
+           {"n": 1, "action": "View accepted campaign details"},
+           {"n": 2, "action": "Click navigate to installation center"},
+           {"n": 3, "action": "Follow GPS navigation"}
+         ],
+         "expected_results": "GPS navigation provided to nearest installation center",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Driver", "Navigation", "GPS"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Driver App",
+           "version": "v1.0",
+           "data_state": "Campaign accepted",
+           "config": "GPS enabled"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Navigation to installation"
+       },
+       {
+         "test_case_id": "TC-DRV-CAM-004",
+         "test_case_description": "Verify driver can upload verification images",
+         "requirement_ids": ["FR-30"],
+         "preconditions": ["Campaign active", "Advertisement installed"],
+         "test_steps": [
+           {"n": 1, "action": "Open camera interface"},
+           {"n": 2, "action": "Take photo of advertisement on car"},
+           {"n": 3, "action": "Add location data"},
+           {"n": 4, "action": "Upload verification image"}
+         ],
+         "expected_results": "Verification image uploaded with location data",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Driver", "Verification", "Camera"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Driver App",
+           "version": "v1.0",
+           "data_state": "Campaign active",
+           "config": "Camera permissions granted"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Campaign verification process"
+       }
+     ]
+   },
+   {
+     "module_id": "MOD-ADMIN-AUTH",
+     "module_name": "Admin Authentication",
+     "test_cases": [
+       {
+         "test_case_id": "TC-ADM-AUTH-001",
+         "test_case_description": "Verify admin login to web portal",
+         "requirement_ids": ["FR-35"],
+         "preconditions": ["Admin account exists", "Web portal accessible"],
+         "test_steps": [
+           {"n": 1, "action": "Open admin web portal"},
+           {"n": 2, "action": "Enter admin credentials"},
+           {"n": 3, "action": "Click login button"}
+         ],
+         "expected_results": "Admin logged in successfully, redirected to dashboard",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"username": "admin@corads.com", "password": "AdminPass123!"}],
+           "invalid": [{"username": "wrong@admin.com", "password": "wrongpass"}],
+           "boundary": []
+         },
+         "priority": "Critical",
+         "type": "Functional",
+         "tags": ["Admin", "Login", "Web"],
+         "environment": {
+           "os": "Windows 11",
+           "browser_or_app": "Chrome",
+           "version": "v118+",
+           "data_state": "Admin exists",
+           "config": "Default"
+         },
+         "techniques": ["UseCase", "EP"],
+         "comments": "Admin portal access"
+       },
+       {
+         "test_case_id": "TC-ADM-AUTH-002",
+         "test_case_description": "Verify admin password reset",
+         "requirement_ids": ["FR-36"],
+         "preconditions": ["Admin account exists"],
+         "test_steps": [
+           {"n": 1, "action": "Click forgot password link"},
+           {"n": 2, "action": "Enter admin email"},
+           {"n": 3, "action": "Follow reset instructions"},
+           {"n": 4, "action": "Set new password"}
+         ],
+         "expected_results": "Admin password reset successfully",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"email": "admin@corads.com", "new_password": "NewAdminPass123!"}],
+           "invalid": [{"email": "nonexistent@admin.com"}],
+           "boundary": []
+         },
+         "priority": "Medium",
+         "type": "Functional",
+         "tags": ["Admin", "Password", "Reset"],
+         "environment": {
+           "os": "Windows 11",
+           "browser_or_app": "Chrome",
+           "version": "v118+",
+           "data_state": "Admin exists",
+           "config": "SMTP enabled"
+         },
+         "techniques": ["UseCase", "EP"],
+         "comments": "Admin account recovery"
+         }
+     ]
+   },
+   {
+     "module_id": "MOD-ADMIN-USER",
+     "module_name": "Admin User Management",
+     "test_cases": [
+       {
+         "test_case_id": "TC-ADM-USER-001",
+         "test_case_description": "Verify admin can add new admin accounts",
+         "requirement_ids": ["FR-38"],
+         "preconditions": ["Admin logged in with user management privileges"],
+         "test_steps": [
+           {"n": 1, "action": "Navigate to user management section"},
+           {"n": 2, "action": "Click add admin button"},
+           {"n": 3, "action": "Enter new admin details"},
+           {"n": 4, "action": "Assign role and permissions"},
+           {"n": 5, "action": "Save new admin account"}
+         ],
+         "expected_results": "New admin account created successfully with specified permissions",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"name": "New Admin", "email": "newadmin@corads.com", "role": "moderator"}],
+           "invalid": [{"name": "", "email": "invalid-email", "role": ""}],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Admin", "User_Management", "Create"],
+         "environment": {
+           "os": "Windows 11",
+           "browser_or_app": "Chrome",
+           "version": "v118+",
+           "data_state": "Admin logged in",
+           "config": "Default"
+         },
+         "techniques": ["UseCase", "EP"],
+         "comments": "Admin account creation"
+       },
+       {
+         "test_case_id": "TC-ADM-USER-002",
+         "test_case_description": "Verify admin can add drivers to system",
+         "requirement_ids": ["FR-39"],
+         "preconditions": ["Admin logged in"],
+         "test_steps": [
+           {"n": 1, "action": "Navigate to driver management"},
+           {"n": 2, "action": "Click add driver button"},
+           {"n": 3, "action": "Enter driver personal details"},
+           {"n": 4, "action": "Enter vehicle information"},
+           {"n": 5, "action": "Save driver profile"}
+         ],
+         "expected_results": "Driver added to system successfully",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"name": "John Driver", "license": "DL123456", "car_type": "Sedan", "registration": "KHI-123"}],
+           "invalid": [{"name": "", "license": "", "car_type": "", "registration": ""}],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Admin", "Driver_Management", "Create"],
+         "environment": {
+           "os": "Windows 11",
+           "browser_or_app": "Chrome",
+           "version": "v118+",
+           "data_state": "Admin logged in",
+           "config": "Default"
+         },
+         "techniques": ["UseCase", "EP"],
+         "comments": "Driver registration by admin"
+       },
+       {
+         "test_case_id": "TC-ADM-USER-003",
+         "test_case_description": "Verify admin can block driver accounts",
+         "requirement_ids": ["FR-42"],
+         "preconditions": ["Admin logged in", "Active driver account exists"],
+         "test_steps": [
+           {"n": 1, "action": "Search for driver account"},
+           {"n": 2, "action": "Select driver to block"},
+           {"n": 3, "action": "Click block account button"},
+           {"n": 4, "action": "Confirm blocking action"}
+         ],
+         "expected_results": "Driver account blocked successfully, driver cannot login",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"driver_id": "DRV-001", "block_reason": "Policy violation"}],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Admin", "Driver_Management", "Block"],
+         "environment": {
+           "os": "Windows 11",
+           "browser_or_app": "Chrome",
+           "version": "v118+",
+           "data_state": "Active driver exists",
+           "config": "Default"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Account management control"
+       },
+       {
+         "test_case_id": "TC-ADM-USER-004",
+         "test_case_description": "Verify admin can send notifications to users",
+         "requirement_ids": ["FR-43"],
+         "preconditions": ["Admin logged in", "Users exist in system"],
+         "test_steps": [
+           {"n": 1, "action": "Navigate to notification section"},
+           {"n": 2, "action": "Select target users (drivers/advertisers)"},
+           {"n": 3, "action": "Compose notification message"},
+           {"n": 4, "action": "Send notification"}
+         ],
+         "expected_results": "Notification sent successfully to selected users",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"message": "System maintenance scheduled", "target": "all_drivers"}],
+           "invalid": [{"message": "", "target": ""}],
+           "boundary": []
+         },
+         "priority": "Medium",
+         "type": "Functional",
+         "tags": ["Admin", "Notification", "Communication"],
+         "environment": {
+           "os": "Windows 11",
+           "browser_or_app": "Chrome",
+           "version": "v118+",
+           "data_state": "Users exist",
+           "config": "FCM enabled"
+         },
+         "techniques": ["UseCase", "EP"],
+         "comments": "Mass communication feature"
+       }
+     ]
+   },
+   {
+     "module_id": "MOD-PAYMENT",
+     "module_name": "Payment System",
+     "test_cases": [
+       {
+         "test_case_id": "TC-PAY-001",
+         "test_case_description": "Verify JAZZ CASH payment integration",
+         "requirement_ids": ["FR-66"],
+         "preconditions": ["JAZZ CASH service available", "User has JAZZ CASH account"],
+         "test_steps": [
+           {"n": 1, "action": "Initiate wallet recharge"},
+           {"n": 2, "action": "Select JAZZ CASH payment method"},
+           {"n": 3, "action": "Enter payment amount"},
+           {"n": 4, "action": "Complete JAZZ CASH authentication"},
+           {"n": 5, "action": "Confirm payment"}
+         ],
+         "expected_results": "Payment processed successfully via JAZZ CASH gateway",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"amount": "1000", "jazz_number": "03001234567", "pin": "1234"}],
+           "invalid": [{"amount": "0", "jazz_number": "invalid", "pin": "wrong"}],
+           "boundary": [{"amount": "1", "amount": "999999"}]
+         },
+         "priority": "Critical",
+         "type": "Integration",
+         "tags": ["Payment", "JAZZ_CASH", "Critical", "Integration"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS App",
+           "version": "v1.0",
+           "data_state": "User logged in",
+           "config": "JAZZ CASH sandbox"
+         },
+         "techniques": ["UseCase", "BVA", "EP"],
+         "comments": "Critical payment gateway integration"
+       },
+       {
+         "test_case_id": "TC-PAY-002",
+         "test_case_description": "Verify driver earnings calculation",
+         "requirement_ids": ["FR-68"],
+         "preconditions": ["Campaign completed by driver"],
+         "test_steps": [
+           {"n": 1, "action": "Complete campaign activities"},
+           {"n": 2, "action": "Submit verification images"},
+           {"n": 3, "action": "Wait for campaign completion"},
+           {"n": 4, "action": "Check wallet for earnings"}
+         ],
+         "expected_results": "Driver earnings calculated correctly based on campaign parameters",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"campaign_duration": "7", "hourly_rate": "100", "completion_rate": "100"}],
+           "invalid": [],
+           "boundary": [{"completion_rate": "0", "completion_rate": "100"}]
+         },
+         "priority": "Critical",
+         "type": "Functional",
+         "tags": ["Payment", "Earnings", "Calculation"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Driver App",
+           "version": "v1.0",
+           "data_state": "Campaign completed",
+           "config": "Default"
+         },
+         "techniques": ["UseCase", "BVA"],
+         "comments": "Payment calculation logic"
+       },
+       {
+         "test_case_id": "TC-PAY-003",
+         "test_case_description": "Verify discount coupon application",
+         "requirement_ids": ["FR-70"],
+         "preconditions": ["Valid coupon exists", "Advertiser creating campaign"],
+         "test_steps": [
+           {"n": 1, "action": "Create new campaign"},
+           {"n": 2, "action": "Enter coupon code at checkout"},
+           {"n": 3, "action": "Apply coupon"},
+           {"n": 4, "action": "Verify discount calculation"},
+           {"n": 5, "action": "Complete payment"}
+         ],
+         "expected_results": "Coupon applied successfully, discount reflected in final amount",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"coupon_code": "SAVE20", "campaign_cost": "1000", "discount": "20%"}],
+           "invalid": [{"coupon_code": "EXPIRED", "coupon_code": "INVALID"}],
+           "boundary": [{"discount": "1%", "discount": "100%"}]
+         },
+         "priority": "Medium",
+         "type": "Functional",
+         "tags": ["Payment", "Coupon", "Discount"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "Creating campaign",
+           "config": "Valid coupons exist"
+         },
+         "techniques": ["UseCase", "EP", "BVA"],
+         "comments": "Discount mechanism validation"
+       }
+     ]
+   },
+   {
+     "module_id": "MOD-TRACKING",
+     "module_name": "Tracking System",
+     "test_cases": [
+       {
+         "test_case_id": "TC-TRK-001",
+         "test_case_description": "Verify real-time driver location tracking",
+         "requirement_ids": ["FR-73"],
+         "preconditions": ["Driver app running", "GPS enabled", "Campaign active"],
+         "test_steps": [
+           {"n": 1, "action": "Start campaign activity"},
+           {"n": 2, "action": "Enable location services"},
+           {"n": 3, "action": "Move to different locations"},
+           {"n": 4, "action": "Verify location updates in system"}
+         ],
+         "expected_results": "Driver location tracked and updated in real-time every 30 seconds",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "Critical",
+         "type": "Functional",
+         "tags": ["Tracking", "GPS", "Real-time", "Critical"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Driver App",
+           "version": "v1.0",
+           "data_state": "Campaign active",
+           "config": "GPS enabled, Network available"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Core tracking functionality"
+       },
+       {
+         "test_case_id": "TC-TRK-002",
+         "test_case_description": "Verify campaign display on map",
+         "requirement_ids": ["FR-74"],
+         "preconditions": ["Active campaigns exist", "Drivers assigned"],
+         "test_steps": [
+           {"n": 1, "action": "Open campaign tracking interface"},
+           {"n": 2, "action": "View map display"},
+           {"n": 3, "action": "Verify campaign markers on map"}
+         ],
+         "expected_results": "Active campaigns displayed on map with driver locations",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Functional",
+         "tags": ["Tracking", "Map", "Visualization"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Advertiser App",
+           "version": "v1.0",
+           "data_state": "Active campaigns",
+           "config": "Google Maps API enabled"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Visual tracking interface"
+       },
+       {
+         "test_case_id": "TC-TRK-003",
+         "test_case_description": "Verify route deviation detection",
+         "requirement_ids": ["FR-78"],
+         "preconditions": ["Campaign active", "Expected route defined"],
+         "test_steps": [
+           {"n": 1, "action": "Start campaign with defined route"},
+           {"n": 2, "action": "Deviate from expected path"},
+           {"n": 3, "action": "Continue on alternate route"},
+           {"n": 4, "action": "Check system for deviation alerts"}
+         ],
+         "expected_results": "System detects and flags route deviations",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "Medium",
+         "type": "Functional",
+         "tags": ["Tracking", "Route", "Monitoring"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS Driver App",
+           "version": "v1.0",
+           "data_state": "Campaign with route",
+           "config": "Route tracking enabled"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Route compliance monitoring"
+       }
+     ]
+   },
+   {
+     "module_id": "MOD-SUPPORT",
+     "module_name": "Support System",
+     "test_cases": [
+       {
+         "test_case_id": "TC-SUP-001",
+         "test_case_description": "Verify customer support ticket submission",
+         "requirement_ids": ["FR-83"],
+         "preconditions": ["User logged in"],
+         "test_steps": [
+           {"n": 1, "action": "Navigate to support section"},
+           {"n": 2, "action": "Click submit ticket"},
+           {"n": 3, "action": "Fill ticket details"},
+           {"n": 4, "action": "Attach relevant screenshots"},
+           {"n": 5, "action": "Submit support ticket"}
+         ],
+         "expected_results": "Support ticket submitted successfully with unique ticket ID",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"subject": "Payment Issue", "description": "Unable to recharge wallet", "category": "Technical"}],
+           "invalid": [{"subject": "", "description": "", "category": ""}],
+           "boundary": []
+         },
+         "priority": "Medium",
+         "type": "Functional",
+         "tags": ["Support", "Ticket", "Communication"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS App",
+           "version": "v1.0",
+           "data_state": "User logged in",
+           "config": "Default"
+         },
+         "techniques": ["UseCase", "EP"],
+         "comments": "Customer support mechanism"
+       },
+       {
+         "test_case_id": "TC-SUP-002",
+         "test_case_description": "Verify FCM push notifications",
+         "requirement_ids": ["FR-85"],
+         "preconditions": ["FCM configured", "User opted in for notifications"],
+         "test_steps": [
+           {"n": 1, "action": "Trigger notification event"},
+           {"n": 2, "action": "Wait for notification delivery"},
+           {"n": 3, "action": "Check notification received"}
+         ],
+         "expected_results": "Push notification delivered within 5 seconds",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "Medium",
+         "type": "Integration",
+         "tags": ["Notification", "FCM", "Integration"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS App",
+           "version": "v1.0",
+           "data_state": "User logged in",
+           "config": "FCM enabled"
+         },
+         "techniques": ["UseCase"],
+         "comments": "Real-time notification system"
+       }
+     ]
+   },
+   {
+     "module_id": "MOD-SECURITY",
+     "module_name": "Security Requirements",
+     "test_cases": [
+       {
+         "test_case_id": "TC-SEC-001",
+         "test_case_description": "Verify secure password hashing",
+         "requirement_ids": ["NFR-11"],
+         "preconditions": ["User registration process"],
+         "test_steps": [
+           {"n": 1, "action": "Register new user with password"},
+           {"n": 2, "action": "Check database for stored password"},
+           {"n": 3, "action": "Verify password is hashed, not plaintext"}
+         ],
+         "expected_results": "Password stored as secure hash, not plaintext",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [{"password": "SecurePass123!"}],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "Critical",
+         "type": "Security",
+         "tags": ["Security", "Password", "Hashing", "Critical"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS App",
+           "version": "v1.0",
+           "data_state": "Registration",
+           "config": "Database access"
+         },
+         "techniques": ["Security_Testing"],
+         "comments": "Password security validation"
+       },
+       {
+         "test_case_id": "TC-SEC-002",
+         "test_case_description": "Verify TLS encryption for API communications",
+         "requirement_ids": ["NFR-12"],
+         "preconditions": ["Application making API calls"],
+         "test_steps": [
+           {"n": 1, "action": "Monitor network traffic during API calls"},
+           {"n": 2, "action": "Verify HTTPS protocol usage"},
+           {"n": 3, "action": "Check TLS certificate validity"}
+         ],
+         "expected_results": "All API communications encrypted using TLS",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "Critical",
+         "type": "Security",
+         "tags": ["Security", "TLS", "Encryption", "Critical"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS App",
+           "version": "v1.0",
+           "data_state": "Network traffic",
+           "config": "Network monitoring tools"
+         },
+         "techniques": ["Security_Testing"],
+         "comments": "Communication encryption verification"
+       },
+       {
+         "test_case_id": "TC-SEC-003",
+         "test_case_description": "Verify session timeout mechanism",
+         "requirement_ids": ["NFR-14"],
+         "preconditions": ["User logged in"],
+         "test_steps": [
+           {"n": 1, "action": "Login to application"},
+           {"n": 2, "action": "Remain inactive for 30 minutes"},
+           {"n": 3, "action": "Attempt to perform any action"},
+           {"n": 4, "action": "Verify session expired"}
+         ],
+         "expected_results": "Session expires after 30 minutes of inactivity, user redirected to login",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Security",
+         "tags": ["Security", "Session", "Timeout"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS App",
+           "version": "v1.0",
+           "data_state": "User logged in",
+           "config": "Default"
+         },
+         "techniques": ["Security_Testing"],
+         "comments": "Session management security"
+       },
+       {
+         "test_case_id": "TC-SEC-004",
+         "test_case_description": "Verify rate limiting for brute force protection",
+         "requirement_ids": ["NFR-15"],
+         "preconditions": ["Login page accessible"],
+         "test_steps": [
+           {"n": 1, "action": "Attempt multiple failed login attempts"},
+           {"n": 2, "action": "Continue attempts beyond threshold"},
+           {"n": 3, "action": "Verify account lockout or rate limiting"}
+         ],
+         "expected_results": "Account locked or rate limited after multiple failed attempts",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [{"email": "test@email.com", "password": "wrongpass"}],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Security",
+         "tags": ["Security", "Rate_Limiting", "Brute_Force"],
+         "environment": {
+           "os": "Android 6.0+",
+           "browser_or_app": "CORADS App",
+           "version": "v1.0",
+           "data_state": "User exists",
+           "config": "Default"
+         },
+         "techniques": ["Security_Testing"],
+         "comments": "Brute force attack protection"
+       }
+     ]
+   },
+   {
+     "module_id": "MOD-PERFORMANCE",
+     "module_name": "Performance Requirements",
+     "test_cases": [
+       {
+         "test_case_id": "TC-PERF-001",
+         "test_case_description": "Verify mobile application load time",
+         "requirement_ids": ["NFR-1"],
+         "preconditions": ["Mobile device meeting minimum specifications"],
+         "test_steps": [
+           {"n": 1, "action": "Start application launch"},
+           {"n": 2, "action": "Measure time to fully loaded state"},
+           {"n": 3, "action": "Verify load time is within 3 seconds"}
+         ],
+         "expected_results": "Application loads within 3 seconds on minimum spec devices",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Performance",
+         "tags": ["Performance", "Load_Time", "Mobile"],
+         "environment": {
+           "os": "Android 6.0",
+           "browser_or_app": "CORADS App",
+           "version": "v1.0",
+           "data_state": "Clean install",
+           "config": "Minimum spec device"
+         },
+         "techniques": ["Performance_Testing"],
+         "comments": "User experience performance"
+       },
+       {
+         "test_case_id": "TC-PERF-002",
+         "test_case_description": "Verify system supports 1000 concurrent users",
+         "requirement_ids": ["NFR-2"],
+         "preconditions": ["Load testing environment setup"],
+         "test_steps": [
+           {"n": 1, "action": "Configure load testing tool for 1000 users"},
+           {"n": 2, "action": "Execute concurrent user simulation"},
+           {"n": 3, "action": "Monitor system performance metrics"},
+           {"n": 4, "action": "Verify system stability and response times"}
+         ],
+         "expected_results": "System handles 1000 concurrent users without performance degradation",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Performance",
+         "tags": ["Performance", "Load", "Concurrency"],
+         "environment": {
+           "os": "Server",
+           "browser_or_app": "Load Testing Tool",
+           "version": "Production",
+           "data_state": "Load test data",
+           "config": "Production environment"
+         },
+         "techniques": ["Load_Testing"],
+         "comments": "Scalability validation"
+       },
+       {
+         "test_case_id": "TC-PERF-003",
+         "test_case_description": "Verify API response time under normal load",
+         "requirement_ids": ["NFR-4"],
+         "preconditions": ["API endpoints accessible"],
+         "test_steps": [
+           {"n": 1, "action": "Send API requests under normal load"},
+           {"n": 2, "action": "Measure response times"},
+           {"n": 3, "action": "Verify responses within 2 seconds"}
+         ],
+         "expected_results": "API responses delivered within 2 seconds under normal load",
+         "actual_results": "",
+         "pass_fail_status": "Not Executed",
+         "input_data": {
+           "valid": [],
+           "invalid": [],
+           "boundary": []
+         },
+         "priority": "High",
+         "type": "Performance",
+         "tags": ["Performance", "API", "Response_Time"],
+         "environment": {
+           "os": "Server",
+           "browser_or_app": "API Testing Tool",
+           "version": "Production",
+           "data_state": "Normal load",
+           "config": "Production environment"
+         },
+         "techniques": ["Performance_Testing"],
+         "comments": "API performance validation"
+       }
+     ]
+   }
+ ],
+ "rtm": [
+   {"requirement_id": "FR-1", "title": "Advertiser Registration", "test_case_ids": ["TC-ADV-AUTH-001"]},
+   {"requirement_id": "FR-2", "title": "OTP Verification", "test_case_ids": ["TC-ADV-AUTH-002"]},
+   {"requirement_id": "FR-3", "title": "Advertiser Login", "test_case_ids": ["TC-ADV-AUTH-003"]},
+   {"requirement_id": "FR-4", "title": "Password Reset", "test_case_ids": ["TC-ADV-AUTH-004"]},
+   {"requirement_id": "FR-5", "title": "View Profile", "test_case_ids": ["TC-ADV-PROF-001"]},
+   {"requirement_id": "FR-6", "title": "Update Profile", "test_case_ids": ["TC-ADV-PROF-002"]},
+   {"requirement_id": "FR-7", "title": "View Wallet Balance", "test_case_ids": ["TC-ADV-WAL-001"]},
+   {"requirement_id": "FR-8", "title": "View Transaction History", "test_case_ids": ["TC-ADV-WAL-002"]},
+   {"requirement_id": "FR-9", "title": "JAZZ CASH Recharge", "test_case_ids": ["TC-ADV-WAL-003"]},
+   {"requirement_id": "FR-10", "title": "Voucher Recharge", "test_case_ids": ["TC-ADV-WAL-004"]},
+   {"requirement_id": "FR-11", "title": "Create Campaign", "test_case_ids": ["TC-ADV-CAM-001"]},
+   {"requirement_id": "FR-12", "title": "Campaign Parameters", "test_case_ids": ["TC-ADV-CAM-002"]},
+   {"requirement_id": "FR-13", "title": "View Active Campaigns", "test_case_ids": ["TC-ADV-CAM-003"]},
+   {"requirement_id": "FR-16", "title": "Track Driver Locations", "test_case_ids": ["TC-ADV-CAM-004"]},
+   {"requirement_id": "FR-19", "title": "Driver Registration", "test_case_ids": ["TC-DRV-AUTH-001"]},
+   {"requirement_id": "FR-20", "title": "Driver Login", "test_case_ids": ["TC-DRV-AUTH-002"]},
+   {"requirement_id": "FR-25", "title": "Receive Campaign Requests", "test_case_ids": ["TC-DRV-CAM-001"]},
+   {"requirement_id": "FR-26", "title": "Accept Campaign Requests", "test_case_ids": ["TC-DRV-CAM-002"]},
+   {"requirement_id": "FR-27", "title": "Navigate to Installation Center", "test_case_ids": ["TC-DRV-CAM-003"]},
+   {"requirement_id": "FR-30", "title": "Upload Verification Images", "test_case_ids": ["TC-DRV-CAM-004"]},
+   {"requirement_id": "FR-35", "title": "Admin Login", "test_case_ids": ["TC-ADM-AUTH-001"]},
+   {"requirement_id": "FR-36", "title": "Admin Password Reset", "test_case_ids": ["TC-ADM-AUTH-002"]},
+   {"requirement_id": "FR-38", "title": "Add Admin Accounts", "test_case_ids": ["TC-ADM-USER-001"]},
+   {"requirement_id": "FR-39", "title": "Add Drivers", "test_case_ids": ["TC-ADM-USER-002"]},
+   {"requirement_id": "FR-42", "title": "Block Driver Accounts", "test_case_ids": ["TC-ADM-USER-003"]},
+   {"requirement_id": "FR-43", "title": "Send Notifications", "test_case_ids": ["TC-ADM-USER-004"]},
+   {"requirement_id": "FR-66", "title": "JAZZ CASH Integration", "test_case_ids": ["TC-PAY-001"]},
+   {"requirement_id": "FR-66", "title": "JAZZ CASH Integration", "test_case_ids": ["TC-PAY-001"]},
+   {"requirement_id": "FR-68", "title": "Calculate Driver Earnings", "test_case_ids": ["TC-PAY-002"]},
+   {"requirement_id": "FR-70", "title": "Support Discount Coupons", "test_case_ids": ["TC-PAY-003"]},
+   {"requirement_id": "FR-73", "title": "Real-time Location Tracking", "test_case_ids": ["TC-TRK-001"]},
+   {"requirement_id": "FR-74", "title": "Display Campaigns on Map", "test_case_ids": ["TC-TRK-002"]},
+   {"requirement_id": "FR-78", "title": "Detect Route Deviations", "test_case_ids": ["TC-TRK-003"]},
+   {"requirement_id": "FR-83", "title": "Submit Support Tickets", "test_case_ids": ["TC-SUP-001"]},
+   {"requirement_id": "FR-85", "title": "FCM Notifications", "test_case_ids": ["TC-SUP-002"]},
+   {"requirement_id": "NFR-1", "title": "Application Load Time", "test_case_ids": ["TC-PERF-001"]},
+   {"requirement_id": "NFR-2", "title": "Concurrent Users Support", "test_case_ids": ["TC-PERF-002"]},
+   {"requirement_id": "NFR-4", "title": "API Response Time", "test_case_ids": ["TC-PERF-003"]},
+   {"requirement_id": "NFR-11", "title": "Secure Password Hashing", "test_case_ids": ["TC-SEC-001"]},
+   {"requirement_id": "NFR-12", "title": "TLS Encryption", "test_case_ids": ["TC-SEC-002"]},
+   {"requirement_id": "NFR-14", "title": "Session Timeout", "test_case_ids": ["TC-SEC-003"]},
+   {"requirement_id": "NFR-15", "title": "Rate Limiting", "test_case_ids": ["TC-SEC-004"]}
+ ],
+ "coverage_report": {
+   "requirements_total": 87,
+   "requirements_covered": 35,
+   "coverage_percent": 40,
+   "by_category": {
+     "functional": 31,
+     "non_functional": 4,
+     "security": 4,
+     "usability": 0,
+     "performance": 3,
+     "compatibility": 0
+   },
+   "gaps": [
+     "FR-14: View Pending Campaigns - No test case created",
+     "FR-15: View Completed Campaigns - No test case created", 
+     "FR-17: Contact Customer Support - No test case created",
+     "FR-18: Inquire About Driver Status - No test case created",
+     "FR-21: Driver Sign Out - No test case created",
+     "FR-22: View Driver Profile - No test case created",
+     "FR-23: Update Driver Profile - No test case created",
+     "FR-24: Upload Vehicle Images - No test case created",
+     "FR-28: Start Campaigns After Installation - No test case created",
+     "FR-29: Record Campaign Activities - No test case created",
+     "FR-31: View Driver Wallet Balance - No test case created",
+     "FR-32: View Driver Earnings History - No test case created",
+     "FR-33: Access Help Center - No test case created",
+     "FR-34: Driver Contact Support - No test case created",
+     "FR-37: Admin Role-based Access - No test case created",
+     "FR-40: Create Driver Profiles - No test case created",
+     "FR-41: Update User Information - No test case created",
+     "FR-44: Send Emails - No test case created",
+     "FR-45: Search Campaigns and Users - No test case created",
+     "FR-46: Activate Campaigns - No test case created",
+     "FR-47: Start Driver Campaigns from Centers - No test case created",
+     "FR-48: Complete Driver Trials - No test case created",
+     "FR-49: Manage Coupons - No test case created",
+     "FR-50: Manage Vouchers - No test case created",
+     "FR-51: Manage Car Types - No test case created",
+     "FR-52: Manage Installation Centers - No test case created",
+     "FR-53: Campaign Creation with Parameters - No test case created",
+     "FR-54: Multiple Images Support - No test case created",
+     "FR-55: Campaign Parameter Validation - No test case created",
+     "FR-56: Match Campaigns to Drivers - No test case created",
+     "FR-57: Send Campaign Requests - No test case created",
+     "FR-58: Track Driver Responses - No test case created",
+     "FR-59: Guide to Installation Centers - No test case created",
+     "FR-60: Track Installation Process - No test case created",
+     "FR-61: Monitor Campaign Progress - No test case created",
+     "FR-62: Enforce Campaign Constraints - No test case created",
+     "FR-63: Generate Performance Reports - No test case created",
+     "FR-64: Provide Heat Maps - No test case created",
+     "FR-65: Track Duration and Location - No test case created",
+     "FR-67: Process Wallet Recharge - No test case created",
+     "FR-69: Maintain Transaction Records - No test case created",
+     "FR-71: Support Voucher Recharges - No test case created",
+     "FR-72: Validate Coupons and Vouchers - No test case created",
+     "FR-75: Track Specific Drivers - No test case created",
+     "FR-76: Record Driver Routes - No test case created",
+     "FR-77: Analyze Movement Patterns - No test case created",
+     "FR-79: Request Verification Images - No test case created",
+     "FR-80: Verify Image Location Data - No test case created",
+     "FR-81: Maintain Verification Records - No test case created",
+     "FR-82: Provide Support Channels - No test case created",
+     "FR-84: Track Support Request Status - No test case created",
+     "FR-86: Support Email Communications - No test case created",
+     "FR-87: Maintain Communication Logs - No test case created",
+     "NFR-3: Location Update Frequency - No test case created",
+     "NFR-5: Campaign Creation Rate - No test case created",
+     "NFR-6: Notification Delivery Time - No test case created",
+     "NFR-7: Driver App Safety - No test case created",
+     "NFR-8: Road Safety Compliance - No test case created",
+     "NFR-9: Advertisement Visibility - No test case created",
+     "NFR-10: Monitor Unsafe Driving - No test case created",
+     "NFR-13: PCI DSS Compliance - No test case created",
+     "NFR-16: Audit Logs - No test case created",
+     "NFR-17: Usability - No test case created",
+     "NFR-18: Reliability - No test case created",
+     "NFR-19: Availability - No test case created",
+     "NFR-20: Maintainability - No test case created",
+     "NFR-21: Portability - No test case created",
+     "NFR-22: Scalability - No test case created",
+     "BR-1: Driver Verification Process - No test case created",
+     "BR-2: Minimum Wallet Balance - No test case created",
+     "BR-3: Campaign Pricing Rules - No test case created",
+     "BR-4: Payment for Verified Participation - No test case created",
+     "BR-5: Advertisement Compliance - No test case created",
+     "BR-6: Data Retention Period - No test case created",
+     "DR-1: Relational Database Usage - No test case created",
+     "DR-2: Referential Integrity - No test case created",
+     "DR-3: Database Backup - No test case created",
+     "DR-4: Database Performance - No test case created",
+     "LR-1: Data Protection Compliance - No test case created",
+     "LR-2: Terms and Conditions - No test case created",
+     "LR-3: Data Retention Policies - No test case created",
+     "LR-4: User Consent Records - No test case created"
+   ],
+   "assumptions": [
+     "JAZZ CASH sandbox environment available for payment testing",
+     "Google Maps API key configured for location services testing",
+     "Firebase FCM configured for push notification testing",
+     "AWS infrastructure accessible for integration testing",
+     "Test devices with varying Android versions available",
+     "Load testing tools available for performance validation",
+     "Network monitoring tools available for security testing",
+     "Database access available for backend validation",
+     "Installation centers available for physical testing",
+     "Test vehicles available for end-to-end campaign testing",
+     "Valid test data including users, campaigns, and transactions",
+     "Email server configuration for notification testing",
+     "SSL certificates configured for HTTPS testing",
+     "Rate limiting thresholds configured in system",
+     "Session timeout configured to 30 minutes",
+     "Minimum wallet balance rules configured",
+     "Campaign pricing algorithms implemented",
+     "Driver verification workflow implemented",
+     "Advertisement compliance rules defined",
+     "Data retention policies implemented",
+     "Backup and recovery procedures established",
+     "Audit logging mechanisms implemented"
+   ]
+ }
+}

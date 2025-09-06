@@ -1,0 +1,923 @@
+{
+  "modules": [
+    {
+      "module_id": "MOD-ADVERTISER",
+      "module_name": "Advertiser module",
+      "test_cases": [
+        {
+          "test_case_id": "TC-ADV-REG-OTP-001",
+          "test_case_description": "Advertiser registration with valid data and OTP verification followed by first login and profile view",
+          "requirement_ids": ["FR-1", "FR-2", "FR-3", "FR-5"],
+          "preconditions": ["Advertiser is not registered", "Valid phone/email available to receive OTP"],
+          "test_steps": [
+            {"n": 1, "action": "Open Advertiser app and navigate to Registration"},
+            {"n": 2, "action": "Enter valid name, email, phone, and password; submit"},
+            {"n": 3, "action": "Receive OTP and enter within valid time window"},
+            {"n": 4, "action": "Login with registered credentials"},
+            {"n": 5, "action": "Open Profile and view details"}
+          ],
+          "expected_results": "Registration succeeds; OTP verification completes; login succeeds; profile displays correct registered information.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {
+            "valid": [{"name": "Acme Ads", "email": "owner@acme.test", "phone": "+420700000001", "password": "Aa#12345", "otp": "123456"}],
+            "invalid": [],
+            "boundary": []
+          },
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["Smoke", "Regression", "E2E"],
+          "environment": {"os": "Android 12", "browser_or_app": "Advertiser App", "version": "1.0.0", "data_state": "Clean", "config": "Default"},
+          "techniques": ["UseCase", "EP"],
+          "comments": "Happy path for advertiser onboarding."
+        },
+        {
+          "test_case_id": "TC-ADV-REG-NEG-002",
+          "test_case_description": "Advertiser registration negative and boundary validations including OTP expiry and invalid formats",
+          "requirement_ids": ["FR-1", "FR-2"],
+          "preconditions": ["Advertiser not registered"],
+          "test_steps": [
+            {"n": 1, "action": "Open Registration"},
+            {"n": 2, "action": "Submit with missing required fields"},
+            {"n": 3, "action": "Submit with invalid email format"},
+            {"n": 4, "action": "Submit with weak password"},
+            {"n": 5, "action": "Request OTP, wait past expiry, then submit OTP"},
+            {"n": 6, "action": "Enter incorrect OTP thrice"}
+          ],
+          "expected_results": "Appropriate validation errors; OTP expired is rejected; multiple incorrect OTP attempts are rejected without creating account.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {
+            "valid": [],
+            "invalid": [
+              {"name": "", "email": "invalid", "phone": "abc", "password": "123"},
+              {"otp": "000000"}
+            ],
+            "boundary": [{"password": "Aa#1234", "note": "Minimum length boundary as per policy (assumption)"}]
+          },
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["Negative", "Validation"],
+          "environment": {"os": "Android 8", "browser_or_app": "Advertiser App", "version": "1.0.0"},
+          "techniques": ["BVA", "EP", "ErrorGuessing"],
+          "comments": "Exact OTP expiry window not specified—see assumptions."
+        },
+        {
+          "test_case_id": "TC-ADV-AUTH-RESET-003",
+          "test_case_description": "Advertiser password reset via 'forgot password'",
+          "requirement_ids": ["FR-4"],
+          "preconditions": ["Advertiser account exists and is active"],
+          "test_steps": [
+            {"n": 1, "action": "Open Login and tap 'Forgot password'"},
+            {"n": 2, "action": "Enter registered email"},
+            {"n": 3, "action": "Complete verification (link/OTP)"},
+            {"n": 4, "action": "Set new valid password and login"}
+          ],
+          "expected_results": "Reset email/OTP received; password successfully reset; user can log in with new password and not with old one.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"email": "owner@acme.test", "new_password": "New#Pass9"}], "invalid": [], "boundary": []},
+          "priority": "Medium",
+          "type": "Functional",
+          "tags": ["Security", "Regression"],
+          "environment": {"os": "Android 12", "browser_or_app": "Advertiser App", "version": "1.0.0"},
+          "techniques": ["UseCase"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-ADV-PROFILE-UPDATE-004",
+          "test_case_description": "Advertiser can update profile fields and see persistence",
+          "requirement_ids": ["FR-6"],
+          "preconditions": ["Logged in as advertiser"],
+          "test_steps": [
+            {"n": 1, "action": "Open Profile"},
+            {"n": 2, "action": "Edit company name and phone and save"},
+            {"n": 3, "action": "Logout and login to verify persisted changes"}
+          ],
+          "expected_results": "Profile updates save and persist across sessions.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"company_name": "Acme Media", "phone": "+420700000009"}], "invalid": [{"phone": "++--"}], "boundary": []},
+          "priority": "Low",
+          "type": "Functional",
+          "tags": ["CRUD"],
+          "environment": {"os": "Android 10", "browser_or_app": "Advertiser App", "version": "1.0.0"},
+          "techniques": ["EP", "CRUD"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-ADV-WALLET-VIEW-005",
+          "test_case_description": "Advertiser views wallet balance and transaction history",
+          "requirement_ids": ["FR-7", "FR-8"],
+          "preconditions": ["Advertiser has at least one past transaction"],
+          "test_steps": [
+            {"n": 1, "action": "Navigate to Wallet"},
+            {"n": 2, "action": "Observe balance and transaction list"},
+            {"n": 3, "action": "Tap into a transaction to view details"}
+          ],
+          "expected_results": "Balance reflects sum of transactions; history shows accurate items with correct amounts and timestamps.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [], "invalid": [], "boundary": []},
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["ReadOnly", "Finance"],
+          "environment": {"os": "Android 11", "browser_or_app": "Advertiser App", "version": "1.0.0"},
+          "techniques": ["UseCase"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-ADV-WALLET-RECHARGE-JAZZ-006",
+          "test_case_description": "Recharge wallet using JAZZ CASH successfully",
+          "requirement_ids": ["FR-9", "FR-66", "FR-67"],
+          "preconditions": ["Advertiser logged in; payment gateway sandbox available"],
+          "test_steps": [
+            {"n": 1, "action": "Open Wallet > Recharge"},
+            {"n": 2, "action": "Choose JAZZ CASH and enter valid amount"},
+            {"n": 3, "action": "Complete payment in gateway flow"},
+            {"n": 4, "action": "Return to app and verify balance updated and transaction recorded"}
+          ],
+          "expected_results": "Payment succeeds; wallet credited; transaction recorded with reference ID.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"amount": 1000}], "invalid": [], "boundary": [{"amount": 1}]},
+          "priority": "Critical",
+          "type": "Functional",
+          "tags": ["Payments", "Integration", "Finance"],
+          "environment": {"os": "Android 12", "browser_or_app": "Advertiser App", "version": "1.0.0", "config": "PaymentSandbox"},
+          "techniques": ["EP", "BVA", "UseCase"],
+          "comments": "Currency not specified—assumption noted."
+        },
+        {
+          "test_case_id": "TC-ADV-WALLET-RECHARGE-VOUCHER-007",
+          "test_case_description": "Recharge wallet using valid voucher; invalid and reused voucher negative cases",
+          "requirement_ids": ["FR-10", "FR-71", "FR-72"],
+          "preconditions": ["Advertiser logged in; one unused valid voucher and one used/invalid voucher exist"],
+          "test_steps": [
+            {"n": 1, "action": "Open Wallet > Voucher Recharge"},
+            {"n": 2, "action": "Enter valid voucher code and submit"},
+            {"n": 3, "action": "Verify balance increases and transaction recorded"},
+            {"n": 4, "action": "Attempt to reuse the same voucher"},
+            {"n": 5, "action": "Enter invalid/nonexistent voucher"}
+          ],
+          "expected_results": "Valid voucher credits wallet; reused/invalid vouchers are rejected with clear errors; no double credit.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {
+            "valid": [{"voucher": "VCHR-VALID-001", "amount": 500}],
+            "invalid": [{"voucher": "VCHR-USED-001"}, {"voucher": "VCHR-NOPE-999"}],
+            "boundary": []
+          },
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["Payments", "Negative"],
+          "environment": {"os": "Android 9", "browser_or_app": "Advertiser App", "version": "1.0.0"},
+          "techniques": ["EP", "ErrorGuessing"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-ADV-CAM-CREATE-008",
+          "test_case_description": "Create campaign with all required parameters including multiple images; validation on parameters",
+          "requirement_ids": ["FR-11", "FR-12", "FR-53", "FR-54", "FR-55"],
+          "preconditions": ["Advertiser logged in; wallet has sufficient balance (per BR-2)"],
+          "test_steps": [
+            {"n": 1, "action": "Open Create Campaign form"},
+            {"n": 2, "action": "Enter title, description, duration, number of cars, target area, budget; add 3 images"},
+            {"n": 3, "action": "Submit form"},
+            {"n": 4, "action": "Observe campaign moves to Pending/Active per workflow"}
+          ],
+          "expected_results": "Campaign created; validations pass for required fields and images; campaign visible in relevant list.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {
+            "valid": [{"title": "City Launch", "duration_days": 14, "cars": 10, "target_area": "Brno-Center", "budget": 20000, "images": ["img1.jpg", "img2.jpg", "img3.jpg"]}],
+            "invalid": [{"title": "", "cars": 0}, {"duration_days": -1}, {"images": []}],
+            "boundary": [{"cars": 1}, {"duration_days": 1}]
+          },
+          "priority": "Critical",
+          "type": "Functional",
+          "tags": ["Campaigns", "Validation"],
+          "environment": {"os": "Android 12", "browser_or_app": "Advertiser App", "version": "1.0.0"},
+          "techniques": ["BVA", "EP", "UseCase"],
+          "comments": "Status transitions not fully specified—see gaps."
+        },
+        {
+          "test_case_id": "TC-ADV-CAM-LISTS-009",
+          "test_case_description": "View active, pending, and completed campaign lists; tracking driver current locations",
+          "requirement_ids": ["FR-13", "FR-14", "FR-15", "FR-16"],
+          "preconditions": ["Advertiser has at least one campaign in each state and drivers assigned"],
+          "test_steps": [
+            {"n": 1, "action": "Open Campaigns > Active; verify list and counts"},
+            {"n": 2, "action": "Open Campaigns > Pending; verify items"},
+            {"n": 3, "action": "Open Campaigns > Completed; verify items"},
+            {"n": 4, "action": "From an active campaign, open map to track driver locations"}
+          ],
+          "expected_results": "Lists display correct items; map shows drivers for selected campaign with live positions.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [], "invalid": [], "boundary": []},
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["ReadOnly", "Maps"],
+          "environment": {"os": "Android 11", "browser_or_app": "Advertiser App", "version": "1.0.0"},
+          "techniques": ["UseCase"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-ADV-SUPPORT-010",
+          "test_case_description": "Advertiser contacts customer support and inquires driver status",
+          "requirement_ids": ["FR-17", "FR-18"],
+          "preconditions": ["Advertiser logged in"],
+          "test_steps": [
+            {"n": 1, "action": "Open Support and send a general inquiry"},
+            {"n": 2, "action": "Use driver status inquiry flow referencing a campaign/driver"}
+          ],
+          "expected_results": "Support request is sent and acknowledged; driver status inquiry returns current status or generates a ticket.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"subject": "Billing", "message": "Question about charges"}], "invalid": [], "boundary": []},
+          "priority": "Medium",
+          "type": "Functional",
+          "tags": ["Support"],
+          "environment": {"os": "Android 10", "browser_or_app": "Advertiser App", "version": "1.0.0"},
+          "techniques": ["UseCase"],
+          "comments": ""
+        }
+      ]
+    },
+    {
+      "module_id": "MOD-DRIVER",
+      "module_name": "Driver module",
+      "test_cases": [
+        {
+          "test_case_id": "TC-DRV-REG-LOGIN-011",
+          "test_case_description": "Driver registration, login, and sign out",
+          "requirement_ids": ["FR-19", "FR-20", "FR-21"],
+          "preconditions": ["Driver not registered"],
+          "test_steps": [
+            {"n": 1, "action": "Register as driver with valid details"},
+            {"n": 2, "action": "Login with credentials"},
+            {"n": 3, "action": "Sign out and verify session cleared"}
+          ],
+          "expected_results": "Registration and login succeed; sign out clears session and returns to login.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"name": "John Driver", "email": "driver@ex.test", "phone": "+420700000100", "password": "Aa#12345"}], "invalid": [], "boundary": []},
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["Smoke"],
+          "environment": {"os": "Android 12", "browser_or_app": "Driver App", "version": "1.0.0"},
+          "techniques": ["UseCase"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-DRV-PROFILE-012",
+          "test_case_description": "Driver views and updates profile; uploads vehicle images",
+          "requirement_ids": ["FR-22", "FR-23", "FR-24"],
+          "preconditions": ["Driver logged in"],
+          "test_steps": [
+            {"n": 1, "action": "Open Profile and view info"},
+            {"n": 2, "action": "Update car type and license number; save"},
+            {"n": 3, "action": "Upload front, side, rear vehicle images"}
+          ],
+          "expected_results": "Profile updates persist; images upload and are visible with thumbnails.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"car_type": "Sedan", "license_number": "ABC-123"}], "invalid": [{"license_number": ""}, {"image": "corrupt.jpg"}], "boundary": []},
+          "priority": "Medium",
+          "type": "Functional",
+          "tags": ["CRUD", "Media"],
+          "environment": {"os": "Android 11", "browser_or_app": "Driver App", "version": "1.0.0"},
+          "techniques": ["EP", "ErrorGuessing"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-DRV-CAM-REQ-013",
+          "test_case_description": "Driver receives campaign request and accepts; alternative reject path",
+          "requirement_ids": ["FR-25", "FR-26", "FR-58"],
+          "preconditions": ["Driver availability status ON; matching campaign exists"],
+          "test_steps": [
+            {"n": 1, "action": "Wait for campaign request notification"},
+            {"n": 2, "action": "Open request and accept"},
+            {"n": 3, "action": "Repeat for a second request and reject"}
+          ],
+          "expected_results": "Accepted request moves to assigned; rejection sends decline status; responses tracked.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [], "invalid": [], "boundary": []},
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["Notifications", "Assignment"],
+          "environment": {"os": "Android 10", "browser_or_app": "Driver App", "version": "1.0.0"},
+          "techniques": ["UseCase"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-DRV-NAV-INSTALL-014",
+          "test_case_description": "Driver views navigation to installation center and starts campaign after installation",
+          "requirement_ids": ["FR-27", "FR-28", "FR-59", "FR-60"],
+          "preconditions": ["Campaign assigned and scheduled for installation"],
+          "test_steps": [
+            {"n": 1, "action": "Open assigned campaign and tap Navigate to installation center"},
+            {"n": 2, "action": "Arrive and mark installed (as per flow); Admin verifies if required"},
+            {"n": 3, "action": "Start campaign"}
+          ],
+          "expected_results": "Navigation opens with route; after installation verification, driver can start campaign.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"install_center": "Center-1"}], "invalid": [], "boundary": []},
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["Maps", "Workflow"],
+          "environment": {"os": "Android 12", "browser_or_app": "Driver App", "version": "1.0.0"},
+          "techniques": ["UseCase"],
+          "comments": "Admin verification flow not fully detailed."
+        },
+        {
+          "test_case_id": "TC-DRV-CAM-ACTIVITY-015",
+          "test_case_description": "Driver records campaign activity and uploads verification images with location metadata",
+          "requirement_ids": ["FR-29", "FR-30", "FR-79", "FR-80", "FR-81"],
+          "preconditions": ["Active campaign in progress", "GPS and Camera permissions granted"],
+          "test_steps": [
+            {"n": 1, "action": "Open campaign activity screen and start activity timer"},
+            {"n": 2, "action": "Capture verification photo at checkpoint"},
+            {"n": 3, "action": "Submit with auto-attached location data"},
+            {"n": 4, "action": "View verification history list"}
+          ],
+          "expected_results": "Activity recorded; image captured; location lat/long stored and verified; activity appears in history.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"photo": "checkpoint.jpg", "gps": "49.1951,16.6068"}], "invalid": [{"gps": null}, {"photo": "no_exif.jpg"}], "boundary": []},
+          "priority": "Critical",
+          "type": "Functional",
+          "tags": ["Media", "Location", "Compliance"],
+          "environment": {"os": "Android 11", "browser_or_app": "Driver App", "version": "1.0.0"},
+          "techniques": ["EP", "ErrorGuessing"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-DRV-WALLET-016",
+          "test_case_description": "Driver views wallet balance and earnings history",
+          "requirement_ids": ["FR-31", "FR-32"],
+          "preconditions": ["Driver has completed at least one campaign with earnings"],
+          "test_steps": [
+            {"n": 1, "action": "Open Wallet"},
+            {"n": 2, "action": "Verify balance and earnings entries"}
+          ],
+          "expected_results": "Balance matches sum of verified participations; entries show campaign IDs and amounts.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [], "invalid": [], "boundary": []},
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["Finance", "ReadOnly"],
+          "environment": {"os": "Android 10", "browser_or_app": "Driver App", "version": "1.0.0"},
+          "techniques": ["UseCase"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-DRV-SUPPORT-017",
+          "test_case_description": "Driver accesses help center and contacts support",
+          "requirement_ids": ["FR-33", "FR-34"],
+          "preconditions": ["Driver logged in"],
+          "test_steps": [
+            {"n": 1, "action": "Open Help Center"},
+            {"n": 2, "action": "Search for 'installation' help article"},
+            {"n": 3, "action": "Submit a support ticket"}
+          ],
+          "expected_results": "Help content displays; ticket created with a reference number and visible in support status.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"subject": "Navigation issue", "message": "Map not loading"}], "invalid": [], "boundary": []},
+          "priority": "Medium",
+          "type": "Functional",
+          "tags": ["Support"],
+          "environment": {"os": "Android 9", "browser_or_app": "Driver App", "version": "1.0.0"},
+          "techniques": ["UseCase"],
+          "comments": ""
+        }
+      ]
+    },
+    {
+      "module_id": "MOD-ADMIN",
+      "module_name": "Admin module",
+      "test_cases": [
+        {
+          "test_case_id": "TC-ADM-AUTH-018",
+          "test_case_description": "Admin login, password reset and role-based access verification",
+          "requirement_ids": ["FR-35", "FR-36", "FR-37"],
+          "preconditions": ["Admin accounts exist with roles: SuperAdmin, OpsAdmin"],
+          "test_steps": [
+            {"n": 1, "action": "Login as OpsAdmin and verify accessible menus"},
+            {"n": 2, "action": "Attempt to access restricted SuperAdmin pages"},
+            {"n": 3, "action": "Use forgot password to reset OpsAdmin password and login with new password"}
+          ],
+          "expected_results": "Role-limited access enforced; restricted pages blocked; password reset works.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"user": "ops@corads.test"}, {"user": "super@corads.test"}], "invalid": [], "boundary": []},
+          "priority": "High",
+          "type": "Security",
+          "tags": ["RBAC", "Authentication"],
+          "environment": {"os": "Windows 11", "browser_or_app": "Chrome", "version": "v118+", "config": "AdminPortal"},
+          "techniques": ["UseCase", "RoleTesting"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-ADM-USERS-019",
+          "test_case_description": "Admin user management for admins and drivers (add, update, delete, block/unblock, profile creation, notifications/emails)",
+          "requirement_ids": ["FR-38", "FR-39", "FR-40", "FR-41", "FR-42", "FR-43", "FR-44"],
+          "preconditions": ["Logged in as SuperAdmin"],
+          "test_steps": [
+            {"n": 1, "action": "Add a new admin account and update its details"},
+            {"n": 2, "action": "Delete a test admin"},
+            {"n": 3, "action": "Add a driver and create driver profile"},
+            {"n": 4, "action": "Block and then unblock a driver"},
+            {"n": 5, "action": "Send notification and email to a driver and advertiser"}
+          ],
+          "expected_results": "All CRUD operations succeed; block state enforced; notifications/emails sent and logged.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"driver_email": "d1@corads.test"}], "invalid": [{"email": "bad"}], "boundary": []},
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["UserManagement", "Notifications", "Email"],
+          "environment": {"os": "Windows 11", "browser_or_app": "Firefox", "version": "v115"},
+          "techniques": ["CRUD", "EP"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-ADM-CAM-MGMT-020",
+          "test_case_description": "Admin campaign search, activation, start from installation, and trial completion",
+          "requirement_ids": ["FR-45", "FR-46", "FR-47", "FR-48"],
+          "preconditions": ["Admin logged in; campaigns exist in various states; drivers assigned to some"],
+          "test_steps": [
+            {"n": 1, "action": "Search campaigns and users by multiple criteria"},
+            {"n": 2, "action": "Activate a pending campaign"},
+            {"n": 3, "action": "Start driver campaign from installation center"},
+            {"n": 4, "action": "Complete driver trial and verify status update"}
+          ],
+          "expected_results": "Search works; campaign activated; driver campaign started; trials completed with correct status changes.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"criteria": "Title, Advertiser, Status"}], "invalid": [], "boundary": []},
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["Campaigns", "Workflow"],
+          "environment": {"os": "Windows 11", "browser_or_app": "Edge", "version": "v120"},
+          "techniques": ["UseCase"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-ADM-CONFIG-021",
+          "test_case_description": "Admin configuration of coupons, vouchers, car types, and installation centers",
+          "requirement_ids": ["FR-49", "FR-50", "FR-51", "FR-52"],
+          "preconditions": ["Admin logged in"],
+          "test_steps": [
+            {"n": 1, "action": "Add a coupon, update it, and then delete"},
+            {"n": 2, "action": "Add a voucher, update it, and then delete"},
+            {"n": 3, "action": "Add a car type, update it, and then delete"},
+            {"n": 4, "action": "Add an installation center and edit its details"}
+          ],
+          "expected_results": "All configuration entities support add/update/delete (except centers deletion if restricted); changes persist.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"coupon": "DISC10", "voucher": "VCHR-001", "car_type": "Hatchback", "center": "IC-01"}], "invalid": [{"coupon": ""}], "boundary": []},
+          "priority": "Medium",
+          "type": "Functional",
+          "tags": ["Configuration", "CRUD"],
+          "environment": {"os": "Windows 11", "browser_or_app": "Chrome", "version": "v118+"},
+          "techniques": ["CRUD"],
+          "comments": ""
+        }
+      ]
+    },
+    {
+      "module_id": "MOD-CAMPAIGN",
+      "module_name": "Campaign management",
+      "test_cases": [
+        {
+          "test_case_id": "TC-CAMP-ASSIGN-022",
+          "test_case_description": "System matches campaigns to appropriate drivers and sends requests; track responses",
+          "requirement_ids": ["FR-56", "FR-57", "FR-58"],
+          "preconditions": ["Active campaign created with target area; multiple drivers with varying locations and availability"],
+          "test_steps": [
+            {"n": 1, "action": "Trigger assignment for campaign"},
+            {"n": 2, "action": "Verify only drivers in proximity and available receive requests"},
+            {"n": 3, "action": "Capture accept/reject responses and response times"}
+          ],
+          "expected_results": "Eligible drivers receive requests; ineligible do not; responses are tracked per driver.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"driver_locations": ["in-area", "out-of-area"], "availability": ["available", "busy"]}], "invalid": [], "boundary": []},
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["Assignment", "Notifications"],
+          "environment": {"os": "Backend/API", "browser_or_app": "N/A", "version": "1.0.0"},
+          "techniques": ["EP"],
+          "comments": "Matching algorithm specifics not provided."
+        },
+        {
+          "test_case_id": "TC-CAMP-EXECUTION-023",
+          "test_case_description": "Monitor campaign progress in real-time and enforce time/distance constraints",
+          "requirement_ids": ["FR-61", "FR-62"],
+          "preconditions": ["Active campaign with specified time window and minimum distance/coverage"],
+          "test_steps": [
+            {"n": 1, "action": "Start driver campaign and simulate movement"},
+            {"n": 2, "action": "Validate real-time progress metrics update"},
+            {"n": 3, "action": "Breach time window and/or distance threshold to verify enforcement"}
+          ],
+          "expected_results": "Real-time metrics reflect movement; out-of-policy conditions are flagged and prevented from crediting beyond constraints.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"distance_km": 10, "time_min": 60}], "invalid": [{"time_min": -5}], "boundary": [{"distance_km": 0}]},
+          "priority": "Critical",
+          "type": "Functional",
+          "tags": ["Tracking", "PolicyEnforcement"],
+          "environment": {"os": "Backend + Apps", "browser_or_app": "Mixed", "version": "1.0.0"},
+          "techniques": ["BVA", "EP"],
+          "comments": "Exact thresholds unspecified."
+        },
+        {
+          "test_case_id": "TC-CAMP-REPORT-024",
+          "test_case_description": "Campaign performance reports, heat maps, duration and location tracking",
+          "requirement_ids": ["FR-63", "FR-64", "FR-65"],
+          "preconditions": ["Completed campaign with sufficient movement and verification data"],
+          "test_steps": [
+            {"n": 1, "action": "Open Reports for completed campaign"},
+            {"n": 2, "action": "View heat map and verify concentration in target areas"},
+            {"n": 3, "action": "Check duration and location logs for accuracy"}
+          ],
+          "expected_results": "Reports generated; heat map aligns with route data; durations and locations match tracking logs.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [], "invalid": [], "boundary": []},
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["Analytics", "Maps"],
+          "environment": {"os": "Web/Admin + Advertiser App", "browser_or_app": "Chrome", "version": "v118+"},
+          "techniques": ["UseCase"],
+          "comments": ""
+        }
+      ]
+    },
+    {
+      "module_id": "MOD-PAYMENT",
+      "module_name": "Payment system",
+      "test_cases": [
+        {
+          "test_case_id": "TC-PAY-PROC-025",
+          "test_case_description": "Process wallet recharge transactions and maintain records; failure handling",
+          "requirement_ids": ["FR-66", "FR-67", "FR-69"],
+          "preconditions": ["Gateway reachable"],
+          "test_steps": [
+            {"n": 1, "action": "Initiate recharge and approve payment"},
+            {"n": 2, "action": "Verify transaction record created with success state"},
+            {"n": 3, "action": "Initiate recharge and cancel/decline in gateway"},
+            {"n": 4, "action": "Verify no credit and record shows failure"}
+          ],
+          "expected_results": "Successful transactions credit wallet and log success; declined payments do not credit and log failure.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"amount": 100}], "invalid": [{"amount": 0}], "boundary": [{"amount": 1}]},
+          "priority": "Critical",
+          "type": "Functional",
+          "tags": ["Payments", "Integration"],
+          "environment": {"os": "Android + Backend", "browser_or_app": "Apps", "version": "1.0.0"},
+          "techniques": ["BVA", "EP"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-PAY-EARNINGS-026",
+          "test_case_description": "Calculate driver earnings based on campaign participation and verification",
+          "requirement_ids": ["FR-68", "BR-4"],
+          "preconditions": ["Driver completed activities; some verified, some unverified"],
+          "test_steps": [
+            {"n": 1, "action": "Run earnings calculation for campaign period"},
+            {"n": 2, "action": "Verify only verified participations are paid"},
+            {"n": 3, "action": "Validate amounts per pricing model inputs (duration, cars, location)"}
+          ],
+          "expected_results": "Earnings include only verified participation; amounts calculated per business rules.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"verified_minutes": 120, "unverified_minutes": 30}], "invalid": [], "boundary": []},
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["Finance", "PolicyEnforcement"],
+          "environment": {"os": "Backend", "browser_or_app": "N/A", "version": "1.0.0"},
+          "techniques": ["EP"],
+          "comments": "Exact pricing formula not detailed—see gaps."
+        },
+        {
+          "test_case_id": "TC-PAY-DISCOUNTS-027",
+          "test_case_description": "Apply discount coupons to advertiser and validate coupon/voucher logic",
+          "requirement_ids": ["FR-70", "FR-72"],
+          "preconditions": ["Valid coupon exists with rules (discount %)"],
+          "test_steps": [
+            {"n": 1, "action": "Apply valid coupon on campaign creation/payment"},
+            {"n": 2, "action": "Apply expired/invalid coupon"},
+            {"n": 3, "action": "Reapply same coupon if single-use"}
+          ],
+          "expected_results": "Valid coupons reduce payable amount per rule; invalid/expired/single-use reapply rejected.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"coupon": "DISC10"}], "invalid": [{"coupon": "EXPIRED"}, {"coupon": "UNKNOWN"}], "boundary": [{"discount": 0}, {"discount": 100}]},
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["Discounts", "Negative"],
+          "environment": {"os": "Android/Web", "browser_or_app": "Apps", "version": "1.0.0"},
+          "techniques": ["BVA", "EP"],
+          "comments": "Coupon constraints not fully specified."
+        }
+      ]
+    },
+    {
+      "module_id": "MOD-TRACKING",
+      "module_name": "Tracking system",
+      "test_cases": [
+        {
+          "test_case_id": "TC-TRK-REALTIME-028",
+          "test_case_description": "Real-time location tracking of drivers and map display for active campaigns",
+          "requirement_ids": ["FR-73", "FR-74", "FR-75"],
+          "preconditions": ["Active campaign; advertisers and admin can view"],
+          "test_steps": [
+            {"n": 1, "action": "Driver app sends periodic GPS updates while moving"},
+            {"n": 2, "action": "Advertiser opens map on campaign"},
+            {"n": 3, "action": "Select a specific driver to track"}
+          ],
+          "expected_results": "Location updates appear on map with near-real-time markers; specific driver selection focuses the map.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"update_interval_sec": 30}], "invalid": [{"gps_permission": "denied"}], "boundary": [{"update_interval_sec": 30}]},
+          "priority": "Critical",
+          "type": "Functional",
+          "tags": ["Maps", "Realtime"],
+          "environment": {"os": "Android + Advertiser App", "browser_or_app": "Apps", "version": "1.0.0"},
+          "techniques": ["EP", "BVA"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-TRK-ROUTE-029",
+          "test_case_description": "Record driver routes, analyze movement patterns, detect route deviations",
+          "requirement_ids": ["FR-76", "FR-77", "FR-78"],
+          "preconditions": ["Route baseline/expected path defined for campaign"],
+          "test_steps": [
+            {"n": 1, "action": "Simulate driver following expected route"},
+            {"n": 2, "action": "Simulate deviation off-route"},
+            {"n": 3, "action": "Open analytics to view pattern analysis and deviation alerts"}
+          ],
+          "expected_results": "Routes recorded; movement patterns generated; deviations flagged with timestamps and segments.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"route": "Expected Path"}], "invalid": [], "boundary": []},
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["Analytics", "Compliance"],
+          "environment": {"os": "Backend + Apps", "browser_or_app": "Mixed", "version": "1.0.0"},
+          "techniques": ["UseCase"],
+          "comments": ""
+        }
+      ]
+    },
+    {
+      "module_id": "MOD-SUPPORT",
+      "module_name": "Support system",
+      "test_cases": [
+        {
+          "test_case_id": "TC-SPT-TICKETS-030",
+          "test_case_description": "Create and track support tickets; status transitions",
+          "requirement_ids": ["FR-82", "FR-83", "FR-84"],
+          "preconditions": ["User logged in (advertiser or driver)"],
+          "test_steps": [
+            {"n": 1, "action": "Submit a new support ticket"},
+            {"n": 2, "action": "View ticket status as Open"},
+            {"n": 3, "action": "Admin updates ticket to In Progress then Resolved"},
+            {"n": 4, "action": "Verify user can see updated status"}
+          ],
+          "expected_results": "Ticket created with reference; status updates reflect in user view; history is preserved.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [{"category": "Technical", "message": "Cannot upload photo"}], "invalid": [{"message": ""}], "boundary": []},
+          "priority": "Medium",
+          "type": "Functional",
+          "tags": ["Support", "Workflow"],
+          "environment": {"os": "Android/Web", "browser_or_app": "Apps", "version": "1.0.0"},
+          "techniques": ["UseCase", "EP"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-SPT-COMMS-031",
+          "test_case_description": "FCM notifications and emails are sent and communication logs maintained",
+          "requirement_ids": ["FR-85", "FR-86", "FR-87"],
+          "preconditions": ["Push tokens and email settings configured"],
+          "test_steps": [
+            {"n": 1, "action": "Trigger a system event (campaign assignment)"},
+            {"n": 2, "action": "Verify push notification received on driver device"},
+            {"n": 3, "action": "Send email to advertiser from admin portal"},
+            {"n": 4, "action": "Open communication logs and verify entries"}
+          ],
+          "expected_results": "Push and email delivered within expected SLAs; logs capture type, recipient, timestamp, and status.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [], "invalid": [{"push_token": "invalid"}], "boundary": []},
+          "priority": "High",
+          "type": "Functional",
+          "tags": ["Notifications", "Email", "Observability"],
+          "environment": {"os": "Android + Web", "browser_or_app": "Apps", "version": "1.0.0"},
+          "techniques": ["EP", "ErrorGuessing"],
+          "comments": ""
+        }
+      ]
+    },
+    {
+      "module_id": "MOD-UI",
+      "module_name": "User interfaces",
+      "test_cases": [
+        {
+          "test_case_id": "TC-UI-ADVERTISER-032",
+          "test_case_description": "Advertiser app screens exist and display required controls",
+          "requirement_ids": ["UI-1", "UI-2", "UI-3", "UI-4", "UI-5", "UI-6", "UI-7", "UI-8", "UI-9"],
+          "preconditions": ["Advertiser app installed"],
+          "test_steps": [
+            {"n": 1, "action": "Navigate through all listed advertiser screens"},
+            {"n": 2, "action": "Verify presence of key fields and widgets per screen"}
+          ],
+          "expected_results": "All specified screens exist and contain required fields/controls.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [], "invalid": [], "boundary": []},
+          "priority": "Low",
+          "type": "Functional",
+          "tags": ["UI"],
+          "environment": {"os": "Android 12", "browser_or_app": "Advertiser App", "version": "1.0.0"},
+          "techniques": ["Checklist"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-UI-DRIVER-033",
+          "test_case_description": "Driver app screens exist and display required controls",
+          "requirement_ids": ["UI-10", "UI-11", "UI-12", "UI-13", "UI-14", "UI-15", "UI-16", "UI-17"],
+          "preconditions": ["Driver app installed"],
+          "test_steps": [
+            {"n": 1, "action": "Navigate through all listed driver screens"},
+            {"n": 2, "action": "Verify key fields and widgets per screen"}
+          ],
+          "expected_results": "All specified driver screens exist and contain required controls.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {"valid": [], "invalid": [], "boundary": []},
+          "priority": "Low",
+          "type": "Functional",
+          "tags": ["UI"],
+          "environment": {"os": "Android 12", "browser_or_app": "Driver App", "version": "1.0.0"},
+          "techniques": ["Checklist"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-UI-ADMIN-034",
+          "test_case_description": "Admin web portal screens exist and display required controls",
+          "requirement_ids": ["UI-18", "UI-19", "UI-20", "UI-21", "UI-22", "UI-23", "UI-24", "UI-25"],
+          "preconditions": ["Admin portal accessible"],
+          "test_steps": [
+            {"n": 1, "action": "Visit each admin portal screen"},
+            {"n": 2, "action": "Verify presence of required components"}
+          ],
+          "expected_results": "All specified admin screens exist and contain required components.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {},
+          "priority": "Low",
+          "type": "Functional",
+          "tags": ["UI"],
+          "environment": {"os": "Windows 11", "browser_or_app": "Chrome", "version": "v118+"},
+          "techniques": ["Checklist"],
+          "comments": ""
+        }
+      ]
+    },
+    {
+      "module_id": "MOD-HW",
+      "module_name": "Hardware interfaces",
+      "test_cases": [
+        {
+          "test_case_id": "TC-HW-ANDROID-035",
+          "test_case_description": "Android minimum version and hardware access for GPS, camera, storage",
+          "requirement_ids": ["HW-1", "HW-2", "HW-3", "HW-4"],
+          "preconditions": ["Devices with Android 6.0, 7.0, 12+ available"],
+          "test_steps": [
+            {"n": 1, "action": "Install app on Android 6.0 and launch"},
+            {"n": 2, "action": "Grant/deny GPS and Camera permissions and test features"},
+            {"n": 3, "action": "Capture photo and persist data to storage"}
+          ],
+          "expected_results": "App runs on Android 6.0+; features require permissions; without permissions feature is disabled and prompts are shown.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {},
+          "priority": "High",
+          "type": "Compatibility",
+          "tags": ["Device", "Permissions"],
+          "environment": {"os": "Android 6.0/7.0/12", "browser_or_app": "Apps", "version": "1.0.0"},
+          "techniques": ["CompatibilityTesting"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-HW-CAR-DISPLAY-036",
+          "test_case_description": "Presence of car advertisement displays and installation equipment at centers",
+          "requirement_ids": ["HW-5", "HW-6"],
+          "preconditions": ["Installation center set up"],
+          "test_steps": [
+            {"n": 1, "action": "Verify car display mount points and equipment checklist at center"}
+          ],
+          "expected_results": "Required hardware interfaces exist and are documented for installation workflow.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {},
+          "priority": "Low",
+          "type": "Operational",
+          "tags": ["FieldCheck"],
+          "environment": {"os": "N/A", "browser_or_app": "N/A", "version": "N/A"},
+          "techniques": ["Checklist"],
+          "comments": "Physical verification scope."
+        }
+      ]
+    },
+    {
+      "module_id": "MOD-SW",
+      "module_name": "Software interfaces",
+      "test_cases": [
+        {
+          "test_case_id": "TC-SW-EXTERNAL-037",
+          "test_case_description": "External services integrations use correct protocols, formats, and authentication",
+          "requirement_ids": ["SW-1", "SW-2", "SW-3", "SW-4"],
+          "preconditions": ["Test credentials for AWS, Firebase, Google Maps, JAZZ CASH"],
+          "test_steps": [
+            {"n": 1, "action": "Inspect network calls for HTTPS and JSON formatting"},
+            {"n": 2, "action": "Validate AWS IAM/API keys usage for hosting endpoints"},
+            {"n": 3, "action": "Validate Firebase Auth for realtime"},
+            {"n": 4, "action": "Validate Google Maps API key usage"},
+            {"n": 5, "action": "Validate payment gateway authentication"}
+          ],
+          "expected_results": "All integrations use specified protocols, data formats, and authentication schemes.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {},
+          "priority": "High",
+          "type": "Integration",
+          "tags": ["API", "Security"],
+          "environment": {"os": "Any", "browser_or_app": "Proxy capture", "version": "N/A"},
+          "techniques": ["InterfaceTesting"],
+          "comments": ""
+        },
+        {
+          "test_case_id": "TC-SW-INTERNAL-038",
+          "test_case_description": "Internal components use HTTPS JSON with JWT auth and DB SQL with credentials",
+          "requirement_ids": ["SW-5", "SW-6", "SW-7"],
+          "preconditions": ["Backend and DB running"],
+          "test_steps": [
+            {"n": 1, "action": "Call backend APIs from apps and verify Authorization: Bearer <JWT>"},
+            {"n": 2, "action": "Observe DB connections use configured credentials and proper SQL operations"}
+          ],
+          "expected_results": "APIs over HTTPS with JWT; DB accessed via authenticated SQL connections.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {},
+          "priority": "High",
+          "type": "Integration",
+          "tags": ["API", "DB"],
+          "environment": {"os": "Any", "browser_or_app": "Apps + DB", "version": "1.0.0"},
+          "techniques": ["InterfaceTesting"],
+          "comments": ""
+        }
+      ]
+    },
+    {
+      "module_id": "MOD-COMMS",
+      "module_name": "Communications interfaces",
+      "test_cases": [
+        {
+          "test_case_id": "TC-COMMS-PROTOCOLS-039",
+          "test_case_description": "System uses HTTPS, WebSockets, FCM, and SMTP as specified",
+          "requirement_ids": ["COM-1", "COM-2", "COM-3", "COM-4"],
+          "preconditions": ["Network tracing enabled"],
+          "test_steps": [
+            {"n": 1, "action": "Verify API calls are over HTTPS"},
+            {"n": 2, "action": "Verify realtime channels use WebSockets/HTTPS for Firebase"},
+            {"n": 3, "action": "Trigger push and verify FCM transport"},
+            {"n": 4, "action": "Send an email and verify SMTP used by mailer service"}
+          ],
+          "expected_results": "All communications occur via specified protocols.",
+          "actual_results": "",
+          "pass_fail_status": "Not Executed",
+          "input_data": {},
+          "priority": "Medium",
+          "type": "Integration",
+          "tags": ["Network"],
+          "environment": {"os": "Any", "browser_or_app": "Apps + Admin", "version": "1.0.0"},
+          "techniques": ["InterfaceTesting"],
+          "comments": ""
+        }
+      ]
+    }
+  ]
+}
+  
