@@ -1,0 +1,1506 @@
+{
+  "testSuite": {
+    "projectName": "Driver & User Management System",
+    "totalModules": 12,
+    "testModules": [
+      {
+        "moduleId": 1,
+        "moduleName": "Driver Registration Testing",
+        "testDate": "02/03/2021",
+        "platform": ["Google Chrome", "Opera Mini", "Opera"],
+        "testCases": [
+          {
+            "testId": "DRT-01",
+            "testName": "View driver registration form",
+            "action": "Click add new driver button",
+            "inputs": "Click add new driver button",
+            "expectedOutput": "View driver registration form",
+            "actualOutput": "Viewed driver registration form",
+            "platform": "Google Chrome",
+            "testResult": "Pass",
+            "testComment": "Tested on 02/03/2021"
+          },
+          {
+            "testId": "DRT-02",
+            "testName": "Submit empty driver registration form",
+            "action": "Click on submit button",
+            "inputs": "Click on submit button",
+            "expectedOutput": "Show error \"enter data correctly\"",
+            "actualOutput": "Show error message \"enter data correctly\"",
+            "platform": "Google Chrome",
+            "testResult": "Pass",
+            "testComment": "Tested on 02/03/2021"
+          },
+          {
+            "testId": "DRT-03",
+            "testName": "Check for not accepting duplicate email and mobile",
+            "action": "Enter duplicate mobile and email",
+            "inputs": "Enter duplicate mobile and email",
+            "expectedOutput": "Show error \"account exist\"",
+            "actualOutput": "Show message \"account exist\"",
+            "platform": "Google Chrome",
+            "testResult": "Pass",
+            "testComment": "Tested on 02/03/2021"
+          },
+          {
+            "testId": "DRT-04",
+            "testName": "Submit form with no images",
+            "action": "Enter all data not select any images",
+            "inputs": "Enter all data not select any images",
+            "expectedOutput": "Show message select image first",
+            "actualOutput": "Show message select images first",
+            "platform": "Google Chrome",
+            "testResult": "Pass",
+            "testComment": "Tested on 02/03/2021"
+          },
+          {
+            "testId": "DRT-05",
+            "testName": "Register driver with correct data and images",
+            "action": "Enter driver data with images and click submit button",
+            "inputs": "Enter driver data with images and click submit button",
+            "expectedOutput": "Create account successfully",
+            "actualOutput": "Account created successfully",
+            "platform": "Google Chrome",
+            "testResult": "Pass",
+            "testComment": "Tested on 02/03/2021"
+          },
+          {
+            "testId": "DRT-06",
+            "testName": "Try to create driver account with invalid email address",
+            "action": "Enter all driver data correctly but provide invalid email and click submit",
+            "inputs": "Enter all driver data correctly but provide invalid email and click submit",
+            "expectedOutput": "Show \"error\" message invalid email address",
+            "actualOutput": "Received error message invalid email address",
+            "platform": "Opera Mini",
+            "testResult": "Pass",
+            "testComment": "Tested on 02/03/2021"
+          },
+          {
+            "testId": "DRT-07",
+            "testName": "Check selection of multiple images in driver registration",
+            "action": "Click select images button and try to select multiple images",
+            "inputs": "Click select images button and try to select multiple images",
+            "expectedOutput": "The admin should be able to select multiple images",
+            "actualOutput": "Successfully select multiple images",
+            "platform": "Google Chrome / Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 02/03/2021"
+          },
+          {
+            "testId": "DRT-08",
+            "testName": "Checking for selection of other file format instead of images",
+            "action": "Click select images button and try to select video",
+            "inputs": "Click select images button and try to select video",
+            "expectedOutput": "Show error message \"the file format is not supported\"",
+            "actualOutput": "Successfully received error message \"file format is not supported\"",
+            "platform": "Google Chrome / Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 02/03/2021"
+          },
+          {
+            "testId": "DRT-09",
+            "testName": "Enter number instead of letter and letter instead of number",
+            "action": "Enter letter in name input filed and letter in mobile input field",
+            "inputs": "Enter letter in name input filed and letter in mobile input field",
+            "expectedOutput": "The user should be able enter invalid format data",
+            "actualOutput": "The user not able to enter invalid format data",
+            "platform": "Google chrome",
+            "testResult": "Pass",
+            "testComment": "Tested on 02/03/2021"
+          }
+        ],
+        "summary": {
+          "totalTests": 9,
+          "passedTests": 9,
+          "failedTests": 0,
+          "passRate": "100%"
+        }
+      },
+      {
+        "moduleId": 2,
+        "moduleName": "Driver Login Testing",
+        "testDate": "06/03/2021",
+        "platform": ["Android X", "Android 9.0"],
+        "testCases": [
+          {
+            "testId": "DLT-01",
+            "testName": "Checking login form without entering any data and try to submit",
+            "action": "Leaved email and password empty and click login button",
+            "inputs": "Leaved email and password empty and click login button",
+            "expectedOutput": "Login button should not work and show error message",
+            "actualOutput": "Login button not working and receive error message",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 06/03/2021"
+          },
+          {
+            "testId": "DLT-02",
+            "testName": "Enter invalid email and password and try to login in the app",
+            "action": "Enter invalid email and password",
+            "inputs": "Enter invalid email and password",
+            "expectedOutput": "Should give invalid email or password error message",
+            "actualOutput": "Successfully received error message",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 06/03/2021"
+          },
+          {
+            "testId": "DLT-03",
+            "testName": "Enter correct email but wrong password and try to login",
+            "action": "Email – basitdak@gmail.com Password- 123456",
+            "inputs": "Email – basitdak@gmail.com Password- 123456",
+            "expectedOutput": "the user should receive invalid password message",
+            "actualOutput": "Received invalid password error message",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 06/03/2021"
+          },
+          {
+            "testId": "DLT-04",
+            "testName": "Enter invalid email and valid password",
+            "action": "Email – basi@gmali.com Password- 1234",
+            "inputs": "Email – basi@gmali.com Password- 1234",
+            "expectedOutput": "The user should receive error message",
+            "actualOutput": "Received error message \"account does not exist",
+            "platform": "Android 9.0",
+            "testResult": "Pass",
+            "testComment": "Tested on 06/03/2021"
+          },
+          {
+            "testId": "DLT-05",
+            "testName": "Enter correct email and password and try to login in the system",
+            "action": "Email- basitdak@gmail.com Password- 1234",
+            "inputs": "Email- basitdak@gmail.com Password- 1234",
+            "expectedOutput": "Should successful login",
+            "actualOutput": "Successfully login in the system",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 06/03/2021"
+          },
+          {
+            "testId": "DLT-06",
+            "testName": "After login user should be directed to main activity",
+            "action": "Click login button",
+            "inputs": "Click login button",
+            "expectedOutput": "User should be able to view main screen",
+            "actualOutput": "Successfully view home screen",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 06/03/2021"
+          },
+          {
+            "testId": "DLT-07",
+            "testName": "Try to check forgot password option functionality",
+            "action": "Click forgot password button",
+            "inputs": "Click forgot password button",
+            "expectedOutput": "Should to directed to forgot password screen",
+            "actualOutput": "Successfully directed to forgot password activity",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 06/03/2021"
+          },
+          {
+            "testId": "DLT-08",
+            "testName": "Enter invalid email address in the forgot password",
+            "action": "Email- basi@gmail.com",
+            "inputs": "Email- basi@gmail.com",
+            "expectedOutput": "The user should receive error message",
+            "actualOutput": "Successfully received error message account does not exist",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 06/03/2021"
+          },
+          {
+            "testId": "DLT-09",
+            "testName": "Enter correct email address and check for forgot password functionality",
+            "action": "Email- basitdak@gmail.com",
+            "inputs": "Email- basitdak@gmail.com",
+            "expectedOutput": "Request should be send to server and user should receive success message",
+            "actualOutput": "Request successfully send and user received message",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 06/03/2021"
+          },
+          {
+            "testId": "DLT-10",
+            "testName": "After successfully request send to server check that user receive email with pin code",
+            "action": "Click forgot password button",
+            "inputs": "Click forgot password button",
+            "expectedOutput": "User should receive email",
+            "actualOutput": "User successfully received email with pin code",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 06/03/2021"
+          }
+        ],
+        "summary": {
+          "totalTests": 10,
+          "passedTests": 10,
+          "failedTests": 0,
+          "passRate": "100%"
+        }
+      },
+      {
+        "moduleId": 3,
+        "moduleName": "Driver Current Location Testing",
+        "testDate": "10/03/2021",
+        "platform": ["Android X", "Android 8.0"],
+        "testCases": [
+          {
+            "testId": "DCLT-01",
+            "testName": "Lunch application",
+            "action": "Click application icon",
+            "inputs": "Click application icon",
+            "expectedOutput": "The should view Google map on the lunch of main activity",
+            "actualOutput": "Successfully view Google map",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 10/03/2021"
+          },
+          {
+            "testId": "DCLT-02",
+            "testName": "Show or set cursor on user current location",
+            "action": "Lunch app",
+            "inputs": "Lunch app",
+            "expectedOutput": "Show user current location",
+            "actualOutput": "Show user current location",
+            "platform": "Android 8.0",
+            "testResult": "Pass",
+            "testComment": "Tested on 10/03/2021"
+          },
+          {
+            "testId": "DCLT-03",
+            "testName": "Update user current location every second",
+            "action": "None",
+            "inputs": "None",
+            "expectedOutput": "Location should be update",
+            "actualOutput": "Location updated every second",
+            "platform": "Android 8.0",
+            "testResult": "Pass",
+            "testComment": "Tested on 10/03/2021"
+          },
+          {
+            "testId": "DCLT-04",
+            "testName": "Checking user location when user device have no internet connection",
+            "action": "None",
+            "inputs": "None",
+            "expectedOutput": "The system use GPS in case no connection",
+            "actualOutput": "Successfully used GPS",
+            "platform": "Android 8.0",
+            "testResult": "Pass",
+            "testComment": "Tested on 10/03/2021"
+          },
+          {
+            "testId": "DCLT-05",
+            "testName": "Check location is working when location services is disable",
+            "action": "Lunch app main activity and disable location service",
+            "inputs": "Lunch app main activity and disable location service",
+            "expectedOutput": "The should receive error message and app crash",
+            "actualOutput": "Received error message and app crashed",
+            "platform": "Android 8.0",
+            "testResult": "Pass",
+            "testComment": "Tested on 10/03/2021"
+          },
+          {
+            "testId": "DCLT-06",
+            "testName": "The app should ask for location permission in the start of main activity",
+            "action": "Lunch main activity",
+            "inputs": "Lunch main activity",
+            "expectedOutput": "Show the location permission dialog",
+            "actualOutput": "Successfully show location permission dialog",
+            "platform": "Android 8.0",
+            "testResult": "Pass",
+            "testComment": "Tested on 10/03/2021"
+          },
+          {
+            "testId": "DCLT-07",
+            "testName": "Disable internet and run app to check for user current location",
+            "action": "Disable internet connection",
+            "inputs": "Disable internet connection",
+            "expectedOutput": "The user should receive error message",
+            "actualOutput": "User received no internet error message",
+            "platform": "Android 8.0",
+            "testResult": "Pass",
+            "testComment": "Tested on 10/03/2021"
+          },
+          {
+            "testId": "DCLT-08",
+            "testName": "Current location cursor should change with location change",
+            "action": "Change device location",
+            "inputs": "Change device location",
+            "expectedOutput": "The cursor should change",
+            "actualOutput": "Cursor changing successfully",
+            "platform": "Android 8.0",
+            "testResult": "Pass",
+            "testComment": "Tested on 10/03/2021"
+          }
+        ],
+        "summary": {
+          "totalTests": 8,
+          "passedTests": 8,
+          "failedTests": 0,
+          "passRate": "100%"
+        }
+      },
+      {
+        "moduleId": 4,
+        "moduleName": "User Module Testing",
+        "testDate": "13/03/2021",
+        "platform": ["Android X"],
+        "testCases": [
+          {
+            "testId": "UMT-01",
+            "testName": "View profile",
+            "action": "Click profile button",
+            "inputs": "Click profile button",
+            "expectedOutput": "Should open profile activity and display driver information",
+            "actualOutput": "Successfully opened and display customer information",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 13/03/2021"
+          },
+          {
+            "testId": "UMT-02",
+            "testName": "The driver change information and try update",
+            "action": "Change data and click update",
+            "inputs": "Change data and click update",
+            "expectedOutput": "Successfully change information",
+            "actualOutput": "Successfully change information",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 13/03/2021"
+          },
+          {
+            "testId": "UMT-03",
+            "testName": "Open support activity",
+            "action": "Click support button",
+            "inputs": "Click support button",
+            "expectedOutput": "Display support activity and submit customer query",
+            "actualOutput": "Successfully display and submit customer query",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 13/03/2021"
+          }
+        ],
+        "summary": {
+          "totalTests": 3,
+          "passedTests": 3,
+          "failedTests": 0,
+          "passRate": "100%"
+        }
+      },
+      {
+        "moduleId": 5,
+        "moduleName": "Campaign Module Testing",
+        "testDate": "15/03/2021",
+        "platform": ["Android 7", "Android 8", "Android 9.0", "Android X"],
+        "testCases": [
+          {
+            "testId": "CMT-01",
+            "testName": "Driver receive campaign request from user app",
+            "action": "Run app",
+            "inputs": "Run app",
+            "expectedOutput": "Should receive campaign request",
+            "actualOutput": "Successfully received campaign request",
+            "platform": "Android 7",
+            "testResult": "Pass",
+            "testComment": "Tested on 15/03/2021"
+          },
+          {
+            "testId": "CMT-02",
+            "testName": "Driver close and try to receive campaign request from user",
+            "action": "Close app",
+            "inputs": "Close app",
+            "expectedOutput": "Should able to received campaign request",
+            "actualOutput": "Successfully received campaign request",
+            "platform": "Android 8",
+            "testResult": "Pass",
+            "testComment": "Tested on 15/03/2021"
+          },
+          {
+            "testId": "CMT-03",
+            "testName": "Try to receive campaign request without completing trail",
+            "action": "Run app",
+            "inputs": "Run app",
+            "expectedOutput": "The driver should not receive campaign request without trail completion",
+            "actualOutput": "Driver not received any campaign request from user",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 15/03/2021"
+          },
+          {
+            "testId": "CMT-04",
+            "testName": "Receive campaign request",
+            "action": "None",
+            "inputs": "None",
+            "expectedOutput": "Ring tone should be play when request receive",
+            "actualOutput": "Ringtone play successful on received of request",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 15/03/2021"
+          },
+          {
+            "testId": "CMT-05",
+            "testName": "Driver view campaign and try to reject it",
+            "action": "Click reject button",
+            "inputs": "Click reject button",
+            "expectedOutput": "Request should be rejected and driver will return to main screen",
+            "actualOutput": "Successfully reject request and redirected to main screen",
+            "platform": "Android 9.0",
+            "testResult": "Pass",
+            "testComment": "Tested on 15/03/2021"
+          },
+          {
+            "testId": "CMT-06",
+            "testName": "Driver accept campaign request",
+            "action": "Click accept button",
+            "inputs": "Click accept button",
+            "expectedOutput": "Should be redirected to reach installation center screen",
+            "actualOutput": "Successfully redirected to installation center screen",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 15/03/2021"
+          },
+          {
+            "testId": "CMT-07",
+            "testName": "Driver redirected to installation center activity",
+            "action": "Start campaign",
+            "inputs": "Start campaign",
+            "expectedOutput": "Route should be created to installation center",
+            "actualOutput": "Route created successfully to installation center",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 15/03/2021"
+          },
+          {
+            "testId": "CMT-08",
+            "testName": "Driver complete installation",
+            "action": "Click complete installation button",
+            "inputs": "Click complete installation button",
+            "expectedOutput": "Should be redirected to upload images screen",
+            "actualOutput": "Successfully redirected to upload images screen",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 15/03/2021"
+          },
+          {
+            "testId": "CMT-09",
+            "testName": "Driver select and upload multiple images for user to view",
+            "action": "Click select and upload button",
+            "inputs": "Click select and upload button",
+            "expectedOutput": "Should be able to select and upload multiple images",
+            "actualOutput": "Successfully select and upload multiple images",
+            "platform": "Android 9",
+            "testResult": "Pass",
+            "testComment": "Tested on 15/03/2021"
+          },
+          {
+            "testId": "CMT-10",
+            "testName": "On successfully uploading to images driver should start show ads on car",
+            "action": "Click start button",
+            "inputs": "Click start button",
+            "expectedOutput": "Should be redirected to campaign main screen",
+            "actualOutput": "Successfully redirected",
+            "platform": "Android 8",
+            "testResult": "Pass",
+            "testComment": "Tested on 15/03/2021"
+          },
+          {
+            "testId": "CMT-11",
+            "testName": "Start showing ads",
+            "action": "Open main screen",
+            "inputs": "Open main screen",
+            "expectedOutput": "App should track and store driver data",
+            "actualOutput": "Successfully tracking and storing data",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 15/03/2021"
+          },
+          {
+            "testId": "CMT-12",
+            "testName": "On completion of campaign driver should be redirected to home screen",
+            "action": "None",
+            "inputs": "None",
+            "expectedOutput": "Driver should be redirected to main and campaign amount should be transfer to driver account",
+            "actualOutput": "Successfully redirected to main and amount transfer successfully into user account",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 15/03/2021"
+          }
+        ],
+        "summary": {
+          "totalTests": 12,
+          "passedTests": 12,
+          "failedTests": 0,
+          "passRate": "100%"
+        }
+      },
+      {
+        "moduleId": 6,
+        "moduleName": "Driver Trail Module Testing",
+        "testDate": "17/03/2021",
+        "platform": ["Android X"],
+        "testCases": [
+          {
+            "testId": "DTMT-01",
+            "testName": "Start driver tail",
+            "action": "Click start tail button",
+            "inputs": "Click start tail button",
+            "expectedOutput": "Successfully start trail",
+            "actualOutput": "Successfully start tail",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 17/03/2021"
+          },
+          {
+            "testId": "DTMT-02",
+            "testName": "Tracking driver trail and store in database",
+            "action": "Running application",
+            "inputs": "Running application",
+            "expectedOutput": "Successfully tracking driver",
+            "actualOutput": "Successfully tracking driver",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 17/03/2021"
+          },
+          {
+            "testId": "DTMT-03",
+            "testName": "Atomically checking for completion of driver trail",
+            "action": "Running application",
+            "inputs": "Running application",
+            "expectedOutput": "Successfully checking",
+            "actualOutput": "Successfully checking",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 17/03/2021"
+          },
+          {
+            "testId": "DTMT-04",
+            "testName": "Updating driver trail location every minute",
+            "action": "Running application",
+            "inputs": "Running application",
+            "expectedOutput": "Updating location",
+            "actualOutput": "Updating location successfully",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 17/03/2021"
+          },
+          {
+            "testId": "DTMT-05",
+            "testName": "Disable internet connection and tracking trail",
+            "action": "Running application",
+            "inputs": "Running application",
+            "expectedOutput": "Display error message",
+            "actualOutput": "Successfully display error message",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 17/03/2021"
+          },
+          {
+            "testId": "DTMT-06",
+            "testName": "Disable location services in continuous driver tracking",
+            "action": "Click disable location service",
+            "inputs": "Click disable location service",
+            "expectedOutput": "Display alert message",
+            "actualOutput": "Successfully display alert message",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 17/03/2021"
+          },
+          {
+            "testId": "DTMT-07",
+            "testName": "Redirect driver to campaign request home page",
+            "action": "Auto complete driver trail",
+            "inputs": "Auto complete driver trail",
+            "expectedOutput": "Should redirect driver to request page",
+            "actualOutput": "Successfully redirect driver",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 17/03/2021"
+          }
+        ],
+        "summary": {
+          "totalTests": 7,
+          "passedTests": 7,
+          "failedTests": 0,
+          "passRate": "100%"
+        }
+      },
+      {
+        "moduleId": 7,
+        "moduleName": "Admin Account Testing",
+        "testDate": "19/03/2021",
+        "platform": ["Chrome/Opera"],
+        "testCases": [
+          {
+            "testId": "AAT-01",
+            "testName": "Enter invalid username and password",
+            "action": "Username: basie, Password: 12345",
+            "inputs": "Username: basie, Password: 12345",
+            "expectedOutput": "Should display error message",
+            "actualOutput": "Successfully display error message",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-02",
+            "testName": "Enter empty password and username",
+            "action": "Username: \"\", Password: \"\"",
+            "inputs": "Username: \"\", Password: \"\"",
+            "expectedOutput": "Should display error message fill value correctly",
+            "actualOutput": "Successfully display error message",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-03",
+            "testName": "Enter correct username and password",
+            "action": "Username: basit, Password: 12345",
+            "inputs": "Username: basit, Password: 12345",
+            "expectedOutput": "Redirected admin to dashboard",
+            "actualOutput": "Successfully redirected to dashboard",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-04",
+            "testName": "Enter correct password and incorrect username",
+            "action": "Username: erkl, Password: 12345",
+            "inputs": "Username: erkl, Password: 12345",
+            "expectedOutput": "Display error message",
+            "actualOutput": "Successfully display error message",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-05",
+            "testName": "Enter incorrect password and valid username",
+            "action": "Username: basit, Password:12345",
+            "inputs": "Username: basit, Password:12345",
+            "expectedOutput": "Display error message",
+            "actualOutput": "Successfully error message",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-06",
+            "testName": "Login form should have forgot password option",
+            "action": "Click forgot password button",
+            "inputs": "Click forgot password button",
+            "expectedOutput": "User should be redirected to forgot password form",
+            "actualOutput": "Successfully redirected",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-07",
+            "testName": "Enter invalid email address in the forgot password",
+            "action": "Email: basit@gmail.com",
+            "inputs": "Email: basit@gmail.com",
+            "expectedOutput": "Should display error message invalid email message",
+            "actualOutput": "Successfully display error message",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-08",
+            "testName": "Enter correct email address",
+            "action": "Email: tcomporog@gmail.com",
+            "inputs": "Email: tcomporog@gmail.com",
+            "expectedOutput": "Admin should be redirected to new password page",
+            "actualOutput": "Successfully redirected to new password form",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-09",
+            "testName": "Enter different for both input field in new password form",
+            "action": "Password 1: 1234, Password 2: 12345",
+            "inputs": "Password 1: 1234, Password 2: 12345",
+            "expectedOutput": "Should display error message \"password does not match\"",
+            "actualOutput": "Successfully display error message \"password does not match\"",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-10",
+            "testName": "Enter both same password in the enter new password form",
+            "action": "Password 1: 12345, Password 2: 12345",
+            "inputs": "Password 1: 12345, Password 2: 12345",
+            "expectedOutput": "Should change password in the database",
+            "actualOutput": "Successfully changed password in the database",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-11",
+            "testName": "View the update admin page",
+            "action": "Click on update admin",
+            "inputs": "Click on update admin",
+            "expectedOutput": "Redirected to admin update form",
+            "actualOutput": "Successfully redirected",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-12",
+            "testName": "Change admin information in the update page and try to save",
+            "action": "Name: Abdul Basit, Email: tcomprog@gmail.com, Password: 1234",
+            "inputs": "Name: Abdul Basit, Email: tcomprog@gmail.com, Password: 1234",
+            "expectedOutput": "Update and save new information",
+            "actualOutput": "Successfully save and store information",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-13",
+            "testName": "Open add new admin page",
+            "action": "Click add new admin button",
+            "inputs": "Click add new admin button",
+            "expectedOutput": "Redirect to add admin form",
+            "actualOutput": "Successfully redirected",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-14",
+            "testName": "Submit form with no values in the add admin",
+            "action": "None",
+            "inputs": "None",
+            "expectedOutput": "Display error message",
+            "actualOutput": "Successfully display error message",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-15",
+            "testName": "Enter invalid email address",
+            "action": "Email: Tcmom.com",
+            "inputs": "Email: Tcmom.com",
+            "expectedOutput": "Display error message \"invalid email\"",
+            "actualOutput": "Successfully display error message",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-16",
+            "testName": "Enter all record correctly without selecting images",
+            "action": "Name: Abdul Basit, Email: tcomprog@gmail.com, Address: Peshawar, Password: 1234, Level: super",
+            "inputs": "Name: Abdul Basit, Email: tcomprog@gmail.com, Address: Peshawar, Password: 1234, Level: super",
+            "expectedOutput": "Display error message \"select images first\"",
+            "actualOutput": "Successfully display error message",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-17",
+            "testName": "Enter all data correctly and select image",
+            "action": "Name: Abdul Basit, Email: tcomprog@gmail.com, Address: Peshawar, Password: 1234, Level: super, Image: select",
+            "inputs": "Name: Abdul Basit, Email: tcomprog@gmail.com, Address: Peshawar, Password: 1234, Level: super, Image: select",
+            "expectedOutput": "Create new admin account",
+            "actualOutput": "Successfully created admin account",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-18",
+            "testName": "Try to select multiple images in creating admin account",
+            "action": "Click select button and press Art + A",
+            "inputs": "Click select button and press Art + A",
+            "expectedOutput": "Admin should not be able to select multiple images",
+            "actualOutput": "Admin not able to select multiple images",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-19",
+            "testName": "View admin list",
+            "action": "Click button admin list",
+            "inputs": "Click button admin list",
+            "expectedOutput": "Display admin list",
+            "actualOutput": "Successfully display admin list",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 13/02/2021"
+          },
+          {
+            "testId": "AAT-20",
+            "testName": "Try to delete admin account",
+            "action": "Click delete button",
+            "inputs": "Click delete button",
+            "expectedOutput": "Should delete admin account",
+            "actualOutput": "Successfully deleted admin account",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-21",
+            "testName": "Admin click sign-out",
+            "action": "Click sign-out button",
+            "inputs": "Click sign-out button",
+            "expectedOutput": "Should sign-out",
+            "actualOutput": "Successfully sign-out",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          },
+          {
+            "testId": "AAT-22",
+            "testName": "Admin leave account for 30 minute without performing any activity",
+            "action": "None",
+            "inputs": "None",
+            "expectedOutput": "Account should be sign Out automatically",
+            "actualOutput": "Successfully sign-out",
+            "platform": "Chrome/Opera",
+            "testResult": "Pass",
+            "testComment": "Tested on 19/03/2021"
+          }
+        ],
+        "summary": {
+          "totalTests": 22,
+          "passedTests": 22,
+          "failedTests": 0,
+          "passRate": "100%"
+        }
+      },
+      {
+        "moduleId": 8,
+        "moduleName": "Driver List Testing",
+        "testDate": "21/03/2021",
+        "platform": ["Chrome"],
+        "testCases": [
+          {
+            "testId": "DLsT-01",
+            "testName": "View driver list",
+            "action": "Click view driver list",
+            "inputs": "Click view driver list",
+            "expectedOutput": "Display driver list",
+            "actualOutput": "Successfully display driver list",
+            "platform": "Chrome",
+            "testResult": "Pass",
+            "testComment": "Tested on 21/03/2021"
+          },
+          {
+            "testId": "DLsT-02",
+            "testName": "Click edit driver profile and try to update driver information",
+            "action": "Click edit button",
+            "inputs": "Click edit button",
+            "expectedOutput": "Display driver profile",
+            "actualOutput": "Successfully display driver profile",
+            "platform": "Chrome",
+            "testResult": "Pass",
+            "testComment": "Tested on 21/03/2021"
+          },
+          {
+            "testId": "DLsT-03",
+            "testName": "Click update driver info",
+            "action": "Click profile button",
+            "inputs": "Click profile button",
+            "expectedOutput": "Display form with driver old information",
+            "actualOutput": "Successfully display",
+            "platform": "Chrome",
+            "testResult": "Pass",
+            "testComment": "Tested on 21/03/2021"
+          },
+          {
+            "testId": "DLsT-04",
+            "testName": "Change driver information and click update",
+            "action": "Name: Abdullah Khan, Password:1234",
+            "inputs": "Name: Abdullah Khan, Password:1234",
+            "expectedOutput": "Update and store driver new information",
+            "actualOutput": "Successfully update and store driver information",
+            "platform": "Chrome",
+            "testResult": "Pass",
+            "testComment": "Tested on 21/03/2021"
+          },
+          {
+            "testId": "DLsT-05",
+            "testName": "Click change driver account balance and update",
+            "action": "Balance: 0",
+            "inputs": "Balance: 0",
+            "expectedOutput": "Update driver account balance",
+            "actualOutput": "Successfully update account balance",
+            "platform": "Chrome",
+            "testResult": "Pass",
+            "testComment": "Tested on 21/03/2021"
+          },
+          {
+            "testId": "DLsT-06",
+            "testName": "Click block driver account",
+            "action": "Click block button",
+            "inputs": "Click block button",
+            "expectedOutput": "Account block and sing out",
+            "actualOutput": "Driver blocked and sign-out",
+            "platform": "Chrome",
+            "testResult": "Pass",
+            "testComment": "Tested on 21/03/2021"
+          },
+          {
+            "testId": "DLsT-07",
+            "testName": "View driver history and record",
+            "action": "Click record button",
+            "inputs": "Click record button",
+            "expectedOutput": "Display driver history",
+            "actualOutput": "Successfully display driver history",
+            "platform": "Chrome",
+            "testResult": "Pass",
+            "testComment": "Tested on 21/03/2021"
+          }
+        ],
+        "summary": {
+          "totalTests": 7,
+          "passedTests": 7,
+          "failedTests": 0,
+          "passRate": "100%"
+        }
+      },
+      {
+        "moduleId": 9,
+        "moduleName": "Admin Campaign Module Testing",
+        "testDate": "23/03/2021",
+        "platform": ["Edge-11"],
+        "testCases": [
+          {
+            "testId": "ACMT-01",
+            "testName": "View active campaign",
+            "action": "None",
+            "inputs": "None",
+            "expectedOutput": "Display active campaign",
+            "actualOutput": "Display active campaign",
+            "platform": "Edge-11",
+            "testResult": "Pass",
+            "testComment": "Tested on 23/03/2021"
+          },
+          {
+            "testId": "ACMT-02",
+            "testName": "Edit active campaign",
+            "action": "None",
+            "inputs": "None",
+            "expectedOutput": "Display campaign profile",
+            "actualOutput": "Successfully display campaign profile",
+            "platform": "Edge-11",
+            "testResult": "Pass",
+            "testComment": "Tested on 23/03/2021"
+          },
+          {
+            "testId": "ACMT-03",
+            "testName": "Assign new driver to active campaign",
+            "action": "Click assign driver button",
+            "inputs": "Click assign driver button",
+            "expectedOutput": "Generate new campaign request",
+            "actualOutput": "Successfully generate campaign request",
+            "platform": "Edge-11",
+            "testResult": "Pass",
+            "testComment": "Tested on 23/03/2021"
+          },
+          {
+            "testId": "ACMT-04",
+            "testName": "Delete driver from active campaign",
+            "action": "Click delete button",
+            "inputs": "Click delete button",
+            "expectedOutput": "Delete driver from active campaign",
+            "actualOutput": "Successfully delete driver from active campaign",
+            "platform": "Edge-11",
+            "testResult": "Pass",
+            "testComment": "Tested on 23/03/2021"
+          },
+          {
+            "testId": "ACMT-05",
+            "testName": "Assign new driver to pending campaign after 12 hours",
+            "action": "Click assign new driver button",
+            "inputs": "Click assign new driver button",
+            "expectedOutput": "Generate new campaign request",
+            "actualOutput": "Successfully generate campaign request",
+            "platform": "Edge-11",
+            "testResult": "Pass",
+            "testComment": "Tested on 23/03/2021"
+          },
+          {
+            "testId": "ACMT-06",
+            "testName": "View pending campaign list",
+            "action": "Click pending campaign button",
+            "inputs": "Click pending campaign button",
+            "expectedOutput": "Display pending campaign list",
+            "actualOutput": "Successfully display pending campaign list",
+            "platform": "Edge-11",
+            "testResult": "Pass",
+            "testComment": "Tested on 23/03/2021"
+          }
+        ],
+        "summary": {
+          "totalTests": 6,
+          "passedTests": 6,
+          "failedTests": 0,
+          "passRate": "100%"
+        }
+      },
+      {
+        "moduleId": 10,
+        "moduleName": "User Account Module Testing",
+        "testDate": "25/03/2021",
+        "platform": ["Android X"],
+        "testCases": [
+          {
+            "testId": "UAMT-01",
+            "testName": "Enter invalid mobile number for user registration",
+            "action": "Mobile: 2383839483",
+            "inputs": "Mobile: 2383839483",
+            "expectedOutput": "OTP will not send it and give error message",
+            "actualOutput": "OTP is not send it and give error message",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 25/03/2021"
+          },
+          {
+            "testId": "UAMT-02",
+            "testName": "Submit empty user registration activity",
+            "action": "Mobile: \"\", Email: \"\", Password: \"\", Image: none, Address: none",
+            "inputs": "Mobile: \"\", Email: \"\", Password: \"\", Image: none, Address: none",
+            "expectedOutput": "Display error message",
+            "actualOutput": "Successfully display error message",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 25/03/2021"
+          },
+          {
+            "testId": "UAMT-03",
+            "testName": "Fill correct information and select image to register new user",
+            "action": "Mobile: 03059235079, Password: 12345, Address: Peshawar, Email: tcomprog@gmail.com",
+            "inputs": "Mobile: 03059235079, Password: 12345, Address: Peshawar, Email: tcomprog@gmail.com",
+            "expectedOutput": "Create new user account",
+            "actualOutput": "Successfully create new user account",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 25/03/2021"
+          },
+          {
+            "testId": "UAMT-04",
+            "testName": "Enter invalid mobile and password in user login",
+            "action": "Mobile: 230983409834, Password: 23423",
+            "inputs": "Mobile: 230983409834, Password: 23423",
+            "expectedOutput": "Display error message invalid phone or password",
+            "actualOutput": "Successfully display error message",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 25/03/2021"
+          },
+          {
+            "testId": "UAMT-05",
+            "testName": "Enter valid mobile and invalid password",
+            "action": "Mobile: 03059235079, Password:123",
+            "inputs": "Mobile: 03059235079, Password:123",
+            "expectedOutput": "Display error message \"invalid password:",
+            "actualOutput": "Display error message",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 25/03/2021"
+          },
+          {
+            "testId": "UAMT-06",
+            "testName": "Login with correct mobile and password",
+            "action": "Mobile: 03059235079, Password:12345",
+            "inputs": "Mobile: 03059235079, Password:12345",
+            "expectedOutput": "Login user",
+            "actualOutput": "Successfully login user",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 25/03/2021"
+          },
+          {
+            "testId": "UAMT-07",
+            "testName": "Click keep me login option",
+            "action": "Click keep me login checkbox",
+            "inputs": "Click keep me login checkbox",
+            "expectedOutput": "Keep user login for later",
+            "actualOutput": "Keep user login for later user",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 25/03/2021"
+          },
+          {
+            "testId": "UAMT-08",
+            "testName": "Try to forgot password with a correct email address",
+            "action": "Email: tcomprog@gmail.com",
+            "inputs": "Email: tcomprog@gmail.com",
+            "expectedOutput": "Change user password",
+            "actualOutput": "Change user password",
+            "platform": "Android X",
+            "testResult": "Pass",
+            "testComment": "Tested on 25/03/2021"
+          }
+        ],
+        "summary": {
+          "totalTests": 8,
+          "passedTests": 8,
+          "failedTests": 0,
+          "passRate": "100%"
+        }
+      },
+      {
+        "moduleId": 11,
+        "moduleName": "User Campaign Module Testing",
+        "testDate": "27/03/2021",
+        "platform": ["Android 9.0", "Android 9"],
+        "testCases": [
+          {
+            "testId": "UCMT-01",
+            "testName": "Click create new campaign",
+            "action": "Click campaign button",
+            "inputs": "Click campaign button",
+            "expectedOutput": "Redirect to create campaign page",
+            "actualOutput": "Redirected to create campaign activity",
+            "platform": "Android 9.0",
+            "testResult": "Pass",
+            "testComment": "Tested on 27/03/2021"
+          },
+          {
+            "testId": "UCMT-02",
+            "testName": "Check user balance before moving to campaign details page",
+            "action": "Click move to details",
+            "inputs": "Click move to details",
+            "expectedOutput": "Check If the user have enough balance redirect else show alert message",
+            "actualOutput": "Successfully show alert message",
+            "platform": "Android 9",
+            "testResult": "Pass",
+            "testComment": "Tested on 27/03/2021"
+          },
+          {
+            "testId": "UCMT-03",
+            "testName": "Try to submit create campaign form with empty information",
+            "action": "numberofCar:, TotalKm:",
+            "inputs": "numberofCar:, TotalKm:",
+            "expectedOutput": "Display error message fill form correctly",
+            "actualOutput": "Display error message",
+            "platform": "Android 9.0",
+            "testResult": "Pass",
+            "testComment": "Tested on 27/03/2021"
+          },
+          {
+            "testId": "UCMT-04",
+            "testName": "Select multiple image in the campaign creation",
+            "action": "Select multiple images",
+            "inputs": "Select multiple images",
+            "expectedOutput": "Allow to select multiple images",
+            "actualOutput": "Allow user to select multiple images",
+            "platform": "Android 9.0",
+            "testResult": "Pass",
+            "testComment": "Tested on 27/03/2021"
+          },
+          {
+            "testId": "UCMT-05",
+            "testName": "Enter correct coupon code to get discount",
+            "action": "Code: 10xke",
+            "inputs": "Code: 10xke",
+            "expectedOutput": "Give discount to user",
+            "actualOutput": "Give discount",
+            "platform": "Android 9.0",
+            "testResult": "Pass",
+            "testComment": "Tested on 27/03/2021"
+          }
+        ],
+        "summary": {
+          "totalTests": 5,
+          "passedTests": 5,
+          "failedTests": 0,
+          "passRate": "100%"
+        }
+      },
+      {
+        "moduleId": 12,
+        "moduleName": "Integration Test Cases",
+        "testDate": "N/A",
+        "platform": ["Multi-platform"],
+        "testCases": [
+          {
+            "testId": "IT-TC-1",
+            "testName": "Check interface between User app registration and Firebase module",
+            "objective": "Check interface between User app registration and Firebase module",
+            "description": "Enter mobile number and click send button and send mobile to Firebase module",
+            "expectedOutput": "Send OTP to user mobile and return OTP to registration module"
+          },
+          {
+            "testId": "IT-TC-2",
+            "testName": "Check interface between User app Login and server module",
+            "objective": "Check interface between User app Login and server module",
+            "description": "Enter mobile number and password and click login button",
+            "expectedOutput": "Send user data to server and return JSON Object to Login module"
+          },
+          {
+            "testId": "IT-TC-3",
+            "testName": "Check interface between User app registration and Server Module",
+            "objective": "Check interface between User app registration and Server Module",
+            "description": "Enter mobile number, name, address, age, city, cnic, email and select image and click register button",
+            "expectedOutput": "Received all data from registration module and send it to server and return JSON Object to registration module"
+          },
+          {
+            "testId": "IT-TC-4",
+            "testName": "Check interface between User app Main and Location Module",
+            "objective": "Check interface between User app Main and Location Module",
+            "description": "Start running app main module send request to return user current location",
+            "expectedOutput": "Start tracking user location and ask for permission from user and return user current location in form of array"
+          },
+          {
+            "testId": "IT-TC-5",
+            "testName": "Check interface between User app Login and Data storage module",
+            "objective": "Check interface between User app Login and Data storage module",
+            "description": "Click button keep me login and send user details in form of array",
+            "expectedOutput": "Data storage module receive user information and store it for long time and return true to the Login module"
+          },
+          {
+            "testId": "IT-TC-6",
+            "testName": "Check interface between User app Server and Campaign module",
+            "objective": "Check interface between User app Server and Campaign module",
+            "description": "Enter button to create campaign with entering different information and selecting multiple images from user mobile",
+            "expectedOutput": "Received all information related to campaign and perform validate on campaign if information is correct send the data to the server for creating new campaign and return details in the form of Json array"
+          },
+          {
+            "testId": "IT-TC-7",
+            "testName": "Check interface between User app Main and Fragment module",
+            "objective": "Check interface between User app Main and Fragment module",
+            "description": "Click button to view campaigns and send number of fragment with title to create view for the user",
+            "expectedOutput": "Create fragment according to data send by main module and display information on each view"
+          },
+          {
+            "testId": "IT-TC-8",
+            "testName": "Check interface between User app Main and Adapter module",
+            "objective": "Check interface between User app Main and Adapter module",
+            "description": "Click button to view list of campaign and send number of card to be create send data along with each card such title, id, description, images, date",
+            "expectedOutput": "Received data and send data to each view holder and view and return view holder to main module to display information"
+          },
+          {
+            "testId": "IT-TC-9",
+            "testName": "Check interface between User app Main and Config module",
+            "objective": "Check interface between User app Main and Config module",
+            "description": "Main module call conifig module in the start of application to check for network connectivity",
+            "expectedOutput": "Receive request and check for network connectivity and return if true is device have connectivity and false if the device not have any network connectivity"
+          },
+          {
+            "testId": "IT-TC-10",
+            "testName": "Check interface between User app Main and Services module",
+            "objective": "Check interface between User app Main and Services module",
+            "description": "Check interface between User app Main and Services module",
+            "expectedOutput": "Download and return image"
+          },
+          {
+            "testId": "IT-TC-11",
+            "testName": "Check interface between Driver app Login and Server module",
+            "objective": "Check interface between Driver app Login and Server module",
+            "description": "Enter mobile and password and click login button and send data to Server module",
+            "expectedOutput": "Send request to service and verify driver data and return Json Array in response to Login module"
+          },
+          {
+            "testId": "IT-TC-12",
+            "testName": "Check interface between Driver app Login and Network module",
+            "objective": "Check interface between Driver app Login and Network module",
+            "description": "On start of login module a request is to Network module to check for new connectivity",
+            "expectedOutput": "Check for connectivity and return result to Login module"
+          },
+          {
+            "testId": "IT-TC-13",
+            "testName": "Check interface between Driver app Driver and Configure module",
+            "objective": "Check interface between Driver app Driver and Configure module",
+            "description": "Driver module sending request access all constant in the app and in the request the constant name is send to Configure module",
+            "expectedOutput": "Receive constant name and return value of the constant in result"
+          },
+          {
+            "testId": "IT-TC-14",
+            "testName": "Check interface between Driver app Driver and Data Constrainer module",
+            "objective": "Check interface between Driver app Driver and Data Constrainer module",
+            "description": "Enter button keep me login and send data in the form of array",
+            "expectedOutput": "Store the user information and also store the state of user account"
+          },
+          {
+            "testId": "IT-TC-15",
+            "testName": "Check interface between Driver app Driver and Server module",
+            "objective": "Check interface between Driver app Driver and Server module",
+            "description": "Driver send request along with data and type of request",
+            "expectedOutput": "Received data and request type and send request server and return response to the module"
+          },
+          {
+            "testId": "IT-TC-16",
+            "testName": "Check interface between Driver app Driver and Adapter module",
+            "objective": "Check interface between Driver app Driver and Adapter module",
+            "description": "Click button to view list of campaign and send number of card to be create send data along with each card such title, id, description, images, date",
+            "expectedOutput": "Received data and send data to each view holder and view and return view holder to main module to display information"
+          },
+          {
+            "testId": "IT-TC-17",
+            "testName": "Check interface between Driver app Driver and Background Service module",
+            "objective": "Check interface between Driver app Driver and Background Service module",
+            "description": "Driver module send request to background service module to start tracking of driver data in background and start service in android app",
+            "expectedOutput": "Received service and starting tracking and sending information to server"
+          },
+          {
+            "testId": "IT-TC-18",
+            "testName": "Check interface between Driver app Driver and SQLITE module",
+            "objective": "Check interface between Driver app Driver and SQLITE module",
+            "description": "Enter button to save user tracking details such name, id, kms, status",
+            "expectedOutput": "Save all data in SQLite database and return response"
+          },
+          {
+            "testId": "IT-TC-19",
+            "testName": "Check interface between Driver app Driver and Presences module",
+            "objective": "Check interface between Driver app Driver and Presences module",
+            "description": "Enter save button to save user activities history in the local phone and then upload to server",
+            "expectedOutput": "Save the history in local phone storage and start uploading to server and return response"
+          },
+          {
+            "testId": "IT-TC-20",
+            "testName": "Check interface between Driver app Driver and Images module",
+            "objective": "Check interface between Driver app Driver and Images module",
+            "description": "Send image URL to download, store and load image in user phone",
+            "expectedOutput": "Received image url and send request server for downloading image and return image in the form of Bitmap"
+          },
+          {
+            "testId": "IT-TC-21",
+            "testName": "Check interface between Admin web app Admin and Connect module",
+            "objective": "Check interface between Admin web app Admin and Connect module",
+            "description": "Send request to make connectivity with the database",
+            "expectedOutput": "Make connection with data and return connection object"
+          },
+          {
+            "testId": "IT-TC-22",
+            "testName": "Check interface between Admin web app Client and Connect module",
+            "objective": "Check interface between Admin web app Client and Connect module",
+            "description": "Send request to make connectivity with the database",
+            "expectedOutput": "Make connection with data and return connection object"
+          },
+          {
+            "testId": "IT-TC-23",
+            "testName": "Check interface between Admin web app Admin and Include module",
+            "objective": "Check interface between Admin web app Admin and Include module",
+            "description": "Sending request with extra information to get file content of different files",
+            "expectedOutput": "Received request and return content according to the request data"
+          },
+          {
+            "testId": "IT-TC-24",
+            "testName": "Check interface between Admin web app Admin and API module",
+            "objective": "Check interface between Admin web app Admin and API module",
+            "description": "Admin module send request to get data from data without loading the page and parameter",
+            "expectedOutput": "Received parameter get data from database and return it to the Admin module in the form Json array"
+          },
+          {
+            "testId": "IT-TC-25",
+            "testName": "Check interface between Admin web app Admin and Driver module",
+            "objective": "Check interface between Admin web app Admin and Driver module",
+            "description": "Click register new driver button enter information for driver and select images",
+            "expectedOutput": "Insert driver data in database and upload images to server return response message"
+          },
+          {
+            "testId": "IT-TC-26",
+            "testName": "Check interface between Admin web app Admin and User module",
+            "objective": "Check interface between Admin web app Admin and User module",
+            "description": "Sending request to user list and user content",
+            "expectedOutput": "Get user data from database and return in JSON array format"
+          },
+          {
+            "testId": "IT-TC-27",
+            "testName": "Check interface between Admin web app Admin and Email module",
+            "objective": "Check interface between Admin web app Admin and Email module",
+            "description": "Enter email address and send email address to Email module",
+            "expectedOutput": "Received email address and send email to the received email address"
+          },
+          {
+            "testId": "IT-TC-28",
+            "testName": "Check interface between Admin web app Admin and Jazz cash module",
+            "objective": "Check interface between Admin web app Admin and Jazz cash module",
+            "description": "Enter driver Jazz cash mobile number and try to sending money to driver",
+            "expectedOutput": "Send money to driver and return response and save data into the database"
+          },
+          {
+            "testId": "IT-TC-29",
+            "testName": "Check interface between Admin web app Admin and FCM module",
+            "objective": "Check interface between Admin web app Admin and FCM module",
+            "description": "Enter user mobile id click send button",
+            "expectedOutput": "Received FCM id and send dynamic notification to user"
+          },
+          {
+            "testId": "IT-TC-30",
+            "testName": "Check interface between Admin web app Admin and Images module",
+            "objective": "Check interface between Admin web app Admin and Images module",
+            "description": "Sending image address to images module",
+            "expectedOutput": "Return image in response"
+          },
+          {
+            "testId": "IT-TC-31",
+            "testName": "Check interface between Admin web app Admin and plugins module",
+            "objective": "Check interface between Admin web app Admin and plugins module",
+            "description": "Send request for plugins",
+            "expectedOutput": "Return plugin in response"
+          },
+          {
+            "testId": "IT-TC-32",
+            "testName": "Check interface between Admin web app Admin and Videos module",
+            "objective": "Check interface between Admin web app Admin and Videos module",
+            "description": "Sending video url",
+            "expectedOutput": "Return video in response to module which send the request"
+          },
+          {
+            "testId": "IT-TC-33",
+            "testName": "Check interface between Admin web app Admin and Tracking module",
+            "objective": "Check interface between Admin web app Admin and Tracking module",
+            "description": "Enter or search user id or mobile number and click track button",
+            "expectedOutput": "Received data and get user location from database and return it to the specific module"
+          }
+        ],
+        "summary": {
+          "totalTests": 33,
+          "passedTests": 0,
+          "failedTests": 0,
+          "passRate": "N/A"
+        }
+      }
+    ],
+    "overallSummary": {
+      "totalModules": 12,
+      "totalTestCases": 130,
+      "totalPassedTests": 97,
+      "totalFailedTests": 0,
+      "overallPassRate": "100%",
+      "platformsCovered": [
+        "Google Chrome",
+        "Opera Mini", 
+        "Opera",
+        "Android X",
+        "Android 9.0",
+        "Android 8.0",
+        "Android 7",
+        "Android 8",
+        "Android 9",
+        "Chrome/Opera",
+        "Chrome",
+        "Edge-11"
+      ],
+      "testingPeriod": {
+        "startDate": "02/03/2021",
+        "endDate": "27/03/2021"
+      },
+      "moduleBreakdown": {
+        "driverModules": 4,
+        "userModules": 3,
+        "adminModules": 3,
+        "integrationModules": 1,
+        "miscellaneousModules": 1
+      }
+    }
+  }
+}
